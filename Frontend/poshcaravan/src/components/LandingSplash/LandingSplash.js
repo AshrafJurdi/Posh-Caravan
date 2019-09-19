@@ -15,7 +15,7 @@ class LandingSplash extends React.Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({
-        popup: false
+        popup: false,
       });
     }, 3000);
   }
