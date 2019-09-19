@@ -1,0 +1,52 @@
+.popup {
+  background: black;
+}
+
+.popup2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  align-items: center;
+}
+
+.contentpopup {
+  min-width: 100vh;
+  min-height: 100vh;
+  background: #f8c5c8;
+}
+
+.splashimg {
+  margin-top: 100px;
+  align-content: center;
+}
+.elementToFadeInAndOut {
+  -webkit-animation: fadeinout 3s linear 1 forwards;
+  animation: fadeinout 3s linear 1 forwards;
+}
+
+@-webkit-keyframes fadeinout {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeinout {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
