@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import Itempopup from "./components/Itempopup/Itempopup"
+import ProductPage from "./pages/Product Page/productpage";
 
 function App() {
   return (
     <div className="App">
-      <Itempopup/>
+      <ProductPage />
     </div>
   );
 }
