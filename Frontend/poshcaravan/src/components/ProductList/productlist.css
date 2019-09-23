@@ -1,0 +1,61 @@
+.productList {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.Card1 {
+  padding: 1rem 0;
+}
+
+.stripe.dark {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.collection-card .stripe {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  text-align: center;
+  padding: 1.2rem;
+}
+.view {
+  cursor: default;
+}
+.card {
+  font-weight: 400;
+}
+.collection-card .stripe.dark a p {
+  color: #eee;
+}
+.collection-card .stripe a p {
+  padding: 0;
+  margin: 0;
+  letter-spacing: 0.1rem;
+}
+.pagination > li > a,
+.pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+  text-decoration: none;
+  color: #337ab7;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin-left: -1px;
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+  z-index: 3;
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #337ab7;
+  cursor: default;
+}
