@@ -77,4 +77,57 @@ router.put("/user/update/:id", async (req, res, next) => {
   }
 });
 
+//Below are all the routes for Vintage and Preloved
+
+/**
+ *
+ */
+router.get("/vintage&preloved/products/homeaccents", async (req, res, next) => {
+  try {
+    let results = await db.allHomeAccents();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+/**
+ *
+ */
+router.get("/vintage&preloved/products/furniture", async (req, res, next) => {
+  try {
+    let results = await db.allFurniture();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+/**
+ *
+ */
+router.get("/everythingnew/sale", async (req, res, next) => {
+  try {
+    let results = await db.saleItems();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+/**
+ *
+ */
+router.get("/everythingnew/jewelry/necklaces", async (req, res, next) => {
+  try {
+    let results = await db.newNecklaces();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
 module.exports = router;

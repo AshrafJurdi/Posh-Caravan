@@ -149,4 +149,86 @@ poshcaravandb.oneUser = () => {
   });
 };
 
+/**
+ *
+ *
+ */
+
+poshcaravandb.allHomeAccents = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=11`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+
+poshcaravandb.allFurniture = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=10`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+
+poshcaravandb.saleItems = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Products.Sale="Yes"`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+//Below are all the controllers for querying  CRUD functions from Products table in the DB
+
+/**
+ *
+ *
+ */
+
+poshcaravandb.newNecklaces = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=4 AND SubCategory_SubCategory_ID=10`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
 module.exports = poshcaravandb;
