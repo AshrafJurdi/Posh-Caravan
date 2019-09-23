@@ -1,13 +1,11 @@
 import React from "react";
 import "./App.css";
-import MainCategory from "./components/MainCategory/MainCategory";
-import Vintageproductcategory from "./components/VintageProductCategory/vintageproductcategory";
+import ProductPage from "./pages/Product Page/productpage";
 
 function App() {
   return (
     <div className="App">
-      {/* <MainCategory /> */}
-      <Vintageproductcategory />
+      <ProductPage />
     </div>
   );
 }
