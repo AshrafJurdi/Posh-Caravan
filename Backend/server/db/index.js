@@ -138,7 +138,7 @@ poshcaravandb.oneUser = () => {
   return new Promise((resolve, reject) => {
     pool.query(
       `SELECT * FROM Products WHERE Category_Category_ID= ?, SubCategory_SubCategory_ID=?`,
-      [3, 3],
+      [3, 7],
       (err, results) => {
         if (err) {
           return reject(err);
