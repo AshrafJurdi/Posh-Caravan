@@ -31,7 +31,6 @@ class ProductList extends React.Component {
       ]
     };
   }
-
   toggle = ID => {
     // let modalNumber = "modal" + nr;
     console.log(ID);
@@ -40,11 +39,8 @@ class ProductList extends React.Component {
       const product = this.state.products.find(product => product.ID === ID);
       this.setState({ product });
     }
-    this.setState({
-      show: !this.state.show
-    });
+    this.setState({ show: !this.state.show });
   };
-
   handlePageChange = pageNumber => {
     console.log(`active page is ${pageNumber}`);
     this.setState({ activePage: pageNumber });
@@ -52,7 +48,9 @@ class ProductList extends React.Component {
   render() {
     return (
       <div>
+        {" "}
         <div className="productList">
+          {" "}
           {this.state.products.map((product, index) => {
             if (
               index < this.state.activePage * 12 &&
@@ -60,23 +58,22 @@ class ProductList extends React.Component {
             ) {
               return <ProductCard toggle={this.toggle} product={product} />;
             }
-          })}
-        </div>
+          })}{" "}
+        </div>{" "}
         <Itempopup
           toggle={this.toggle}
           show={this.state.show}
           product={this.state.product}
-        />
+        />{" "}
         <Pagination
           activePage={this.state.activePage}
           itemsCountPerPage={12}
           totalItemsCount={this.state.products.length}
           pageRangeDisplayed={5}
           onChange={this.handlePageChange}
-        />
+        />{" "}
       </div>
     );
   }
 }
-
 export default ProductList;
