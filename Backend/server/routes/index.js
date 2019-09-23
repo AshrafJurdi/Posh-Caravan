@@ -1,7 +1,20 @@
 const express = require("express");
 const db = require("../db");
-
+const multer = require("multer");
+const path = require("path");
 const router = express.Router();
+
+const multerStorage = multer.diskStorage({
+  destination: path.join(__dirname, "../Public/Images"),
+  filename: (req, file, cb) => {
+    const { fieldname, originalname } = file;
+    const date = Date.now();
+    // filename will be: image-1345923023436343-filename.png
+    const filename = `${fieldname}-${date}-${originalname}`;
+    cb(null, filename);
+  }
+});
+const upload = multer({ storage: multerStorage });
 
 router.get("/users", async (req, res, next) => {
   try {
