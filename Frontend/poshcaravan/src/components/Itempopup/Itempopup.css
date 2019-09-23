@@ -1,0 +1,28 @@
+.modal-dialog {
+  max-width: 75%;
+  margin: 1.75rem auto;
+}
+
+.row {
+  padding-bottom: 30px;
+}
+
+.modal-header {
+  border-bottom: 0px;
+}
+
+.App {
+  text-align: none;
+  text-align: left;
+}
+
+.Description {
+  line-height: 1.5;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.Title {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
