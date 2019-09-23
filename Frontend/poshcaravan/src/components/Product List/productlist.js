@@ -15,9 +15,9 @@ class ProductList extends React.Component {
         {
           Picture:
             "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/img%20(5).jpg",
-          Title: "jhajshfd 1",
-          Description: "gsjdhg",
-          Price: "22",
+          Title: "White Tanktop",
+          Description: "100% Certified Fair Trade Cotton Made in USA or Imported Machine Wash Six (6) Pack Boys Sleeveless Tank Top Shirts Colors: Assorted Pastels 6 Per Pack Sizes: NB, S, M, L",
+          Price: "Price: 22$",
           ID: 1
         },
         {
