@@ -16,12 +16,12 @@ class ProductCard extends React.Component {
             className="stripe dark"
             onClick={() => this.props.toggle(this.props.product.ID)}
           >
-            <a>
+            
               <p>
                 {this.props.product.Title}
                 <MDBIcon icon="chevron-right" />
               </p>
-            </a>
+           
           </div>
         </MDBCard>
       </div>

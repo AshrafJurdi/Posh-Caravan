@@ -14,7 +14,7 @@ class ModalPage extends Component {
   render() {
     return (
       this.props.product && (
-        <MDBContainer>
+        <MDBContainer className="popuptext">
           <MDBModal
             isOpen={this.props.show}
             toggle={this.props.toggle}
