@@ -4,8 +4,13 @@ const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 dotenv.config();
 const app = express();
+const cors = require("cors");
+const path = require("path");
 
 app.use(express.json());
+
+app.use(cors());
+app.use(express.static(path.join(__dirname, "./Public")));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

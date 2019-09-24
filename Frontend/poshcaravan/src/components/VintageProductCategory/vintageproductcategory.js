@@ -31,14 +31,15 @@ class Vintageproductcategory extends Component {
   render() {
     return (
       <div>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <div className="grid-container">
           <div className="div-image1">
-            <img
+            {/* <img
               className="img1-1 img-width"
               src={process.env.PUBLIC_URL + this.state.category[0].image}
               alt=""
               fluid
-            />
+            /> */}
           </div>
           <div className="div-image2">
             <img
