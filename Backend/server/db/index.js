@@ -269,6 +269,23 @@ poshcaravandb.allVintageClothes = () => {
   });
 };
 
+/**
+ *
+ *
+ */
+poshcaravandb.vintageBagsAndAccessories = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=8`,
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
 //Below are all the controllers for querying  Categories  of Everything New MainCategory  from Products table in the DB
 
 /**
@@ -794,6 +811,80 @@ poshcaravandb.vintageTops = () => {
   return new Promise((resolve, reject) => {
     pool.query(
       `SELECT * FROM Products WHERE Category_Category_ID=7 AND SubCategory_SubCategory_ID=5`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.vintageBags = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=8 AND SubCategory_SubCategory_ID=6`,
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.vinatgeShoes = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=8 AND SubCategory_SubCategory_ID=7`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.vintageSmalLeatherGoods = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=8 AND SubCategory_SubCategory_ID=8`,
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.vintageOtherAccessories = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=8 AND SubCategory_SubCategory_ID=9`,
 
       (err, results) => {
         if (err) {

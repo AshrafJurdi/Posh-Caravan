@@ -189,6 +189,19 @@ router.get("/vintage&preloved/clothes", async (req, res, next) => {
     res.sendStatus(500);
   }
 });
+
+/**
+ *
+ */
+router.get("/vintage&preloved/bagsandaccessories", async (req, res, next) => {
+  try {
+    let results = await db.vintageBagsAndAccessories();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
 //Below are all the routes get data from Everything New Categories
 
 /**
@@ -386,6 +399,53 @@ router.get("/vintage&preloved/clothes/tops", async (req, res, next) => {
   }
 });
 
+/**
+ *
+ */
+router.get(
+  "/vintage&preloved/bagsandaccessories/otheraccessories",
+  async (req, res, next) => {
+    try {
+      let results = await db.vintageOtherAccessories();
+      res.json(results);
+    } catch (e) {
+      console.log(e);
+      res.sendStatus(500);
+    }
+  }
+);
+
+/**
+ *
+ */
+router.get(
+  "/vintage&preloved/bagsandaccessories/smallleathergoods",
+  async (req, res, next) => {
+    try {
+      let results = await db.vintageSmalLeatherGoods();
+      res.json(results);
+    } catch (e) {
+      console.log(e);
+      res.sendStatus(500);
+    }
+  }
+);
+
+/**
+ *
+ */
+router.get(
+  "/vintage&preloved/bagsandaccessories/shoes",
+  async (req, res, next) => {
+    try {
+      let results = await db.vintageShoes();
+      res.json(results);
+    } catch (e) {
+      console.log(e);
+      res.sendStatus(500);
+    }
+  }
+);
 //Below are all the routes get data from Everything New  Sub-Categories
 
 /**
