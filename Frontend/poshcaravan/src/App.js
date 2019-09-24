@@ -5,6 +5,7 @@ import LandingPage from "./pages/Home Page/homepage";
 import EverythingNewPage from "./pages/Everything New Page/everythingnew";
 import VintagePage from "./pages/Vintage Page/vintagepage";
 import ProductPage from "./pages/Product Page/productpage";
+import Vintageproductcategory from "./components/VintageProductCategory/vintageproductcategory";
 
 function App() {
   return (

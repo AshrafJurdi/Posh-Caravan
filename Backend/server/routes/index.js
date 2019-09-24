@@ -1,8 +1,25 @@
 const express = require("express");
 const db = require("../db");
-
+const multer = require("multer");
+const path = require("path");
 const router = express.Router();
 
+const multerStorage = multer.diskStorage({
+  destination: path.join(__dirname, "../Public/Images"),
+  filename: (req, file, cb) => {
+    const { fieldname, originalname } = file;
+    const date = Date.now();
+    const filename = `${fieldname}-${date}-${originalname}`;
+    cb(null, filename);
+  }
+});
+const upload = multer({ storage: multerStorage });
+
+//Below are all the CRUD routes for the Users table
+/**
+ *
+ *
+ */
 router.get("/users", async (req, res, next) => {
   try {
     let results = await db.allUsers();
@@ -13,6 +30,10 @@ router.get("/users", async (req, res, next) => {
   }
 });
 
+/**
+ *
+ *
+ */
 router.get("/users/:id", async (req, res, next) => {
   try {
     let results = await db.oneUser((id = req.params.id));
@@ -23,6 +44,10 @@ router.get("/users/:id", async (req, res, next) => {
   }
 });
 
+/**
+ *
+ *
+ */
 router.post("/user/create", async (req, res, next) => {
   try {
     const FirstName = req.body.FirstName;
@@ -44,6 +69,10 @@ router.post("/user/create", async (req, res, next) => {
   }
 });
 
+/**
+ *
+ *
+ */
 router.delete("/users/delete/:id", async (req, res, next) => {
   try {
     let results = await db.deleteUser((id = req.params.id));
@@ -54,6 +83,10 @@ router.delete("/users/delete/:id", async (req, res, next) => {
   }
 });
 
+/**
+ *
+ *
+ */
 router.put("/user/update/:id", async (req, res, next) => {
   try {
     const FirstName = req.body.FirstName;
@@ -77,4 +110,156 @@ router.put("/user/update/:id", async (req, res, next) => {
   }
 });
 
+//Below are all the routes to get data from Vintage and Preloved Categories
+
+/**
+ *
+ */
+router.get("/vintage&preloved/products/homeaccents", async (req, res, next) => {
+  try {
+    let results = await db.allHomeAccents();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+/**
+ *
+ */
+router.get("/vintage&preloved/products/furniture", async (req, res, next) => {
+  try {
+    let results = await db.allFurniture();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+//Below are all the routes get data from Everything New Categories
+
+/**
+ *
+ */
+router.get("/everythingnew/allproducts", async (req, res, next) => {
+  try {
+    let results = await db.everythingNewProducts();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+/**
+ *
+ */
+router.get("/everythingnew/sale", async (req, res, next) => {
+  try {
+    let results = await db.saleItems();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+/**
+ *
+ */
+router.get("/everythingnew/jewelry", async (req, res, next) => {
+  try {
+    let results = await db.allNewJewelry();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+//Below are all the routes get data from Everything New  Sub-Categories
+
+/**
+ *
+ */
+router.get("/everythingnew/jewelry/necklaces", async (req, res, next) => {
+  try {
+    let results = await db.newNecklaces();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+/**
+ *
+ */
+router.get("/everythingnew/jewelry/bracelets", async (req, res, next) => {
+  try {
+    let results = await db.newBracelets();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+/**
+ *
+ */
+router.get("/everythingnew/jewelry/rings", async (req, res, next) => {
+  try {
+    let results = await db.newRings();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+//Below are all the routes for querying  CRUD functions from Category table in the DB
+
+/**
+ *
+ */
+router.get("/everythingnew/categories", async (req, res, next) => {
+  try {
+    let results = await db.everythingNewCategories();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+/**
+ *
+ */
+router.get("/vintage/categories", async (req, res, next) => {
+  try {
+    let results = await db.vintageCategories();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+//Below are all the routes for querying  CRUD functions from MainCategory table in the DB
+
+/**
+ *
+ */
+router.get("/maincategory", async (req, res, next) => {
+  try {
+    let results = await db.mainCategories();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
 module.exports = router;
