@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import "./LandingSplash.css";
 import Image from "react-bootstrap/Image";
 
-
 class LandingSplash extends React.Component {
   constructor(props) {
     super(props);
@@ -15,7 +14,7 @@ class LandingSplash extends React.Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({
-        popup: false,
+        popup: false
       });
     }, 3000);
   }
@@ -43,5 +42,3 @@ const rootElement = document.getElementById("root");
 ReactDOM.render(<LandingSplash />, rootElement);
 
 export default LandingSplash;
-
-

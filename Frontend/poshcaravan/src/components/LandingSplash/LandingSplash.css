@@ -13,7 +13,7 @@
 }
 
 .contentpopup {
-  min-width: 100vh;
+  min-width: 100vw;
   min-height: 100vh;
   background: #f8c5c8;
 }

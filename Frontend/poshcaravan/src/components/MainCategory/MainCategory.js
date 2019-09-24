@@ -40,7 +40,7 @@ class MainCategory extends Component {
             </Col>
 
             <Col xs={6} md={6}>
-              <a href="https://poshcaravan.tk/">
+              <a href="">
                 <Image
                   src={process.env.PUBLIC_URL + this.state.category[1].image}
                   alt="secand"
