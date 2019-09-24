@@ -2,18 +2,13 @@ import React, { Component } from "react";
 import "./Itempopup.css";
 import {
   MDBContainer,
-  MDBBtn,
   MDBModal,
-  MDBModalBody,
   MDBModalHeader,
-  MDBModalFooter,
-  MDBCard,
-  MDBCardBody,
-  MDBCardImage,
-  MDBCardTitle,
-  MDBCardText,
   MDBCol
 } from "mdbreact";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 
 class ModalPage extends Component {
   render() {
@@ -25,24 +20,25 @@ class ModalPage extends Component {
             toggle={this.props.toggle}
             centered
           >
-            <MDBModalHeader toggle={() => this.props.toggle(null)}>
-              MDBModal title
-            </MDBModalHeader>
+            <MDBModalHeader
+              toggle={() => this.props.toggle(null)}
+            ></MDBModalHeader>
             <MDBCol>
-              <MDBCard style={{ width: "22rem" }}>
-                <MDBCardImage
-                  className="img-fluid"
-                  src={this.props.product.Picture}
-                  waves
-                />
-                <MDBCardBody>
-                  <MDBCardTitle>{this.props.product.Title}</MDBCardTitle>
-                  <MDBCardText>{this.props.product.Description}</MDBCardText>
-                  <button onClick={() => this.props.toggle(null)}>
-                    MDBBtn
-                  </button>
-                </MDBCardBody>
-              </MDBCard>
+              <Container>
+                <Row>
+                  <Col md={6}>
+                    <img
+                      src={this.props.product.Picture}
+                      className="img-fluid"
+                    />
+                  </Col>
+                  <Col md={6}>
+                    <h1 className="Title">{this.props.product.Title}</h1>
+                    <h3 className="Description">{this.props.product.Description}</h3>
+                    <h3 >{this.props.product.Price}</h3>
+                  </Col>
+                </Row>
+              </Container>
             </MDBCol>
           </MDBModal>
         </MDBContainer>
