@@ -155,6 +155,48 @@ poshcaravandb.oneUser = () => {
  *
  *
  */
+poshcaravandb.vintageNewIn = () => {
+  let date = new Date();
+  date = date.toISOString();
+  let olddate = new Date();
+  olddate.setDate(olddate.getDate() - 14);
+
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT Products.* FROM Products JOIN Category WHERE Category.MainCategory_MainCategory_ID=1 AND Products.Category_Category_ID=Category.Category_ID AND DateCreated Between "${olddate}" AND "${date}" `,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+/**
+ *
+ *
+ */
+poshcaravandb.vintagePrelovedProducts = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT Products.* FROM Products JOIN Category WHERE Category.MainCategory_MainCategory_ID=1 AND Products.Category_Category_ID=Category.Category_ID`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
 poshcaravandb.allHomeAccents = () => {
   return new Promise((resolve, reject) => {
     pool.query(
@@ -180,6 +222,43 @@ poshcaravandb.allFurniture = () => {
     pool.query(
       `SELECT * FROM Products WHERE Category_Category_ID=10`,
 
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.allVintageJewelry = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=9`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.allVintageClothes = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=7`,
       (err, results) => {
         if (err) {
           return reject(err);
@@ -256,7 +335,48 @@ poshcaravandb.allBagsAndAccessories = () => {
   return new Promise((resolve, reject) => {
     pool.query(
       `SELECT * FROM Products WHERE Category_Category_ID=3`,
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
 
+/**
+ *
+ *
+ */
+poshcaravandb.everythingNewNewIn = () => {
+  let date = new Date();
+  date = date.toISOString();
+  let olddate = new Date();
+  olddate.setDate(olddate.getDate() - 14);
+
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT Products.* FROM Products JOIN Category WHERE Category.MainCategory_MainCategory_ID=2 AND Products.Category_Category_ID=Category.Category_ID AND DateCreated Between "${olddate}" AND "${date}" `,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.allNewFashion = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=2`,
       (err, results) => {
         if (err) {
           return reject(err);
@@ -333,6 +453,24 @@ poshcaravandb.allBags = () => {
   return new Promise((resolve, reject) => {
     pool.query(
       `SELECT * FROM Products WHERE Category_Category_ID=3 AND SubCategory_SubCategory_ID=6`,
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.newOtherJewelry = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=4 AND SubCategory_SubCategory_ID=13`,
 
       (err, results) => {
         if (err) {
@@ -362,6 +500,24 @@ poshcaravandb.allshoes = () => {
     );
   });
 };
+/**
+ *
+ *
+ */
+poshcaravandb.newJackets = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=2 AND SubCategory_SubCategory_ID=1`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
 
 /**
  *
@@ -371,6 +527,24 @@ poshcaravandb.allNewSmalLeatherGoods = () => {
   return new Promise((resolve, reject) => {
     pool.query(
       `SELECT * FROM Products WHERE Category_Category_ID=3 AND SubCategory_SubCategory_ID=8`,
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.newDresses = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=2 AND SubCategory_SubCategory_ID=2`,
 
       (err, results) => {
         if (err) {
@@ -400,6 +574,237 @@ poshcaravandb.allNewOtherAccessories = () => {
     );
   });
 };
+
+/**
+ *
+ *
+ */
+poshcaravandb.newSkirts = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=2 AND SubCategory_SubCategory_ID=3`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.newPants = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=2 AND SubCategory_SubCategory_ID=4`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.newTops = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=2 AND SubCategory_SubCategory_ID=5`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+//Below are all the controllers for querying  Sub-Categories  of Vintage & Preloved MainCategory  from Products table in the DB
+
+/**
+ *
+ *
+ */
+poshcaravandb.vintageNecklaces = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=9 AND SubCategory_SubCategory_ID=10`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.vintageBracelets = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=9 AND SubCategory_SubCategory_ID=11`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.vintageRings = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=9 AND SubCategory_SubCategory_ID=12`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.vintageOtherJewelry = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=9 AND SubCategory_SubCategory_ID=13`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.vintageJackets = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=7 AND SubCategory_SubCategory_ID=1`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.vintageDresses = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=7 AND SubCategory_SubCategory_ID=2`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.vintageSkirts = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=7 AND SubCategory_SubCategory_ID=3`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.vintagePants = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=7 AND SubCategory_SubCategory_ID=4`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.vintageTops = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=7 AND SubCategory_SubCategory_ID=5`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
 //Below are all the controllers for querying  CRUD functions from Category table in the DB
 
 /**

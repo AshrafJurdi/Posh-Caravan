@@ -1,0 +1,85 @@
+/* HeaderLogo................................ */
+
+.HeaderLogo {
+  width: 175px;
+  margin-top: 10px;
+}
+
+/* Header Vintage & New................................ */
+
+.Headers {
+  margin-top: 10px;
+  background-color: transparent;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12pt;
+  width: 100%;
+}
+
+nav.NavBar.navbar.navbar-expand-lg.navbar-light {
+  width: 100%;
+  /* Firefox */
+  display: -moz-box;
+  -moz-box-pack: center;
+  -moz-box-align: center;
+  /* Safari and Chrome */
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  /* W3C */
+  display: box;
+  box-pack: center;
+  box-align: center;
+}
+
+.Menu:hover {
+  color: rgb(245, 161, 175);
+}
+
+#dropdown-basic {
+  background-color: transparent;
+  border: transparent;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12pt;
+  text-decoration: none;
+}
+
+a.nav-link {
+  text-decoration: none;
+  color: rgb(245, 161, 175);
+}
+
+a.nav-link:hover {
+  color: black;
+}
+.repage {
+  color: black;
+  text-decoration: none !important;
+}
+.repage:hover {
+  color: rgb(245, 161, 175);
+}
+
+/* Header New..................................... */
+
+.sale {
+  color: rgb(245, 9, 48);
+}
+
+/* Header Vintage ................................ */
+
+a.furniture {
+  color: black;
+  text-decoration: none !important;
+}
+a.furniture:hover {
+  color: rgb(245, 161, 175);
+}
+a.homeaccents {
+  color: black;
+  text-decoration: none !important;
+}
+a.homeaccents:hover {
+  color: rgb(245, 161, 175);
+}
+
+/* ................................ */
