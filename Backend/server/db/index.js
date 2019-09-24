@@ -149,11 +149,12 @@ poshcaravandb.oneUser = () => {
   });
 };
 
+//Below are all the controllers for querying  Categories  of Vintage & Preloved MainCategory  from Products table in the DB
+
 /**
  *
  *
  */
-
 poshcaravandb.allHomeAccents = () => {
   return new Promise((resolve, reject) => {
     pool.query(
@@ -189,11 +190,31 @@ poshcaravandb.allFurniture = () => {
   });
 };
 
+//Below are all the controllers for querying  Categories  of Everything New MainCategory  from Products table in the DB
+
 /**
  *
  *
  */
+poshcaravandb.everythingNewProducts = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT Products.* FROM Products JOIN Category WHERE Category.MainCategory_MainCategory_ID=2 AND Products.Category_Category_ID=Category.Category_ID`,
 
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
 poshcaravandb.saleItems = () => {
   return new Promise((resolve, reject) => {
     pool.query(
@@ -209,13 +230,31 @@ poshcaravandb.saleItems = () => {
   });
 };
 
-//Below are all the controllers for querying  CRUD functions from Products table in the DB
+/**
+ *
+ *
+ */
+poshcaravandb.allNewJewelry = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=4`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+//Below are all the controllers for querying  Sub-Categories  of Everything New MainCategory  from Products table in the DB
 
 /**
  *
  *
  */
-
 poshcaravandb.newNecklaces = () => {
   return new Promise((resolve, reject) => {
     pool.query(
@@ -231,4 +270,101 @@ poshcaravandb.newNecklaces = () => {
   });
 };
 
+/**
+ *
+ *
+ */
+poshcaravandb.newBracelets = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=4 AND SubCategory_SubCategory_ID=11`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.newRings = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=4 AND SubCategory_SubCategory_ID=12`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+//Below are all the controllers for querying  CRUD functions from Category table in the DB
+
+/**
+ *
+ *
+ */
+poshcaravandb.everythingNewCategories = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT CategoryName,CategoryImage FROM Category WHERE MainCategory_MainCategory_ID=2`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.vintageCategories = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT CategoryName,CategoryImage FROM Category WHERE MainCategory_MainCategory_ID=1`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+//Below are all the controllers for querying  CRUD functions from MainCategory table in the DB
+
+/**
+ *
+ *
+ */
+poshcaravandb.mainCategories = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM MainCategory `,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
 module.exports = poshcaravandb;
