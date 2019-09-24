@@ -6,7 +6,7 @@ import MainCategory from "../../components/MainCategory/MainCategory";
 class LandingPage extends React.Component {
   render() {
     return (
-      <div>
+      <div >
         <LandingSplash />
         <HeaderLogo />
         <MainCategory />
