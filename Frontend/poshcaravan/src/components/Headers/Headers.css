@@ -1,6 +1,8 @@
 /* HeaderLogo................................ */
 
 .HeaderLogo {
+  padding-top: 20px;
+  padding-bottom: 30px;
   width: 175px;
   margin-top: 10px;
 }

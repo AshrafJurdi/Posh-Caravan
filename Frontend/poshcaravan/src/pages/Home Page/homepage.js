@@ -1,4 +1,5 @@
 import React from "react";
+import HeaderLogo from "../../components/Headers/HeaderLogo";
 import LandingSplash from "../../components/LandingSplash/LandingSplash";
 import HeaderLogo from "../../components/Headers/HeaderLogo";
 import Footer from "../../components/Footer/Footer";
