@@ -248,7 +248,24 @@ poshcaravandb.allNewJewelry = () => {
     );
   });
 };
+/**
+ *
+ *
+ */
+poshcaravandb.allBagsAndAccessories = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=3`,
 
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
 //Below are all the controllers for querying  Sub-Categories  of Everything New MainCategory  from Products table in the DB
 
 /**
@@ -297,6 +314,82 @@ poshcaravandb.newRings = () => {
   return new Promise((resolve, reject) => {
     pool.query(
       `SELECT * FROM Products WHERE Category_Category_ID=4 AND SubCategory_SubCategory_ID=12`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.allBags = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=3 AND SubCategory_SubCategory_ID=6`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.allshoes = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=3 AND SubCategory_SubCategory_ID=7`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.allNewSmalLeatherGoods = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=3 AND SubCategory_SubCategory_ID=8`,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.allNewOtherAccessories = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Products WHERE Category_Category_ID=3 AND SubCategory_SubCategory_ID=9`,
 
       (err, results) => {
         if (err) {
@@ -367,4 +460,5 @@ poshcaravandb.mainCategories = () => {
     );
   });
 };
+
 module.exports = poshcaravandb;

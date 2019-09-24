@@ -178,7 +178,18 @@ router.get("/everythingnew/jewelry", async (req, res, next) => {
     res.sendStatus(500);
   }
 });
-
+/**
+ *
+ */
+router.get("/everythingnew/bagsandaccessories", async (req, res, next) => {
+  try {
+    let results = await db.allBagsAndAccessories();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
 //Below are all the routes get data from Everything New  Sub-Categories
 
 /**
@@ -219,6 +230,54 @@ router.get("/everythingnew/jewelry/rings", async (req, res, next) => {
     res.sendStatus(500);
   }
 });
+
+/**
+ *
+ */
+router.get(
+  "/everythingnew/bagsandaccessories/otheraccessories",
+  async (req, res, next) => {
+    try {
+      let results = await db.allNewOtherAccessories();
+      res.json(results);
+    } catch (e) {
+      console.log(e);
+      res.sendStatus(500);
+    }
+  }
+);
+
+/**
+ *
+ */
+router.get(
+  "/everythingnew/bagsandaccessories/smallleathergoods",
+  async (req, res, next) => {
+    try {
+      let results = await db.allNewSmalLeatherGoods();
+      res.json(results);
+    } catch (e) {
+      console.log(e);
+      res.sendStatus(500);
+    }
+  }
+);
+
+/**
+ *
+ */
+router.get(
+  "/everythingnew/bagsandaccessories/shoes",
+  async (req, res, next) => {
+    try {
+      let results = await db.allshoes();
+      res.json(results);
+    } catch (e) {
+      console.log(e);
+      res.sendStatus(500);
+    }
+  }
+);
 
 //Below are all the routes for querying  CRUD functions from Category table in the DB
 
