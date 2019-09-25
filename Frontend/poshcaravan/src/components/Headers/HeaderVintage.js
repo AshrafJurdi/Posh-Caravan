@@ -23,7 +23,10 @@ class HeaderVintage extends React.Component {
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               <Link
                 className="Vintage-PreLoved"
-                to="/products/Vintage-PreLoved"
+                to={{
+                  pathname: "/pages/Product Page/productpage",
+                  state: { route: "everythingnew/fashion/dresses" }
+                }}
               >
                 CLOTHING
               </Link>

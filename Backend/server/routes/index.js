@@ -128,7 +128,7 @@ router.get("/vintage&preloved/newin", async (req, res, next) => {
 /**
  *
  */
-router.get("/vintage&preloved/allproducts", async (req, res, next) => {
+router.get("/vintagepreloved/allproducts", async (req, res, next) => {
   try {
     let results = await db.vintagePrelovedProducts();
     res.json(results);

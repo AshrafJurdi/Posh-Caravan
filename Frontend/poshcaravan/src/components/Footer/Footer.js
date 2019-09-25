@@ -73,7 +73,8 @@ class Footer extends React.Component {
                   </div>
                 ))}
                 <Form.Label name="message"></Form.Label>
-                <Form.Control placeholder="EMAIL US"
+                <Form.Control
+                  placeholder="EMAIL US"
                   as="textarea"
                   rows="3"
                   name="message"
@@ -114,10 +115,10 @@ class Footer extends React.Component {
             <Image src={Logo} className="Logofooter" />
           </Link>
           <a href="https://www.instagram.com/posh_caravan/">
-            <i classname="instagram" class="fab fa-instagram"></i>
+            <i className="instagram" class="fab fa-instagram"></i>
           </a>
           <a href="https://www.facebook.com/Posh-Caravan-366794210857093/">
-            <i classname="facebook" class="fab fa-facebook-square"></i>
+            <i className="facebook" class="fab fa-facebook-square"></i>
           </a>
           {/* <i class="fab fa-twitter"></i> */}
           {/* <i classname="pinterest" class="fab fa-pinterest-square"></i> */}
