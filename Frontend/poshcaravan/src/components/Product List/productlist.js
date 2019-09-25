@@ -2,6 +2,7 @@ import React from "react";
 import Itempopup from "../Itempopup/Itempopup.js";
 import ProductCard from "../ProductCard/ProductCard.js";
 import Pagination from "react-js-pagination";
+import HeaderVintage from "../Headers/HeaderVintage";
 import "./productlist.css";
 
 class ProductList extends React.Component {
@@ -11,33 +12,29 @@ class ProductList extends React.Component {
       show: false,
       product: null,
       activePage: 1,
-      products: [
-        {
-          Picture:
-            "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/img%20(5).jpg",
-          Title: "White Tanktop",
-          Description:
-            "100% Certified Fair Trade Cotton Made in USA or Imported Machine Wash Six (6) Pack Boys Sleeveless Tank Top Shirts Colors: Assorted Pastels 6 Per Pack Sizes: NB, S, M, L",
-          Price: "Price: 22$",
-          ID: 1
-        },
-        {
-          Picture:
-            "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/img%20(5).jpg",
-          Title: "jhajshfd 2",
-          Description: "gsjdhg",
-          Price: "22",
-          ID: 2
-        }
-      ]
+      products: []
     };
   }
+  componentDidMount = async () => {
+    try {
+      let url = `http://localhost:5000/${this.props.location.state.route}`;
+      console.log(url);
+      const response = await fetch(url);
+      const products = await response.json();
+      this.setState({ products });
+      console.log(products);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   toggle = ID => {
     // let modalNumber = "modal" + nr;
     console.log(ID);
     if (ID) {
       console.log("here?");
-      const product = this.state.products.find(product => product.ID === ID);
+      const product = this.state.products.find(
+        product => product.Product_ID === ID
+      );
       this.setState({ product });
     }
     this.setState({ show: !this.state.show });
@@ -49,7 +46,7 @@ class ProductList extends React.Component {
   render() {
     return (
       <div>
-        {" "}
+        <HeaderVintage />
         <div className="productList">
           {" "}
           {this.state.products.map((product, index) => {
@@ -57,7 +54,13 @@ class ProductList extends React.Component {
               index < this.state.activePage * 12 &&
               index >= (this.state.activePage - 1) * 12
             ) {
-              return <ProductCard toggle={this.toggle} product={product} />;
+              return (
+                <ProductCard
+                  toggle={this.toggle}
+                  product={product}
+                  key={index}
+                />
+              );
             }
           })}{" "}
         </div>{" "}
