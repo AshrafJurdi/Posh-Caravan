@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./vintageproductcategory.css";
+// import "./vintageproductcategory.css";
 // import Container from 'react-bootstrap/Container'
 
 class Vintageproductcategory extends Component {

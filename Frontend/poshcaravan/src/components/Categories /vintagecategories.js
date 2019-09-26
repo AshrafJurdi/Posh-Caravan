@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./categories.css";
-class EverythingNewCategories extends React.Component {
+class VintageCategories extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -11,11 +11,12 @@ class EverythingNewCategories extends React.Component {
   // ${this.props.location.state.route}
   componentDidMount = async () => {
     try {
-      let url = `http://localhost:5000/everythingnew/categories`;
+      let url = `http://localhost:5000/vintagepreloved/allproducts`;
       console.log(url);
       const response = await fetch(url);
       const categories = await response.json();
       this.setState({ categories });
+      console.log(this.state.categories[1].CategoryImage);
     } catch (err) {
       console.log(err);
     }
@@ -25,7 +26,7 @@ class EverythingNewCategories extends React.Component {
     return (
       <div className="grid-container1">
         <Link
-          className="image1"
+          class="image1"
           to={{
             pathname: "/pages/Product Page/productpage",
             state: { route: "everythingnew/allproducts" }
@@ -48,7 +49,7 @@ class EverythingNewCategories extends React.Component {
               }}
               to={{
                 pathname: "/pages/Product Page/productpage",
-                state: { route: "everythingnew/fashion" }
+                state: { route: "vintage&preloved/clothes" }
               }}
             ></Link>
             <div className="line1"></div>
@@ -66,7 +67,7 @@ class EverythingNewCategories extends React.Component {
               }}
               to={{
                 pathname: "/pages/Product Page/productpage",
-                state: { route: "everythingnew/bagsandaccessories" }
+                state: { route: "vintage&preloved/bagsandaccessories" }
               }}
             ></Link>
             <div className="image5">
@@ -75,7 +76,7 @@ class EverythingNewCategories extends React.Component {
               </h2>
             </div>
             <Link
-              className="image6"
+              class="image6"
               style={{
                 backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[2].CategoryImage})`,
                 backgroundPosition: "center",
@@ -87,14 +88,14 @@ class EverythingNewCategories extends React.Component {
               }}
               to={{
                 pathname: "/pages/Product Page/productpage",
-                state: { route: "everythingnew/bagsandaccessories/bags" }
+                state: { route: "vintage&preloved/bagsandaccessories/bags" }
               }}
             ></Link>
             <div className="image8">
               <h1 className="bottomSideText">UNI QUE IN EVERY OCCA SSION</h1>
             </div>
             <Link
-              className="image7"
+              class="image7"
               style={{
                 backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[4].CategoryImage})`,
                 backgroundPosition: "center",
@@ -106,7 +107,7 @@ class EverythingNewCategories extends React.Component {
               }}
               to={{
                 pathname: "/pages/Product Page/productpage",
-                state: { route: "everythingnew/fashion/dresses" }
+                state: { route: "vintage&preloved/clothes/dresses" }
               }}
             ></Link>
             <div className="image9"></div>
@@ -119,4 +120,4 @@ class EverythingNewCategories extends React.Component {
   }
 }
 
-export default EverythingNewCategories;
+export default VintageCategories;
