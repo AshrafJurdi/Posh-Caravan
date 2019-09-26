@@ -110,6 +110,119 @@ router.put("/user/update/:id", async (req, res, next) => {
   }
 });
 
+//Below are all the CRUD routes for the Products table
+/**
+ *
+ *
+ */
+router.get("/products", async (req, res, next) => {
+  try {
+    let results = await db.allProducts();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+/**
+ *
+ *
+ */
+router.get("/products/:id", async (req, res, next) => {
+  try {
+    let results = await db.oneProduct((id = req.params.id));
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+/**
+ *
+ *
+ */
+router.post(
+  "/product/create",
+  upload.single("image"),
+  async (req, res, next) => {
+    try {
+      const ProductName = req.body.ProductName;
+      const ProductDescription = req.body.ProductDescription;
+      const ProductPrice = req.body.ProductPrice;
+      const ProductImage = req.body.ProductImage;
+      const Sale = req.body.Sale;
+      const Category_Category_ID = req.body.Category_Category_ID;
+      const SubCategory_SubCategory_ID = req.body.SubCategory_SubCategory_ID;
+      let results = await db.addProduct({
+        ProductName,
+        ProductDescription,
+        ProductPrice,
+        ProductImage,
+        Sale,
+        Category_Category_ID,
+        SubCategory_SubCategory_ID
+      });
+      res.json(results);
+    } catch (e) {
+      console.log(e);
+      res.sendStatus(500);
+    }
+  }
+);
+
+/**
+ *
+ *
+ */
+router.delete("/products/delete/:id", async (req, res, next) => {
+  try {
+    let results = await db.deleteProduct((id = req.params.id));
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+/**
+ *
+ *
+ */
+router.put(
+  "/products/update/:id",
+  upload.single("image"),
+  async (req, res, next) => {
+    try {
+      const ProductName = req.body.ProductName;
+      const ProductDescription = req.body.ProductDescription;
+      const ProductPrice = req.body.ProductPrice;
+      const ProductImage = req.body.ProductImage;
+      const Sale = req.body.Sale;
+      const SalePercentage = req.body.SalePercentage;
+      const Category_Category_ID = req.body.Category_Category_ID;
+      const SubCategory_SubCategory_ID = req.body.SubCategory_SubCategory_ID;
+      const Product_ID = req.params.id;
+      let results = await db.updateProduct({
+        Product_ID,
+        ProductName,
+        ProductDescription,
+        ProductPrice,
+        ProductImage,
+        Sale,
+        SalePercentage,
+        Category_Category_ID,
+        SubCategory_SubCategory_ID
+      });
+      res.json(results);
+    } catch (e) {
+      console.log(e);
+      res.sendStatus(500);
+    }
+  }
+);
+
 //Below are all the routes to get data from Vintage and Preloved Categories
 
 /**
