@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import "./MainCategory.css";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class MainCategory extends Component {
   constructor() {
@@ -24,30 +24,29 @@ class MainCategory extends Component {
           <Row>
             <Col xs={6} md={6}>
               {/* <a href="https://www.w3schools.com/html/"> */}
-              {/* <Link
-                to={{
-                  pathname: "/VintageProductCategory/vintageproductcategory>"
-                }}
-              > */}
-              <Image
-                src={process.env.PUBLIC_URL + this.state.category[0].image}
-                alt="first"
-                className="landingImg"
-                fluid
-              />
-              {/* </Link> */}
+              <Link className="vintage" to="/pages/Vintage Page/vintagepage">
+                <Image
+                  src={process.env.PUBLIC_URL + this.state.category[0].image}
+                  alt="first"
+                  className="landingImg"
+                  fluid
+                />
+              </Link>
               {/* </a> */}
             </Col>
 
             <Col xs={6} md={6}>
-              <a href="">
+              <Link
+                className="New"
+                to="/pages/Everything New Page/everythingnew"
+              >
                 <Image
                   src={process.env.PUBLIC_URL + this.state.category[1].image}
                   alt="secand"
                   className="landingImg"
                   fluid
                 />
-              </a>
+              </Link>
             </Col>
           </Row>
         </Container>

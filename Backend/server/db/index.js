@@ -117,7 +117,6 @@ poshcaravandb.updateUser = props => {
  *
  *
  */
-
 poshcaravandb.allProducts = () => {
   return new Promise((resolve, reject) => {
     pool.query(`SELECT * FROM Products`, (err, results) => {
@@ -133,12 +132,86 @@ poshcaravandb.allProducts = () => {
  *
  *
  */
-
-poshcaravandb.oneUser = () => {
+poshcaravandb.oneProduct = () => {
   return new Promise((resolve, reject) => {
     pool.query(
-      `SELECT * FROM Products WHERE Category_Category_ID= ?, SubCategory_SubCategory_ID=?`,
-      [3, 6],
+      `SELECT * FROM Products WHERE Product_ID= ?`,
+      [id],
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results[0]);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.addProduct = props => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `INSERT INTO Products (ProductName, ProductDescription, ProductPrice, ProductImage,Sale, Category_Category_ID, SubCategory_SubCategory_ID) VALUES (?,?,?,?,?,?,?)`,
+      [
+        props.ProductName,
+        props.ProductDescription,
+        props.ProductPrice,
+        props.ProductImage,
+        props.Sale,
+        props.Category_Category_ID,
+        props.SubCategory_SubCategory_ID
+      ],
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.deleteProduct = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `DELETE FROM Products WHERE Product_ID= ?`,
+      [id],
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.updateProduct = props => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `UPDATE Products SET ProductName=?, ProductDescription=?, ProductPrice=?, ProductImage=?, Sale=?, SalePercentage=?, Category_Category_ID=?, SubCategory_SubCategory_ID=? WHERE Product_ID=?`,
+      [
+        props.ProductName,
+        props.ProductDescription,
+        props.ProductPrice,
+        props.ProductImage,
+        props.Sale,
+        props.SalePercentage,
+        props.Category_Category_ID,
+        props.SubCategory_SubCategory_ID,
+        props.Product_ID
+      ],
       (err, results) => {
         if (err) {
           return reject(err);

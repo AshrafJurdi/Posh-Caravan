@@ -10,9 +10,8 @@ class LandingPage extends React.Component {
     return (
       <div>
         <LandingSplash />
-        <HeaderVintage />
+        <HeaderLogo />
         <MainCategory />
-        <Footer />
       </div>
     );
   }
