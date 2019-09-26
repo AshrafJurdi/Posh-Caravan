@@ -14,11 +14,13 @@ import Vintageproductcategory from "./components/VintageProductCategory/vintagep
 import MainCategory from "./components/MainCategory/MainCategory";
 import ProductList from "./components/Product List/productlist";
 import VintageCategory from "./components/Categories /vintagecategories";
+import Adminpanelpage from "./pages/Admin Panel Page/adminpanelpage";
 
 function App() {
   return (
     <div className="App">
-      <VintageCategory />
+      {/* <VintageCategory /> */}
+
       {/* <Switch>
         <Route path="/" exact component={LandingPage} />
         <Route
@@ -31,6 +33,7 @@ function App() {
           render={props => <ProductList {...props} />}
         />
       </Switch> */}
+      <Adminpanelpage />
     </div>
   );
 }
