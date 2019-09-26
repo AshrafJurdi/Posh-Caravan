@@ -20,7 +20,7 @@ function App() {
     <div className="App">
       <EverythingNewCategories />
       <Switch>
-        {/* <Route path="/" exact component={LandingPage} />
+        <Route path="/" exact component={LandingPage} />
         <Route
           path="/pages/Everything New Page/everythingnew"
           component={EverythingNewPage}
@@ -28,17 +28,18 @@ function App() {
         <Route path="/pages/Vintage Page/vintagepage" component={VintagePage} />
         <Route path="/pages/Product Page/productpage" component={ProductPage} />
         <Route path="/pages/About Us Page/aboutus" component={AboutUs} />
-
         <Route path="/" exact component={LandingPage} />
         <Route
           path="/pages/Everything New Page/everythingnew"
           component={EverythingNewPage}
-        /> */}
+        />{" "}
+        */}
         <Route path="/pages/Vintage Page/vintagepage" component={VintagePage} />
         <Route
           path="/pages/Product Page/productpage"
           render={props => <ProductList {...props} />}
         />
+        <Route path="/pages/About Us Page/aboutus" component={AboutUs} />
       </Switch>
     </div>
   );

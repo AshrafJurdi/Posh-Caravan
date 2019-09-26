@@ -1,10 +1,7 @@
 import React from "react";
 import "./Headers.css";
 import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-// import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
 import Dropdown from "react-bootstrap/Dropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -12,61 +9,210 @@ class HeaderNew extends React.Component {
   render() {
     return (
       <div className="Header">
-      <Link className="vintage" to="/pages/Vintage Page/vintagepage">
-      VINTAGE & PRE\LOVED
-      </Link>
-      <Link className="newin" to="/pages/Product Page/productpage">
-        NEW IN
-      </Link>
-         
+        <Navbar expand="lg" className="NavBar">
+          <Link className="repage" to="/pages/Vintage Page/vintagepage">
+            VINTAGE & PRE\LOVED
+          </Link>
+          <Link
+            className="newin"
+            to={{
+              pathname: "/pages/Product Page/productpage",
+              state: { route: "everythingnew/newin" }
+            }}
+          >
+            NEW IN
+          </Link>
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               <Link
-                className="Vintage-PreLoved"
-                to="/pages/Product Page/productpage"
+                className="fashion"
+                to={{
+                  pathname: "/pages/Product Page/productpage",
+                  state: { route: "everythingnew/fashion" }
+                }}
               >
                 FASHION
               </Link>
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">JACKETS</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">DRESSES</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">SKIRTS</Dropdown.Item>
-              <Dropdown.Item href="#/action-4">PANTS</Dropdown.Item>
-              <Dropdown.Item href="#/action-5">TOPS</Dropdown.Item>
+              <Dropdown.Item>
+                <Link
+                  to={{
+                    pathname: "/pages/Product Page/productpage",
+                    state: { route: "everythingnew/fashion/jackets" }
+                  }}
+                >
+                  JACKETS
+                </Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Link
+                  to={{
+                    pathname: "/pages/Product Page/productpage",
+                    state: { route: "everythingnew/fashion/dresses" }
+                  }}
+                >
+                  DRESSES
+                </Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Link
+                  to={{
+                    pathname: "/pages/Product Page/productpage",
+                    state: { route: "/everythingnew/fashion/skirts" }
+                  }}
+                >
+                  SKIRTS
+                </Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Link
+                  to={{
+                    pathname: "/pages/Product Page/productpage",
+                    state: { route: "everythingnew/fashion/pants" }
+                  }}
+                >
+                  PANTS
+                </Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Link
+                  to={{
+                    pathname: "/pages/Product Page/productpage",
+                    state: { route: "everythingnew/fashion/tops" }
+                  }}
+                >
+                  TOPS
+                </Link>
+              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
-              <Link className="EverythingNew" to="/pages/Product Page/productpage">
+              <Link
+                className="bagsaccessories"
+                to={{
+                  pathname: "/pages/Product Page/productpage",
+                  state: { route: "everythingnew/bagsandaccessories" }
+                }}
+              >
                 BAGS & ACCESSORIES
               </Link>
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">BAGS</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">SHOES</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">SMALL LEATHER GOODS
+              <Dropdown.Item>
+                <Link
+                  to={{
+                    pathname: "/pages/Product Page/productpage",
+                    state: { route: "everythingnew/bagsandaccessories/bags" }
+                  }}
+                >
+                  BAGS
+                </Link>
               </Dropdown.Item>
-              <Dropdown.Item href="#/action-4">OTHER ACCESSORIES</Dropdown.Item>
+              <Dropdown.Item>
+                <Link
+                  to={{
+                    pathname: "/pages/Product Page/productpage",
+                    state: { route: "everythingnew/bagsandaccessories/shoes" }
+                  }}
+                >
+                  SHOES
+                </Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Link
+                  to={{
+                    pathname: "/pages/Product Page/productpage",
+                    state: {
+                      route:
+                        "everythingnew/bagsandaccessories/smallleathergoods"
+                    }
+                  }}
+                >
+                  SMALL LEATHER GOODS
+                </Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Link
+                  to={{
+                    pathname: "/pages/Product Page/productpage",
+                    state: {
+                      route: "everythingnew/bagsandaccessories/otheraccessories"
+                    }
+                  }}
+                >
+                  OTHER ACCESSORIES
+                </Link>
+              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
-              <Link className="jewelry" to="/pages/Product Page/productpage">
+              <Link
+                className="jewelry"
+                to={{
+                  pathname: "/pages/Product Page/productpage",
+                  state: { route: "everythingnew/jewelry" }
+                }}
+              >
                 JEWELRY
               </Link>
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">NECKLACES</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">BRACELETS</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">RINGS</Dropdown.Item>
-              <Dropdown.Item href="#/action-4">OTHER</Dropdown.Item>
+              <Dropdown.Item>
+                <Link
+                  to={{
+                    pathname: "/pages/Product Page/productpage",
+                    state: { route: "everythingnew/jewelry/necklaces" }
+                  }}
+                >
+                  NECKLACES
+                </Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Link
+                  to={{
+                    pathname: "/pages/Product Page/productpage",
+                    state: { route: "everythingnew/jewelry/bracelets" }
+                  }}
+                >
+                  BRACELETS
+                </Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Link
+                  to={{
+                    pathname: "/pages/Product Page/productpage",
+                    state: { route: "everythingnew/jewelry/rings" }
+                  }}
+                >
+                  RINGS
+                </Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Link
+                  to={{
+                    pathname: "/pages/Product Page/productpage",
+                    state: { route: "everythingnew/jewelry/otherjewelry" }
+                  }}
+                >
+                  OTHER
+                </Link>
+              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <Link href="#newin" className="sale">
+
+          <Link
+            className="sale"
+            to={{
+              pathname: "/pages/Product Page/productpage",
+              state: { route: "everythingnew/sale" }
+            }}
+          >
             SALE
           </Link>
-  
+        </Navbar>
       </div>
     );
   }

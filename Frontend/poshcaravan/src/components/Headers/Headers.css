@@ -5,19 +5,14 @@
   margin-top: 10px;
   display: block;
   margin-left: auto;
-  margin-right: auto 
+  margin-right: auto;
 }
 
 /* Header Vintage & New................................ */
 
 .Header {
-  background-color: transparent;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 10pt;
   display: flex;
   margin-top: 5px;
-}
-.Header{
   width: 100%;
   /* Firefox */
   display: -moz-box;
@@ -32,69 +27,44 @@
   box-pack: center;
   box-align: center;
 }
-a.newinb {
-  text-decoration: none !important;
+
+.navbar-light {
+  box-shadow: none;
 }
-a:hover{
-  color: pink !important;
+.btn-success.dropdown-toggle {
+  box-shadow: none;
+  background-color: white !important;
+  border: none;
 }
-a.newinb {
-  color: rgb(245, 161, 175)!important;
-}
-.Header:hover {
-  color: rgb(245, 161, 175)!important;
-}
-a.dropdown-item {
-  background-image: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 10pt;
-}
-#dropdown-basic {
-  background-color: transparent !important;
-background-image: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 10pt;
+.btn-success.dropdown-toggle:hover {
+  background-color: white !important;
 }
 
-.Menu:hover {
+a {
+  text-decoration: none !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11pt;
+}
+a:hover {
   color: rgb(245, 161, 175) !important;
-}
-
-#dropdown-basic {
-  background-color: transparent;
-  border: transparent;
+  text-decoration: none !important;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 10pt;
-  text-decoration: none!important;
 }
 
-a.nav-link {
-  text-decoration: none!important;
-  color: rgb(245, 161, 175)!important;
+a.repage {
+  width: 400px;
 }
-
-a.nav-link:hover {
-  color: black!important;
+a.bagsaccessories {
+  width: 400px;
 }
-.repage {
-  color: black!important;
-  text-decoration: none !important;
-}
-
 
 /* Header New..................................... */
 
 a.sale {
   color: rgb(245, 9, 48) !important;
-  text-decoration: none !important;
 }
-.vintage:hover {
-  color: rgb(245, 161, 175);
-}
-
 
 /* Header Vintage ................................ */
-
-
 
 /* ................................ */

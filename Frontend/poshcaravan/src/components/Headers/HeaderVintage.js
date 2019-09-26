@@ -1,8 +1,8 @@
 import React from "react";
 import "./Headers.css";
 import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-// import NavDropdown from "react-bootstrap/NavDropdown";
+import NavDropdown from "react-bootstrap/NavDropdown";
+
 import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -12,64 +12,125 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 class HeaderVintage extends React.Component {
   render() {
     return (
-      <div className="Headers">
+      <div className="Header">
         <Navbar expand="lg" className="NavBar">
-          <Link href="#newin" className="repage">
+          <Link
+            className="repage"
+            to="/pages/Everything New Page/everythingnew"
+          >
             EVERYTHING NEW
           </Link>
-          <Nav.Link classname="newinb" href="#newin">
+          <Link
+            className="newinb"
+            to={{
+              pathname: "/pages/Product Page/productpage",
+              state: { route: "vintage&preloved/newin" }
+            }}
+          >
             NEW IN
-          </Nav.Link>
+          </Link>
+
           <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <NavDropdown title="CLOTHING" id="basic-nav-dropdown">
               <Link
-                className="Vintage-PreLoved"
+                className="clothing"
                 to={{
                   pathname: "/pages/Product Page/productpage",
-                  state: { route: "everythingnew/fashion/dresses" }
+                  state: { route: "vintage&preloved/clothes" }
                 }}
               >
                 CLOTHING
               </Link>
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">JACKETS</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">DRESSES</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">SKIRTS</Dropdown.Item>
-              <Dropdown.Item href="#/action-4">PANTS</Dropdown.Item>
-              <Dropdown.Item href="#/action-5">TOPS</Dropdown.Item>
-            </Dropdown.Menu>
+              <NavDropdown.Item>
+                <Link
+                  to={{
+                    pathname: "/pages/Product Page/productpage",
+                    state: { route: "vintage&preloved/clothes/jackets" }
+                  }}
+                >
+                  JACKETS
+                </Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link
+                  to={{
+                    pathname: "/pages/Product Page/productpage",
+                    state: { route: "vintage&preloved/clothes/dresses" }
+                  }}
+                >
+                  DRESSES
+                </Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link
+                  to={{
+                    pathname: "/pages/Product Page/productpage",
+                    state: { route: "vintage&preloved/clothes/skirts" }
+                  }}
+                >
+                  SKIRTS
+                </Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link
+                  to={{
+                    pathname: "/pages/Product Page/productpage",
+                    state: { route: "vintage&preloved/clothes/pants" }
+                  }}
+                >
+                  PANTS
+                </Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link
+                  to={{
+                    pathname: "/pages/Product Page/productpage",
+                    state: { route: "vintage&preloved/clothes/tops" }
+                  }}
+                >
+                  TOPS
+                </Link>
+              </NavDropdown.Item>
+            </NavDropdown>
           </Dropdown>
-          <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-              <Link className="EverythingNew" to="/products/EverythingNew">
-                BAGS & ACCESSORIES
-              </Link>
-            </Dropdown.Toggle>
-          </Dropdown>
-          <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-              <Link className="EverythingNew" to="/products/EverythingNew">
-                JEWELRY
-              </Link>
-            </Dropdown.Toggle>
-          </Dropdown>
-          <Link href="#furniture" className="furniture">
+
+          <Link
+            className="bagsaccessories"
+            to={{
+              pathname: "/pages/Product Page/productpage",
+              state: { route: "vintage&preloved/bagsandaccessories" }
+            }}
+          >
+            BAGS & ACCESSORIES
+          </Link>
+
+          <Link
+            className="jewelry"
+            to={{
+              pathname: "/pages/Product Page/productpage",
+              state: { route: "vintage&preloved/products/jewelry" }
+            }}
+          >
+            JEWELRY
+          </Link>
+          <Link
+            className="furniture"
+            to={{
+              pathname: "/pages/Product Page/productpage",
+              state: { route: "vintage&preloved/products/furniture" }
+            }}
+          >
             FURNITURE
           </Link>
-          <Link href="#homeaccents" className="homeaccents">
+          <Link
+            className="homeaccents"
+            to={{
+              pathname: "/pages/Product Page/productpage",
+              state: { route: "vintage&preloved/products/homeaccents" }
+            }}
+          >
             HOME ACCENTS
           </Link>
-          <Nav.Link>
-            <HashLink className="aboutUs" smooth to="/#aboutUs">
-              ABOUT US
-            </HashLink>
-          </Nav.Link>
-          <Nav.Link>
-            <HashLink className="contactUs" smooth to="/#contactUs">
-              CONTACT US
-            </HashLink>
-          </Nav.Link>
         </Navbar>
       </div>
     );
