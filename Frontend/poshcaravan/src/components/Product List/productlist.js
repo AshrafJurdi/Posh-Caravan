@@ -68,18 +68,49 @@ class ProductList extends React.Component {
             }
           })}
         </div>
+        <div
+          style={{
+            width: "40vw",
+            backgroundColor: "rgba(255, 192, 203, 0.863)",
+            height: "30px",
+            float: "left",
+
+            position: "absolute",
+            top: "70vh",
+            zIndex: "-1",
+            boxShadow:
+              "0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)"
+          }}
+        ></div>
+        <div
+          style={{
+            width: "40vw",
+            backgroundColor: "rgba(255, 192, 203, 0.863)",
+            height: "30px",
+            float: "right",
+
+            position: "relative",
+            bottom: "35vh",
+            zIndex: "-1",
+            boxShadow:
+              "0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)"
+          }}
+        ></div>
         <Itempopup
           toggle={this.toggle}
           show={this.state.show}
           product={this.state.product}
-        />{" "}
+        />
         <Pagination
           activePage={this.state.activePage}
           itemsCountPerPage={12}
           totalItemsCount={this.state.products.length}
           pageRangeDisplayed={5}
           onChange={this.handlePageChange}
-        />{" "}
+        />
+        <div
+          style={{ width: "100vw", backgroundColor: "pink", height: "12px" }}
+        ></div>
       </div>
     );
   }

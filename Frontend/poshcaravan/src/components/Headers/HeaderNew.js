@@ -11,7 +11,7 @@ class HeaderNew extends React.Component {
       <div className="Header">
         <Navbar expand="lg" className="NavBar">
           <Link className="repage" to="/pages/Vintage Page/vintagepage">
-            VINTAGE & PRE\LOVED
+            VINTAGE & PRELOVED
           </Link>
           <Link
             className="newin"
