@@ -73,7 +73,8 @@ class Footer extends React.Component {
                   </div>
                 ))}
                 <Form.Label name="message"></Form.Label>
-                <Form.Control placeholder="EMAIL US"
+                <Form.Control
+                  placeholder="EMAIL US"
                   as="textarea"
                   rows="3"
                   name="message"
