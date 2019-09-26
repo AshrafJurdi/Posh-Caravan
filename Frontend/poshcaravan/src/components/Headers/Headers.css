@@ -1,23 +1,23 @@
 /* HeaderLogo................................ */
 
 .HeaderLogo {
-  padding-top: 20px;
-  padding-bottom: 30px;
-  width: 175px;
+  width: 150px;
   margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto 
 }
 
 /* Header Vintage & New................................ */
 
-.Headers {
-  margin-top: 10px;
+.Header {
   background-color: transparent;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 12pt;
-  width: 100%;
+  font-size: 10pt;
+  display: flex;
+  margin-top: 5px;
 }
-
-nav.NavBar.navbar.navbar-expand-lg.navbar-light {
+.Header{
   width: 100%;
   /* Firefox */
   display: -moz-box;
@@ -32,56 +32,69 @@ nav.NavBar.navbar.navbar-expand-lg.navbar-light {
   box-pack: center;
   box-align: center;
 }
+a.newinb {
+  text-decoration: none !important;
+}
+a:hover{
+  color: pink !important;
+}
+a.newinb {
+  color: rgb(245, 161, 175)!important;
+}
+.Header:hover {
+  color: rgb(245, 161, 175)!important;
+}
+a.dropdown-item {
+  background-image: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+}
+#dropdown-basic {
+  background-color: transparent !important;
+background-image: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+}
 
 .Menu:hover {
-  color: rgb(245, 161, 175);
+  color: rgb(245, 161, 175) !important;
 }
 
 #dropdown-basic {
   background-color: transparent;
   border: transparent;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 12pt;
-  text-decoration: none;
+  font-size: 10pt;
+  text-decoration: none!important;
 }
 
 a.nav-link {
-  text-decoration: none;
-  color: rgb(245, 161, 175);
+  text-decoration: none!important;
+  color: rgb(245, 161, 175)!important;
 }
 
 a.nav-link:hover {
-  color: black;
+  color: black!important;
 }
 .repage {
-  color: black;
+  color: black!important;
   text-decoration: none !important;
 }
-.repage:hover {
-  color: rgb(245, 161, 175);
-}
+
 
 /* Header New..................................... */
 
-.sale {
-  color: rgb(245, 9, 48);
+a.sale {
+  color: rgb(245, 9, 48) !important;
+  text-decoration: none !important;
 }
+.vintage:hover {
+  color: rgb(245, 161, 175);
+}
+
 
 /* Header Vintage ................................ */
 
-a.furniture {
-  color: black;
-  text-decoration: none !important;
-}
-a.furniture:hover {
-  color: rgb(245, 161, 175);
-}
-a.homeaccents {
-  color: black;
-  text-decoration: none !important;
-}
-a.homeaccents:hover {
-  color: rgb(245, 161, 175);
-}
+
 
 /* ................................ */

@@ -4,11 +4,13 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 // import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
 import Dropdown from "react-bootstrap/Dropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
+import DropdownButton from "react-bootstrap/DropdownButton";
+
 
 class HeaderVintage extends React.Component {
+
   render() {
     return (
       <div className="Headers">
