@@ -1,7 +1,7 @@
 .grid-container {
   display: grid;
-  grid-template-columns: 20% 20% 10% 10% 20% 20%;
-  grid-template-rows: 10% 10% 30% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 50% 10%;
+  grid-template-columns: 20% 20% 11% 10% 20% 20%;
+  grid-template-rows: 10% 10% 30% 20% 20% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 50% 10%;
   width: 100vw;
   height: 100vh;
 }
@@ -9,21 +9,40 @@
 .image1 {
   grid-area: 1 / 4 / 6 / 7;
   background: red;
+  background-image: url(http://localhost:5000/Images/mainpic.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: top;
+  margin-right: 7%;
 }
 
 .image2 {
-  grid-area: 3 / 3 / 7 / 4;
-  background: blue;
+  grid-area: 4 / 3 / 7 / 4;
+  background-image: url(http://localhost:5000/Images/youarebeautiful.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 50px;
+  margin-bottom: -17px;
+  margin-right: 10px;
 }
 
 .image3 {
-  grid-area: 3 / 1 / 8 / 3;
+  grid-area: 4/ 1 / 10 / 3;
   background: green;
+  margin-top: 70px;
+  background-image: url(http://localhost:5000/Images/newclothes.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .line1 {
   grid-area: 6 / 4 / 7 / 7;
   background: pink;
+  margin-top: 25px;
+  margin-bottom: 10px;
 }
 
 .image4 {

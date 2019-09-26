@@ -48,7 +48,6 @@ class ProductList extends React.Component {
       <div>
         <HeaderVintage />
         <div className="productList">
-          {" "}
           {this.state.products.map((product, index) => {
             if (
               index < this.state.activePage * 12 &&
@@ -62,8 +61,8 @@ class ProductList extends React.Component {
                 />
               );
             }
-          })}{" "}
-        </div>{" "}
+          })}
+        </div>
         <Itempopup
           toggle={this.toggle}
           show={this.state.show}
