@@ -18,22 +18,25 @@ import EverythingNewCategories from "./components/Categories /everythingnewcateg
 function App() {
   return (
     <div className="App">
-      <EverythingNewCategories />
+      {/* <EverythingNewCategories /> */}
       <Switch>
-        <Route path="/" exact component={LandingPage} />
+        <Route path="/" exact render={props => <LandingPage {...props} />} />
         <Route
           path="/pages/Everything New Page/everythingnew"
           component={EverythingNewPage}
         />
-        <Route path="/pages/Vintage Page/vintagepage" component={VintagePage} />
+        <Route
+          path="/pages/Vintage Page/vintagepage"
+          render={props => <VintagePage {...props} />}
+        />
         <Route path="/pages/Product Page/productpage" component={ProductPage} />
         <Route path="/pages/About Us Page/aboutus" component={AboutUs} />
         <Route path="/" exact component={LandingPage} />
         <Route
           path="/pages/Everything New Page/everythingnew"
-          component={EverythingNewPage}
-        />{" "}
-        */}
+          render={props => <EverythingNewPage {...props} />}
+        />
+        /> */}
         <Route path="/pages/Vintage Page/vintagepage" component={VintagePage} />
         <Route
           path="/pages/Product Page/productpage"

@@ -3,6 +3,7 @@ import Itempopup from "../Itempopup/Itempopup.js";
 import ProductCard from "../ProductCard/ProductCard.js";
 import Pagination from "react-js-pagination";
 import HeaderVintage from "../Headers/HeaderVintage";
+import HeaderNew from "../Headers/HeaderNew";
 import "./productlist.css";
 
 class ProductList extends React.Component {
@@ -46,7 +47,11 @@ class ProductList extends React.Component {
   render() {
     return (
       <div>
-        <HeaderVintage />
+        {this.props.location.state.header === "vintage" ? (
+          <HeaderVintage />
+        ) : (
+          <HeaderNew />
+        )}
         <div className="productList">
           {this.state.products.map((product, index) => {
             if (

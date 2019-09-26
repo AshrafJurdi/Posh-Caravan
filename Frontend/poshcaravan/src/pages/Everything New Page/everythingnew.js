@@ -9,7 +9,7 @@ class EverythingNewPage extends React.Component {
     return (
       <div>
         <HeaderLogo />
-        <HeaderNew />
+        <HeaderNew {...this.props} />
         <AboutContactUs />
         <Footer />
       </div>

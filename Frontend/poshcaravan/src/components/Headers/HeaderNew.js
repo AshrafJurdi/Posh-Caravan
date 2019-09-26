@@ -17,7 +17,7 @@ class HeaderNew extends React.Component {
             className="newin"
             to={{
               pathname: "/pages/Product Page/productpage",
-              state: { route: "everythingnew/newin" }
+              state: { route: "everythingnew/newin", header: "new" }
             }}
           >
             NEW IN
@@ -28,7 +28,7 @@ class HeaderNew extends React.Component {
                 className="fashion"
                 to={{
                   pathname: "/pages/Product Page/productpage",
-                  state: { route: "everythingnew/fashion" }
+                  state: { route: "everythingnew/fashion", header: "new" }
                 }}
               >
                 FASHION
@@ -39,7 +39,10 @@ class HeaderNew extends React.Component {
                 <Link
                   to={{
                     pathname: "/pages/Product Page/productpage",
-                    state: { route: "everythingnew/fashion/jackets" }
+                    state: {
+                      route: "everythingnew/fashion/jackets",
+                      header: "new"
+                    }
                   }}
                 >
                   JACKETS
@@ -49,7 +52,10 @@ class HeaderNew extends React.Component {
                 <Link
                   to={{
                     pathname: "/pages/Product Page/productpage",
-                    state: { route: "everythingnew/fashion/dresses" }
+                    state: {
+                      route: "everythingnew/fashion/dresses",
+                      header: "new"
+                    }
                   }}
                 >
                   DRESSES
@@ -59,7 +65,10 @@ class HeaderNew extends React.Component {
                 <Link
                   to={{
                     pathname: "/pages/Product Page/productpage",
-                    state: { route: "/everythingnew/fashion/skirts" }
+                    state: {
+                      route: "/everythingnew/fashion/skirts",
+                      header: "new"
+                    }
                   }}
                 >
                   SKIRTS
@@ -69,7 +78,10 @@ class HeaderNew extends React.Component {
                 <Link
                   to={{
                     pathname: "/pages/Product Page/productpage",
-                    state: { route: "everythingnew/fashion/pants" }
+                    state: {
+                      route: "everythingnew/fashion/pants",
+                      header: "new"
+                    }
                   }}
                 >
                   PANTS
@@ -79,7 +91,10 @@ class HeaderNew extends React.Component {
                 <Link
                   to={{
                     pathname: "/pages/Product Page/productpage",
-                    state: { route: "everythingnew/fashion/tops" }
+                    state: {
+                      route: "everythingnew/fashion/tops",
+                      header: "new"
+                    }
                   }}
                 >
                   TOPS
@@ -93,7 +108,10 @@ class HeaderNew extends React.Component {
                 className="bagsaccessories"
                 to={{
                   pathname: "/pages/Product Page/productpage",
-                  state: { route: "everythingnew/bagsandaccessories" }
+                  state: {
+                    route: "everythingnew/bagsandaccessories",
+                    header: "new"
+                  }
                 }}
               >
                 BAGS & ACCESSORIES
@@ -104,7 +122,10 @@ class HeaderNew extends React.Component {
                 <Link
                   to={{
                     pathname: "/pages/Product Page/productpage",
-                    state: { route: "everythingnew/bagsandaccessories/bags" }
+                    state: {
+                      route: "everythingnew/bagsandaccessories/bags",
+                      header: "new"
+                    }
                   }}
                 >
                   BAGS
@@ -114,7 +135,10 @@ class HeaderNew extends React.Component {
                 <Link
                   to={{
                     pathname: "/pages/Product Page/productpage",
-                    state: { route: "everythingnew/bagsandaccessories/shoes" }
+                    state: {
+                      route: "everythingnew/bagsandaccessories/shoes",
+                      header: "new"
+                    }
                   }}
                 >
                   SHOES
@@ -126,7 +150,8 @@ class HeaderNew extends React.Component {
                     pathname: "/pages/Product Page/productpage",
                     state: {
                       route:
-                        "everythingnew/bagsandaccessories/smallleathergoods"
+                        "everythingnew/bagsandaccessories/smallleathergoods",
+                      header: "new"
                     }
                   }}
                 >
@@ -138,7 +163,9 @@ class HeaderNew extends React.Component {
                   to={{
                     pathname: "/pages/Product Page/productpage",
                     state: {
-                      route: "everythingnew/bagsandaccessories/otheraccessories"
+                      route:
+                        "everythingnew/bagsandaccessories/otheraccessories",
+                      header: "new"
                     }
                   }}
                 >
@@ -153,7 +180,7 @@ class HeaderNew extends React.Component {
                 className="jewelry"
                 to={{
                   pathname: "/pages/Product Page/productpage",
-                  state: { route: "everythingnew/jewelry" }
+                  state: { route: "everythingnew/jewelry", header: "new" }
                 }}
               >
                 JEWELRY
@@ -164,7 +191,10 @@ class HeaderNew extends React.Component {
                 <Link
                   to={{
                     pathname: "/pages/Product Page/productpage",
-                    state: { route: "everythingnew/jewelry/necklaces" }
+                    state: {
+                      route: "everythingnew/jewelry/necklaces",
+                      header: "new"
+                    }
                   }}
                 >
                   NECKLACES
@@ -174,7 +204,10 @@ class HeaderNew extends React.Component {
                 <Link
                   to={{
                     pathname: "/pages/Product Page/productpage",
-                    state: { route: "everythingnew/jewelry/bracelets" }
+                    state: {
+                      route: "everythingnew/jewelry/bracelets",
+                      header: "new"
+                    }
                   }}
                 >
                   BRACELETS
@@ -184,7 +217,10 @@ class HeaderNew extends React.Component {
                 <Link
                   to={{
                     pathname: "/pages/Product Page/productpage",
-                    state: { route: "everythingnew/jewelry/rings" }
+                    state: {
+                      route: "everythingnew/jewelry/rings",
+                      header: "new"
+                    }
                   }}
                 >
                   RINGS
@@ -194,7 +230,10 @@ class HeaderNew extends React.Component {
                 <Link
                   to={{
                     pathname: "/pages/Product Page/productpage",
-                    state: { route: "everythingnew/jewelry/otherjewelry" }
+                    state: {
+                      route: "everythingnew/jewelry/otherjewelry",
+                      header: "new"
+                    }
                   }}
                 >
                   OTHER
@@ -207,7 +246,7 @@ class HeaderNew extends React.Component {
             className="sale"
             to={{
               pathname: "/pages/Product Page/productpage",
-              state: { route: "everythingnew/sale" }
+              state: { route: "everythingnew/sale", header: "new" }
             }}
           >
             SALE

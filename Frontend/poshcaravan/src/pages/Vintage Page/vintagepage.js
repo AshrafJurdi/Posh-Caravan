@@ -9,8 +9,8 @@ class VintagePage extends React.Component {
     return (
       <div>
         <HeaderLogo />
-        <HeaderVintage />
-       <AboutContactUs />
+        <HeaderVintage {...this.props} />
+        <AboutContactUs />
         <Footer />
       </div>
     );

@@ -24,7 +24,7 @@ class HeaderVintage extends React.Component {
             className="newinb"
             to={{
               pathname: "/pages/Product Page/productpage",
-              state: { route: "vintage&preloved/newin" }
+              state: { route: "vintage&preloved/newin", header: "vintage" }
             }}
           >
             NEW IN
@@ -36,7 +36,10 @@ class HeaderVintage extends React.Component {
                 className="clothing"
                 to={{
                   pathname: "/pages/Product Page/productpage",
-                  state: { route: "vintage&preloved/clothes" }
+                  state: {
+                    route: "vintage&preloved/clothes",
+                    header: "vintage"
+                  }
                 }}
               >
                 CLOTHING
@@ -45,7 +48,10 @@ class HeaderVintage extends React.Component {
                 <Link
                   to={{
                     pathname: "/pages/Product Page/productpage",
-                    state: { route: "vintage&preloved/clothes/jackets" }
+                    state: {
+                      route: "vintage&preloved/clothes/jackets",
+                      header: "vintage"
+                    }
                   }}
                 >
                   JACKETS
@@ -55,7 +61,10 @@ class HeaderVintage extends React.Component {
                 <Link
                   to={{
                     pathname: "/pages/Product Page/productpage",
-                    state: { route: "vintage&preloved/clothes/dresses" }
+                    state: {
+                      route: "vintage&preloved/clothes/dresses",
+                      header: "vintage"
+                    }
                   }}
                 >
                   DRESSES
@@ -65,7 +74,10 @@ class HeaderVintage extends React.Component {
                 <Link
                   to={{
                     pathname: "/pages/Product Page/productpage",
-                    state: { route: "vintage&preloved/clothes/skirts" }
+                    state: {
+                      route: "vintage&preloved/clothes/skirts",
+                      header: "vintage"
+                    }
                   }}
                 >
                   SKIRTS
@@ -75,7 +87,10 @@ class HeaderVintage extends React.Component {
                 <Link
                   to={{
                     pathname: "/pages/Product Page/productpage",
-                    state: { route: "vintage&preloved/clothes/pants" }
+                    state: {
+                      route: "vintage&preloved/clothes/pants",
+                      header: "vintage"
+                    }
                   }}
                 >
                   PANTS
@@ -85,7 +100,10 @@ class HeaderVintage extends React.Component {
                 <Link
                   to={{
                     pathname: "/pages/Product Page/productpage",
-                    state: { route: "vintage&preloved/clothes/tops" }
+                    state: {
+                      route: "vintage&preloved/clothes/tops",
+                      header: "vintage"
+                    }
                   }}
                 >
                   TOPS
@@ -98,7 +116,10 @@ class HeaderVintage extends React.Component {
             className="bagsaccessories"
             to={{
               pathname: "/pages/Product Page/productpage",
-              state: { route: "vintage&preloved/bagsandaccessories" }
+              state: {
+                route: "vintage&preloved/bagsandaccessories",
+                header: "vintage"
+              }
             }}
           >
             BAGS & ACCESSORIES
@@ -108,7 +129,10 @@ class HeaderVintage extends React.Component {
             className="jewelry"
             to={{
               pathname: "/pages/Product Page/productpage",
-              state: { route: "vintage&preloved/products/jewelry" }
+              state: {
+                route: "vintage&preloved/products/jewelry",
+                header: "vintage"
+              }
             }}
           >
             JEWELRY
@@ -117,7 +141,10 @@ class HeaderVintage extends React.Component {
             className="furniture"
             to={{
               pathname: "/pages/Product Page/productpage",
-              state: { route: "vintage&preloved/products/furniture" }
+              state: {
+                route: "vintage&preloved/products/furniture",
+                header: "vintage"
+              }
             }}
           >
             FURNITURE
@@ -126,7 +153,10 @@ class HeaderVintage extends React.Component {
             className="homeaccents"
             to={{
               pathname: "/pages/Product Page/productpage",
-              state: { route: "vintage&preloved/products/homeaccents" }
+              state: {
+                route: "vintage&preloved/products/homeaccents",
+                header: "vintage"
+              }
             }}
           >
             HOME ACCENTS
