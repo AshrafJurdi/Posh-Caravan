@@ -11,17 +11,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 class HeaderNew extends React.Component {
   render() {
     return (
-      <div className="Headers">
-        <Navbar expand="lg" className="NavBar">
-          <Link href="#newin" className="repage">
-            VINTAGE & PRE\LOVED
-          </Link>
-          <Nav.Link href="#newin">NEW IN</Nav.Link>
+      <div className="Header">
+      <Link className="vintage" to="/pages/Vintage Page/vintagepage">
+      VINTAGE & PRE\LOVED
+      </Link>
+      <Link className="newin" to="/pages/Product Page/productpage">
+        NEW IN
+      </Link>
+         
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               <Link
                 className="Vintage-PreLoved"
-                to="/products/Vintage-PreLoved"
+                to="/pages/Product Page/productpage"
               >
                 FASHION
               </Link>
@@ -36,22 +38,21 @@ class HeaderNew extends React.Component {
           </Dropdown>
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
-              <Link className="EverythingNew" to="/products/EverythingNew">
+              <Link className="EverythingNew" to="/pages/Product Page/productpage">
                 BAGS & ACCESSORIES
               </Link>
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item href="#/action-1">BAGS</Dropdown.Item>
               <Dropdown.Item href="#/action-2">SHOES</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">
-                SMALL LEATHER GOODS
+              <Dropdown.Item href="#/action-3">SMALL LEATHER GOODS
               </Dropdown.Item>
               <Dropdown.Item href="#/action-4">OTHER ACCESSORIES</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
-              <Link className="EverythingNew" to="/products/EverythingNew">
+              <Link className="jewelry" to="/pages/Product Page/productpage">
                 JEWELRY
               </Link>
             </Dropdown.Toggle>
@@ -65,17 +66,7 @@ class HeaderNew extends React.Component {
           <Link href="#newin" className="sale">
             SALE
           </Link>
-          <Nav.Link>
-            <HashLink className="aboutUs" smooth to="/#aboutUs">
-              ABOUT US
-            </HashLink>
-          </Nav.Link>
-          <Nav.Link>
-            <HashLink className="contactUs" smooth to="/#contactUs">
-              CONTACT US
-            </HashLink>
-          </Nav.Link>
-        </Navbar>
+  
       </div>
     );
   }

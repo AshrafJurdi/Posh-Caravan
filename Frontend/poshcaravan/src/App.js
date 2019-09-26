@@ -5,6 +5,7 @@ import LandingPage from "./pages/Home Page/homepage";
 import EverythingNewPage from "./pages/Everything New Page/everythingnew";
 import VintagePage from "./pages/Vintage Page/vintagepage";
 import ProductPage from "./pages/Product Page/productpage";
+import AboutUs from "./pages/About Us Page/aboutus";
 import Vintageproductcategory from "./components/VintageProductCategory/vintageproductcategory";
 
 function App() {
@@ -12,8 +13,9 @@ function App() {
     <div className="App">
       <Route path="/" exact component={LandingPage} />
       <Route path="/pages/Everything New Page/everythingnew" component={EverythingNewPage} />
-      {/* <Route path="/pages/Vintage Page/vintagepage" component={VintagePage} /> */}
+      <Route path="/pages/Vintage Page/vintagepage" component={VintagePage} />
       <Route path="/pages/Product Page/productpage" component={ProductPage} />
+      <Route path="/pages/About Us Page/aboutus" component={AboutUs} />
     </div>
   );
 }

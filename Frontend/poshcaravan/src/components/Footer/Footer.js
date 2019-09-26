@@ -114,10 +114,10 @@ class Footer extends React.Component {
             <Image src={Logo} className="Logofooter" />
           </Link>
           <a href="https://www.instagram.com/posh_caravan/">
-            <i classname="instagram" class="fab fa-instagram"></i>
+            <i className="fab fa-instagram"></i>
           </a>
           <a href="https://www.facebook.com/Posh-Caravan-366794210857093/">
-            <i classname="facebook" class="fab fa-facebook-square"></i>
+            <i className="fab fa-facebook-square"></i>
           </a>
           {/* <i class="fab fa-twitter"></i> */}
           {/* <i classname="pinterest" class="fab fa-pinterest-square"></i> */}
