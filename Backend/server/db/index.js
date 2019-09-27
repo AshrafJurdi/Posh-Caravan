@@ -179,11 +179,12 @@ poshcaravandb.addProduct = props => {
  *
  *
  */
-poshcaravandb.deleteProduct = () => {
+poshcaravandb.deleteProduct = id => {
   return new Promise((resolve, reject) => {
+    console.log(id);
     pool.query(
       `DELETE FROM Products WHERE Product_ID= ?`,
-      [id],
+      id,
       (err, results) => {
         if (err) {
           return reject(err);

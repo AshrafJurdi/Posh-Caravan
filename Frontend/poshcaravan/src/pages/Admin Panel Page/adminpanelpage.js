@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import ProductList from "../../components/Product List/productlist";
 /**
  * My component adminpanelpage that allows me to add a product
  *
@@ -77,7 +77,7 @@ class Adminpanelpage extends Component {
       });
       //   await pause();
       const answer = await response.json();
-      if (answer.success) {
+      /*  if (answer.success) {
         const new_product = {
           id: answer.result,
           ProductName,
@@ -93,11 +93,11 @@ class Adminpanelpage extends Component {
 
         // toast(`Product was successfully added!`);
         this.setState({ products });
-        console.log(this.props.match, this.props.history);
-        // this.props.history.push("/myproducts");
-      } else {
+        console.log(this.props.match, this.props.history); */
+      // this.props.history.push("/myproducts");
+      /*       } else {
         this.setState({ error_message: answer.message, isLoading: false });
-      }
+      } */
     } catch (err) {
       //   toast.error("error" + err);
       console.log(err, "error");
@@ -134,6 +134,7 @@ class Adminpanelpage extends Component {
    *
    */
   deleteProduct = async Product_ID => {
+    console.log("here", Product_ID);
     try {
       const response = await fetch(
         `http://localhost:5000/products/delete/${Product_ID} `
@@ -141,11 +142,8 @@ class Adminpanelpage extends Component {
       // await pause();
       const answer = await response.json();
       if (answer.success) {
-        const products = this.state.products.filter(
-          contact => contact.id !== Product_ID
-        );
         // toast(`contact with id ${Product_ID} was successfully deleted!`);
-        this.setState({ products, isLoading: false, error_message: "" });
+        this.setState({ isLoading: false, error_message: "" });
       } else {
         console.log();
         this.setState({ error_message: answer.message, isLoading: false });
@@ -156,31 +154,21 @@ class Adminpanelpage extends Component {
     }
   };
 
-  onSubmit = (
-    ProductName,
-    ProductDescription,
-    ProductPrice,
-    ProductImage,
-    Sale,
-    SalePercentage,
-    Category_Category_ID,
-    SubCategory_SubCategory_ID,
-    e
-  ) => {
+  onSubmit = e => {
     // const {name, email} = this.state;
     console.log("state", this.state);
     e.preventDefault();
     this.createProduct({
-      ProductName,
-      ProductDescription,
-      ProductPrice,
-      ProductImage,
-      Sale,
-      SalePercentage,
-      Category_Category_ID,
-      SubCategory_SubCategory_ID
+      ProductName: e.target.ProductName.value,
+      ProductDescription: e.target.ProductDescription.value,
+      ProductPrice: e.target.ProductPrice.value,
+      ProductImage: e.target.ProductImage.files[0],
+      Sale: e.target.Sale.value,
+      SalePercentage: e.target.SalePercentage.value,
+      Category_Category_ID: e.target.Category_Category_ID.value,
+      SubCategory_SubCategory_ID: e.target.SubCategory_SubCategory_ID.value
     });
-    this.setState({
+    /* this.setState({
       ProductName: "",
       ProductDescription: "",
       ProductPrice: "",
@@ -189,7 +177,7 @@ class Adminpanelpage extends Component {
       SalePercentage: "",
       Category_Category_ID: "",
       SubCategory_SubCategory_ID: ""
-    });
+    }); */
   };
   /**
    * Renders the component.
@@ -199,91 +187,40 @@ class Adminpanelpage extends Component {
    */
   render() {
     return (
-      <form
-        onSubmit={evt =>
-          this.onSubmit(
-            this.state.ProductName,
-            this.state.ProductDescription,
-            this.state.ProductPrice,
-            this.state.ProductImage,
-            this.state.Sale,
-            this.state.SalePercentage,
-            this.state.Category_Category_ID,
-            this.state.SubCategory_SubCategory_ID,
-            evt
-          )
-        }
-        onReset={() => {
-          this.setState({
-            ProductName: "",
-            ProductDescription: "",
-            ProductPrice: "",
-            ProductImage: null,
-            Sale: "",
-            SalePercentage: "",
-            Category_Category_ID: "",
-            SubCategory_SubCategory_ID: ""
-          });
-        }}
-      >
-        <input
-          type="text"
-          placeholder="ProductName"
-          onChange={evt => this.setState({ ProductName: evt.target.value })}
-          value={this.state.ProductName}
-        />
-        <input
-          type="text"
-          placeholder="ProductDescription"
-          onChange={evt =>
-            this.setState({ ProductDescription: evt.target.value })
-          }
-          value={this.state.ProductDescription}
-        />
-        <input
-          type="text"
-          placeholder="ProductPrice"
-          onChange={evt => this.setState({ ProductPrice: evt.target.value })}
-          value={this.state.ProductPrice}
-        />
-        <input
-          type="text"
-          placeholder="Sale"
-          onChange={evt => this.setState({ Sale: evt.target.value })}
-          value={this.state.Sale}
-        />
-        <input
-          type="text"
-          placeholder="SalePercentage"
-          onChange={evt => this.setState({ SalePercentage: evt.target.value })}
-          value={this.state.SalePercentage}
-        />
-        <input
-          type="text"
-          placeholder="Category_Category_ID"
-          onChange={evt =>
-            this.setState({ Category_Category_ID: evt.target.value })
-          }
-          value={this.state.Category_Category_ID}
-        />
-        <input
-          type="text"
-          placeholder="SubCategory_SubCategory_ID"
-          onChange={evt =>
-            this.setState({ SubCategory_SubCategory_ID: evt.target.value })
-          }
-          value={this.state.SubCategory_SubCategory_ID}
-        />
-        <input
-          type="file"
-          onChange={evt => this.setState({ ProductImage: evt.target.files[0] })}
-        />
+      <>
+        <form onSubmit={evt => this.onSubmit(evt)}>
+          <input type="text" placeholder="ProductName" name="ProductName" />
+          <input
+            type="text"
+            placeholder="ProductDescription"
+            name="ProductDescription"
+          />
+          <input type="text" placeholder="ProductPrice" name="ProductPrice" />
+          <input type="text" placeholder="Sale" name="Sale" />
+          <input
+            type="text"
+            placeholder="SalePercentage"
+            name="SalePercentage"
+          />
+          <input
+            type="text"
+            placeholder="Category_Category_ID"
+            name="Category_Category_ID"
+          />
+          <input
+            type="text"
+            placeholder="SubCategory_SubCategory_ID"
+            name="SubCategory_SubCategory_ID"
+          />
+          <input type="file" name="ProductImage" />
 
-        <div>
-          <input type="submit" value="ok" />
-          <input type="reset" value="cancel" />
-        </div>
-      </form>
+          <div>
+            <input type="submit" value="ok" />
+            <input type="reset" value="cancel" />
+          </div>
+        </form>
+        <ProductList EditMode={true} deleteProduct={this.deleteProduct} />
+      </>
     );
   }
 }

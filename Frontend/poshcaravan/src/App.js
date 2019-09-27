@@ -23,18 +23,19 @@ import FormPage from "./pages/Admin Panel Page/FormPage";
 function App() {
   return (
     <div className="App">
-      {/* <Switch> */}
-      {/*
-      <Route path="/" exact component={LandingPage} />
-      <Route path="/pages/Everything New Page/everythingnew" component={EverythingNewPage} />
-      <Route path="/pages/Vintage Page/vintagepage" component={VintagePage} />
-      <Route path="/pages/Product Page/productpage" component={ProductPage} />
-      <Route path="/pages/About Us Page/aboutus" component={AboutUs} />
-      
+      <Switch>
         <Route path="/" exact component={LandingPage} />
-      {/* <EverythingNewCategories /> */}
+        <Route
+          path="/pages/Everything New Page/everythingnew"
+          component={EverythingNewPage}
+        />
+        <Route path="/pages/Vintage Page/vintagepage" component={VintagePage} />
+        <Route path="/pages/Product Page/productpage" component={ProductPage} />
+        <Route path="/pages/About Us Page/aboutus" component={AboutUs} />
 
-      {/* <Route path="/" exact render={props => <LandingPage {...props} />} />
+        <Route path="/" exact component={LandingPage} />
+
+        <Route path="/" exact render={props => <LandingPage {...props} />} />
         <Route
           path="/pages/Everything New Page/everythingnew"
           render={props => <EverythingNewPage {...props} />}
@@ -55,9 +56,9 @@ function App() {
         <Route
           path="/pages/Everything New Page/everythingnew"
           render={props => <EverythingNewPage {...props} />}
-        /> */}
-
-      {/*   <Route
+        />
+        <Route path="/admin" render={props => <Adminpanelpage {...props} />} />
+        {/*   <Route
           path="/pages/Vintage Page/vintagepage"
           render={props => <VintagePage {...props} />}
         />
@@ -66,15 +67,15 @@ function App() {
           render={props => {
             return console.log("here");
           }} 
-        />*/}
+        />
 
-      {/* <Route
+      <Route
           path="/pages/About Us Page/aboutus"
           render={props => <AboutUs {...props} />}
-        /> */}
-      {/* </Switch> */}
+        />*/}
+      </Switch>
 
-      <FormPage />
+      {/* <FormPage /> */}
     </div>
   );
 }

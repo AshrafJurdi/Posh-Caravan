@@ -179,9 +179,10 @@ router.post(
  *
  *
  */
-router.delete("/products/delete/:id", async (req, res, next) => {
+router.get("/products/delete/:id", async (req, res, next) => {
   try {
-    let results = await db.deleteProduct((id = req.params.id));
+    console.log("id", req.params.id);
+    let results = await db.deleteProduct(req.params.id);
     res.json(results);
   } catch (e) {
     console.log(e);

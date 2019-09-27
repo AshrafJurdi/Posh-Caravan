@@ -17,8 +17,11 @@ class ProductList extends React.Component {
     };
   }
   async componentWillReceiveProps(newProps) {
-    console.log(newProps);
-    const route = newProps.location.state.route;
+    //console.log(newProps);
+    let route = "";
+    if (!newProps.location) route = "products";
+    else route = newProps.location.state.route;
+
     console.log(route);
     try {
       let url = `http://localhost:5000/${route}`;
@@ -34,7 +37,9 @@ class ProductList extends React.Component {
   }
   async componentDidMount() {
     try {
-      let url = `http://localhost:5000/${this.props.location.state.route}`;
+      let url = "";
+      if (this.props.location == null) url = `http://localhost:5000/products`;
+      else url = `http://localhost:5000/${this.props.location.state.route}`;
       console.log(url);
       const response = await fetch(url);
       const products = await response.json();
@@ -48,7 +53,7 @@ class ProductList extends React.Component {
     // let modalNumber = "modal" + nr;
     console.log(ID);
     if (ID) {
-      console.log("here?");
+      // console.log("here?");
       const product = this.state.products.find(
         product => product.Product_ID === ID
       );
@@ -75,6 +80,7 @@ class ProductList extends React.Component {
                   product={product}
                   key={index}
                   EditMode={this.props.EditMode}
+                  deleteProduct={this.props.deleteProduct}
                 />
               );
             }
