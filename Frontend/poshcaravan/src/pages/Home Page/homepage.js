@@ -11,7 +11,7 @@ class LandingPage extends React.Component {
       <div>
         <LandingSplash />
         <HeaderLogo />
-        <MainCategory />
+        <MainCategory {...this.props} />
       </div>
     );
   }

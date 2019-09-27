@@ -17,11 +17,13 @@ import ProductList from "./components/Product List/productlist";
 import VintageCategory from "./components/Categories /vintagecategories";
 import Adminpanelpage from "./pages/Admin Panel Page/adminpanelpage";
 // import adminmainpage from "./pages/Admin Panel Page/adminmainpage";
+import EverythingNewCategories from "./components/Categories /everythingnewcategories";
 
 function App() {
   return (
     <div className="App">
-      {/* <Switch>
+      <Switch>
+        {/*
       <Route path="/" exact component={LandingPage} />
       <Route path="/pages/Everything New Page/everythingnew" component={EverythingNewPage} />
       <Route path="/pages/Vintage Page/vintagepage" component={VintagePage} />
@@ -29,18 +31,31 @@ function App() {
       <Route path="/pages/About Us Page/aboutus" component={AboutUs} />
       
         <Route path="/" exact component={LandingPage} />
+      {/* <EverythingNewCategories /> */}
+        <Route path="/" exact render={props => <LandingPage {...props} />} />
         <Route
           path="/pages/Everything New Page/everythingnew"
           component={EverythingNewPage}
         />
-      <Route path="/pages/Vintage Page/vintagepage" component={VintagePage} />
-      <Route
+        <Route
+          path="/pages/Vintage Page/vintagepage"
+          render={props => <VintagePage {...props} />}
+        />
+        <Route path="/pages/Product Page/productpage" component={ProductPage} />
+        <Route path="/pages/About Us Page/aboutus" component={AboutUs} />
+        <Route path="/" exact component={LandingPage} />
+        <Route
+          path="/pages/Everything New Page/everythingnew"
+          render={props => <EverythingNewPage {...props} />}
+        />
+        /> */}
+        <Route path="/pages/Vintage Page/vintagepage" component={VintagePage} />
+        <Route
           path="/pages/Product Page/productpage"
           render={props => <ProductList {...props} />}
         />
-      </Switch>  */}
-      <Adminpanelpage />
-      {/* <adminmainpage /> */}
+        <Route path="/pages/About Us Page/aboutus" component={AboutUs} />
+      </Switch>
     </div>
   );
 }

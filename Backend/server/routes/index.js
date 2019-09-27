@@ -562,6 +562,23 @@ router.get(
     }
   }
 );
+
+/**
+ *
+ */
+router.get(
+  "/vintage&preloved/bagsandaccessories/bags",
+  async (req, res, next) => {
+    try {
+      let results = await db.vintageBags();
+      res.json(results);
+    } catch (e) {
+      console.log(e);
+      res.sendStatus(500);
+    }
+  }
+);
+
 //Below are all the routes get data from Everything New  Sub-Categories
 
 /**
@@ -643,6 +660,18 @@ router.get(
     }
   }
 );
+/**
+ *
+ */
+router.get("/everythingnew/bagsandaccessories/bags", async (req, res, next) => {
+  try {
+    let results = await db.allBags();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
 router.get("/everythingnew/fashion/jackets", async (req, res, next) => {
   try {
     let results = await db.newJackets();
