@@ -92,7 +92,7 @@ class Adminpanelpage extends Component {
         const products = [...this.state.products, new_product];
 
         // toast(`Product was successfully added!`);
-        this.setState({ products, isLoading: false, error_message: "" });
+        this.setState({ products });
         console.log(this.props.match, this.props.history);
         // this.props.history.push("/myproducts");
       } else {
@@ -108,13 +108,9 @@ class Adminpanelpage extends Component {
   // *renders the Contact as view only
 
   renderView = () => {
-    const { id, name, email, deleteContact, token, user, user_id } = this.props;
+    const { id } = this.props;
     return (
       <div className="Contact-container">
-        <h4>
-          <b>{name}</b>
-        </h4>
-        <p>{email}</p>
         {token && user && user.user_id === user_id && (
           <>
             <button className="App-button" onClick={() => deleteContact(id)}>
