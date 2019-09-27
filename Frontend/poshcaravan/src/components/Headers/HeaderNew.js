@@ -3,8 +3,8 @@ import "./Headers.css";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 class HeaderNew extends React.Component {
   render() {
     return (
@@ -22,8 +22,10 @@ class HeaderNew extends React.Component {
           >
             NEW IN
           </Link>
-          <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
+
+          <NavDropdown title="FASHION" id="collasible-nav-dropdown">
+            <NavDropdown.Item>
+              {" "}
               <Link
                 className="fashion"
                 to={{
@@ -31,79 +33,71 @@ class HeaderNew extends React.Component {
                   state: { route: "everythingnew/fashion", header: "new" }
                 }}
               >
-                FASHION
+                ALL
               </Link>
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item>
-                <Link
-                  to={{
-                    pathname: "/pages/Product Page/productpage",
-                    state: {
-                      route: "everythingnew/fashion/jackets",
-                      header: "new"
-                    }
-                  }}
-                >
-                  JACKETS
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <Link
-                  to={{
-                    pathname: "/pages/Product Page/productpage",
-                    state: {
-                      route: "everythingnew/fashion/dresses",
-                      header: "new"
-                    }
-                  }}
-                >
-                  DRESSES
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <Link
-                  to={{
-                    pathname: "/pages/Product Page/productpage",
-                    state: {
-                      route: "/everythingnew/fashion/skirts",
-                      header: "new"
-                    }
-                  }}
-                >
-                  SKIRTS
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <Link
-                  to={{
-                    pathname: "/pages/Product Page/productpage",
-                    state: {
-                      route: "everythingnew/fashion/pants",
-                      header: "new"
-                    }
-                  }}
-                >
-                  PANTS
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <Link
-                  to={{
-                    pathname: "/pages/Product Page/productpage",
-                    state: {
-                      route: "everythingnew/fashion/tops",
-                      header: "new"
-                    }
-                  }}
-                >
-                  TOPS
-                </Link>
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+              <Link
+                to={{
+                  pathname: "/pages/Product Page/productpage",
+                  state: { route: "everythingnew/fashion/jackets",
+                      header: "new" }
+                }}
+              >
+                JACKETS
+              </Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+              <Link
+                to={{
+                  pathname: "/pages/Product Page/productpage",
+                  state: { route: "everythingnew/fashion/dresses",
+                      header: "new" }
+                }}
+              >
+                DRESSES
+              </Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+              {" "}
+              <Link
+                to={{
+                  pathname: "/pages/Product Page/productpage",
+                  state: { route: "/everythingnew/fashion/skirts",
+                      header: "new" }
+                }}
+              >
+                SKIRTS
+              </Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+              {" "}
+              <Link
+                to={{
+                  pathname: "/pages/Product Page/productpage",
+                  state: { route: "everythingnew/fashion/pants" ,
+                      header: "new"}
+                }}
+              >
+                PANTS
+              </Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+              {" "}
+              <Link
+                to={{
+                  pathname: "/pages/Product Page/productpage",
+                  state: { route: "everythingnew/fashion/tops",
+                      header: "new" }
+                }}
+              >
+                TOPS
+              </Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown title="BAGS & ACCESSORIES" id="collasible-nav-dropdown">
+            <NavDropdown.Item>
               <Link
                 className="bagsaccessories"
                 to={{
@@ -114,68 +108,64 @@ class HeaderNew extends React.Component {
                   }
                 }}
               >
-                BAGS & ACCESSORIES
+                ALL
               </Link>
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item>
-                <Link
-                  to={{
-                    pathname: "/pages/Product Page/productpage",
-                    state: {
-                      route: "everythingnew/bagsandaccessories/bags",
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+              {" "}
+              <Link
+                to={{
+                  pathname: "/pages/Product Page/productpage",
+                  state: { route: "everythingnew/bagsandaccessories/bags" ,
+                      header: "new"}
+                }}
+              >
+                BAGS
+              </Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+              <Link
+                to={{
+                  pathname: "/pages/Product Page/productpage",
+                  state: { route: "everythingnew/bagsandaccessories/shoes" ,
+                      header: "new"}
+                }}
+              >
+                SHOES
+              </Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+              {" "}
+              <Link
+                to={{
+                  pathname: "/pages/Product Page/productpage",
+                  state: {
+                    route: "everythingnew/bagsandaccessories/smallleathergoods",
                       header: "new"
-                    }
-                  }}
-                >
-                  BAGS
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <Link
-                  to={{
-                    pathname: "/pages/Product Page/productpage",
-                    state: {
-                      route: "everythingnew/bagsandaccessories/shoes",
+                  }
+                }}
+              >
+                SMALL LEATHER GOODS
+              </Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+              <Link
+                to={{
+                  pathname: "/pages/Product Page/productpage",
+                  state: {
+                    route: "everythingnew/bagsandaccessories/otheraccessories",
                       header: "new"
-                    }
-                  }}
-                >
-                  SHOES
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <Link
-                  to={{
-                    pathname: "/pages/Product Page/productpage",
-                    state: {
-                      route:
-                        "everythingnew/bagsandaccessories/smallleathergoods",
-                      header: "new"
-                    }
-                  }}
-                >
-                  SMALL LEATHER GOODS
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <Link
-                  to={{
-                    pathname: "/pages/Product Page/productpage",
-                    state: {
-                      route:
-                        "everythingnew/bagsandaccessories/otheraccessories",
-                      header: "new"
-                    }
-                  }}
-                >
-                  OTHER ACCESSORIES
-                </Link>
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
+                  }
+                }}
+              >
+                OTHER ACCESSORIES
+              </Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown title="JEWELRY" id="collasible-nav-dropdown">
+            <NavDropdown.Item>
+              {" "}
               <Link
                 className="jewelry"
                 to={{
@@ -183,64 +173,56 @@ class HeaderNew extends React.Component {
                   state: { route: "everythingnew/jewelry", header: "new" }
                 }}
               >
-                JEWELRY
+                ALL
               </Link>
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item>
-                <Link
-                  to={{
-                    pathname: "/pages/Product Page/productpage",
-                    state: {
-                      route: "everythingnew/jewelry/necklaces",
-                      header: "new"
-                    }
-                  }}
-                >
-                  NECKLACES
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <Link
-                  to={{
-                    pathname: "/pages/Product Page/productpage",
-                    state: {
-                      route: "everythingnew/jewelry/bracelets",
-                      header: "new"
-                    }
-                  }}
-                >
-                  BRACELETS
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <Link
-                  to={{
-                    pathname: "/pages/Product Page/productpage",
-                    state: {
-                      route: "everythingnew/jewelry/rings",
-                      header: "new"
-                    }
-                  }}
-                >
-                  RINGS
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <Link
-                  to={{
-                    pathname: "/pages/Product Page/productpage",
-                    state: {
-                      route: "everythingnew/jewelry/otherjewelry",
-                      header: "new"
-                    }
-                  }}
-                >
-                  OTHER
-                </Link>
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+              <Link
+                to={{
+                  pathname: "/pages/Product Page/productpage",
+                  state: { route: "everythingnew/jewelry/necklaces",
+                      header: "new" }
+                }}
+              >
+                NECKLACES
+              </Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+              <Link
+                to={{
+                  pathname: "/pages/Product Page/productpage",
+                  state: { route: "everythingnew/jewelry/bracelets" ,
+                      header: "new"}
+                }}
+              >
+                BRACELETS
+              </Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+              {" "}
+              <Link
+                to={{
+                  pathname: "/pages/Product Page/productpage",
+                  state: { route: "everythingnew/jewelry/rings",
+                      header: "new" }
+                }}
+              >
+                RINGS
+              </Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+              {" "}
+              <Link
+                to={{
+                  pathname: "/pages/Product Page/productpage",
+                  state: { route: "everythingnew/jewelry/otherjewelry" ,
+                      header: "new"}
+                }}
+              >
+                OTHER
+              </Link>
+            </NavDropdown.Item>
+          </NavDropdown>
 
           <Link
             className="sale"

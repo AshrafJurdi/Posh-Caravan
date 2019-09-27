@@ -70,28 +70,24 @@ class AboutContactUs extends React.Component {
                 <Button
                   variant="light"
                   onClick={this.handleSubmit}
-                  type="submit"
+                  type="submit"textarea
                 >
                   SEND
                 </Button>
               </Form>
-              <p>
-                {" "}
-                OPENING HOURS: Tuesday to Saturday, from 9.30 to 12.30 - 16.30
-                to 19.30 Monday from 16.30 to 19.30{" "}
-              </p>
             </div>
           </Tab>
           <Tab eventKey="findus" title="FIND US">
             <p>
-              STORE Via Cavour 20, 35042 ESTE, PD. Italy Mobile 0039 334 1457054
+              STORE Via Cavour 20, 35042 ESTE, PD. Italy 
+              <br />Mobile 0039 334 1457054
               info@poshcaravan.com
             </p>
-            OPENING HOURS:
+            WE ARE OPEN
             <p>
               {" "}
-              Tuesday to Saturday, from 9.30 to 12.30 - 16.30 to 19.30 Monday
-              from 16.30 to 19.30{" "}
+              Tuesday to Saturday, from 9.30 to 12.30 - 16.30 to 19.30 
+              <br /> Monday from 16.30 to 19.30{" "}
             </p>
             <div className="map">
               <iframe
