@@ -2,7 +2,6 @@ import React from "react";
 import "./Headers.css";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-
 import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 
@@ -38,7 +37,7 @@ class HeaderVintage extends React.Component {
                   state: { route: "vintage&preloved/clothes" }
                 }}
               >
-                CLOTHING
+                ALL
               </Link>
               <NavDropdown.Item>
                 <Link
