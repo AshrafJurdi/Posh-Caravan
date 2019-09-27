@@ -16,6 +16,7 @@ import MainCategory from "./components/MainCategory/MainCategory";
 import ProductList from "./components/Product List/productlist";
 import VintageCategory from "./components/Categories /vintagecategories";
 import Adminpanelpage from "./pages/Admin Panel Page/adminpanelpage";
+// import adminmainpage from "./pages/Admin Panel Page/adminmainpage";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         />
       </Switch>  */}
       <Adminpanelpage />
+      {/* <adminmainpage /> */}
     </div>
   );
 }

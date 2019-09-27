@@ -154,13 +154,14 @@ poshcaravandb.oneProduct = () => {
 poshcaravandb.addProduct = props => {
   return new Promise((resolve, reject) => {
     pool.query(
-      `INSERT INTO Products (ProductName, ProductDescription, ProductPrice, ProductImage,Sale, Category_Category_ID, SubCategory_SubCategory_ID) VALUES (?,?,?,?,?,?,?)`,
+      `INSERT INTO Products (ProductName, ProductDescription, ProductPrice, ProductImage,Sale,SalePercentage, Category_Category_ID, SubCategory_SubCategory_ID) VALUES (?,?,?,?,?,?,?,?)`,
       [
         props.ProductName,
         props.ProductDescription,
         props.ProductPrice,
         props.ProductImage,
         props.Sale,
+        props.SalePercentage,
         props.Category_Category_ID,
         props.SubCategory_SubCategory_ID
       ],
