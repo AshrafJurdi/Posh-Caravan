@@ -74,6 +74,7 @@ class ProductList extends React.Component {
                   toggle={this.toggle}
                   product={product}
                   key={index}
+                  EditMode={this.props.EditMode}
                 />
               );
             }
