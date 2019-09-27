@@ -35,26 +35,39 @@ function App() {
         <Route path="/" exact render={props => <LandingPage {...props} />} />
         <Route
           path="/pages/Everything New Page/everythingnew"
-          component={EverythingNewPage}
+          render={props => <EverythingNewPage {...props} />}
         />
         <Route
           path="/pages/Vintage Page/vintagepage"
           render={props => <VintagePage {...props} />}
         />
-        <Route path="/pages/Product Page/productpage" component={ProductPage} />
-        <Route path="/pages/About Us Page/aboutus" component={AboutUs} />
-        <Route path="/" exact component={LandingPage} />
+        <Route
+          path="/pages/Product Page/productpage"
+          render={props => <ProductPage {...props} />}
+        />
+        <Route
+          path="/pages/About Us Page/aboutus"
+          render={props => <AboutUs {...props} />}
+        />
+        <Route path="/" exact render={props => <LandingPage {...props} />} />
         <Route
           path="/pages/Everything New Page/everythingnew"
           render={props => <EverythingNewPage {...props} />}
         />
-        /> */}
-        <Route path="/pages/Vintage Page/vintagepage" component={VintagePage} />
-        <Route
-          path="/pages/Product Page/productpage"
-          render={props => <ProductList {...props} />}
+        {/*   <Route
+          path="/pages/Vintage Page/vintagepage"
+          render={props => <VintagePage {...props} />}
         />
-        <Route path="/pages/About Us Page/aboutus" component={AboutUs} />
+         <Route
+          path="/pages/Product Page/productpage"
+          render={props => {
+            return console.log("here");
+          }} 
+        />*/}
+        <Route
+          path="/pages/About Us Page/aboutus"
+          render={props => <AboutUs {...props} />}
+        />
       </Switch>
     </div>
   );

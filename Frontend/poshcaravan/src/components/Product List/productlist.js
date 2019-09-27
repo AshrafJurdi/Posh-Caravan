@@ -2,13 +2,13 @@ import React from "react";
 import Itempopup from "../Itempopup/Itempopup.js";
 import ProductCard from "../ProductCard/ProductCard.js";
 import Pagination from "react-js-pagination";
-import HeaderVintage from "../Headers/HeaderVintage";
-import HeaderNew from "../Headers/HeaderNew";
+/* import HeaderVintage from "../Headers/HeaderVintage";
+import HeaderNew from "../Headers/HeaderNew"; */
 import "./productlist.css";
 
 class ProductList extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       show: false,
       product: null,
@@ -16,18 +16,34 @@ class ProductList extends React.Component {
       products: []
     };
   }
-  componentDidMount = async () => {
+  async componentWillReceiveProps(newProps) {
+    console.log(newProps);
+    const route = newProps.location.state.route;
+    console.log(route);
+    try {
+      let url = `http://localhost:5000/${route}`;
+      console.log(url);
+      const response = await fetch(url);
+      const products = await response.json();
+      this.setState({ products });
+      //console.log(products);
+    } catch (err) {
+      console.log(err);
+    }
+    //console.log(n)
+  }
+  async componentDidMount() {
     try {
       let url = `http://localhost:5000/${this.props.location.state.route}`;
       console.log(url);
       const response = await fetch(url);
       const products = await response.json();
       this.setState({ products });
-      console.log(products);
+      //console.log(products);
     } catch (err) {
       console.log(err);
     }
-  };
+  }
   toggle = ID => {
     // let modalNumber = "modal" + nr;
     console.log(ID);
@@ -47,11 +63,6 @@ class ProductList extends React.Component {
   render() {
     return (
       <div>
-        {this.props.location.state.header === "vintage" ? (
-          <HeaderVintage />
-        ) : (
-          <HeaderNew />
-        )}
         <div className="productList">
           {this.state.products.map((product, index) => {
             if (
