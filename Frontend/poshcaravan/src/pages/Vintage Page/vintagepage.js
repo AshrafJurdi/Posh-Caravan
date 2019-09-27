@@ -11,9 +11,9 @@ class VintagePage extends React.Component {
       <div>
         <HeaderLogo />
         <HeaderVintage {...this.props} />
-        <VintageCategories />
-        <AboutContactUs />
-        <Footer />
+        <VintageCategories {...this.props} />
+        <AboutContactUs {...this.props} />
+        <Footer {...this.props} />
       </div>
     );
   }
