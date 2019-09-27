@@ -111,15 +111,15 @@ class Adminpanelpage extends Component {
     const { id } = this.props;
     return (
       <div className="Contact-container">
-        {token && user && user.user_id === user_id && (
-          <>
-            <button className="App-button" onClick={() => deleteContact(id)}>
-              delete
-            </button>
-            <button className="App-button" onClick={this.toggleEditMode}>
-              edit
-            </button>
-          </>
+        {/* {token && user && user.user_id === user_id && ( */}
+        <>
+          {/* <button className="App-button" onClick={() => deleteContact(id)}>
+            delete
+          </button> */}
+          <button className="App-button" onClick={this.toggleEditMode}>
+            edit
+          </button>
+        </>
         )}
       </div>
     );

@@ -7,7 +7,6 @@ import { HashLink } from "react-router-hash-link";
 
 import Dropdown from "react-bootstrap/Dropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { HashLink } from "react-router-hash-link";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
 class HeaderVintage extends React.Component {
