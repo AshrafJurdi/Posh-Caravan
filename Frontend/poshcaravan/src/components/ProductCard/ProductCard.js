@@ -9,10 +9,22 @@ class ProductCard extends React.Component {
       EditMode: false
     };
   }
+  componentDidMount(props) {
+    if (this.props.EditMode === true) {
+      this.setSate({ EditMode: this.props.EditMode });
+    }
+  }
+  /**
+   * toggles the state editMode
+   * @function toggleEditMode
+   * @return {null}
+   *
+   */
+
   render() {
     return (
       <div className="Card1">
-        {this.props.EditMode === false ? (
+        {this.state.EditMode === false ? (
           <MDBCard
             className="mx-4"
             style={{ width: "15rem", height: "23rem" }}
@@ -57,7 +69,6 @@ class ProductCard extends React.Component {
                 {/* <MDBIcon icon="chevron-right" /> */}
               </p>
             </div>
-            <button>delete</button>
           </MDBCard>
         )}
       </div>
