@@ -8,9 +8,9 @@ class ProductPage extends React.Component {
   render() {
     return (
       <div>
-      <HeaderLogo />
-        <ProductList />
-       <AboutContactUs />
+        <HeaderLogo />
+        <ProductList {...this.props} />
+        <AboutContactUs />
         <Footer />
       </div>
     );

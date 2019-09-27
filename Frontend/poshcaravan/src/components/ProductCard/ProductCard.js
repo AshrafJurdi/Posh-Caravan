@@ -1,6 +1,6 @@
 import React from "react";
 import { MDBCard, MDBCardImage, MDBIcon } from "mdbreact";
-import "../Product List/productlist.css";
+import "./ProductCard.css";
 
 class ProductCard extends React.Component {
   render() {
@@ -12,7 +12,6 @@ class ProductCard extends React.Component {
           collection
         >
           <div className="imagecard">
-            {" "}
             <MDBCardImage
               className="img-fluid"
               zoom
@@ -25,7 +24,7 @@ class ProductCard extends React.Component {
           >
             <p>
               {this.props.product.ProductName}
-              <MDBIcon icon="chevron-right" />
+              {/* <MDBIcon icon="chevron-right" /> */}
             </p>
           </div>
         </MDBCard>

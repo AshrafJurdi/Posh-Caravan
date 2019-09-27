@@ -1,0 +1,88 @@
+.grid-container1 {
+  display: grid;
+  grid-template-columns: 20% 20% 11% 10% 20% 20%;
+  grid-template-rows: 10% 10% 30% 20% 20% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 20% 10% 10% 10% 10% 10% 10% 10% 40% 40% 10% 10%;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.image1 {
+  grid-area: 1 / 4 / 6 / 7;
+
+  background-image: url(http://localhost:5000/Images/mainpic.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: top;
+  margin-right: 150px;
+  width: 100%;
+}
+
+.image2 {
+  grid-area: 4 / 3 / 7 / 4;
+  background-image: url(http://localhost:5000/Images/youarebeautiful.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 50px;
+  margin-bottom: -17px;
+  margin-right: 10px;
+  width: 100%;
+}
+
+.image3 {
+  grid-area: 4/ 1 / 12 / 3;
+
+  margin-top: 70px;
+}
+
+.line1 {
+  grid-area: 6 / 4 / 7 / 7;
+  background: pink;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.image4 {
+  grid-area: 7 / 3 / 16 / 7;
+}
+
+.image5 {
+  grid-area: 18 / 1 /22 / 7;
+  background: pink;
+}
+
+.image6 {
+  grid-area: 15 / 1 / 21 / 5;
+}
+
+.image8 {
+  grid-area: 26/ 1 / 27/ 2;
+}
+
+.image7 {
+  grid-area: 23 / 2 / 27 / 7;
+}
+
+.image9 {
+  grid-area: 27 / 1 / 28 / 7;
+  background: pink;
+  margin-top: 50px;
+}
+.bottomText {
+  float: right;
+  width: 200px;
+  color: white;
+  margin: 4% 15%;
+}
+
+.bottomSideText {
+  float: right;
+  width: 150px;
+  color: pink;
+  margin-top: -20%;
+  word-wrap: break-word;
+  text-align: right;
+  margin-right: 4%;
+}

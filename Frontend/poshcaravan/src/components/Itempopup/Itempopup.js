@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 import "./Itempopup.css";
-import {
-  MDBContainer,
-  MDBModal,
-  MDBModalHeader,
-  MDBCol
-} from "mdbreact";
+import { MDBContainer, MDBModal, MDBModalHeader, MDBCol } from "mdbreact";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
@@ -28,14 +23,16 @@ class ModalPage extends Component {
                 <Row>
                   <Col md={6}>
                     <img
-                      src={this.props.product.Picture}
+                      src={`http://localhost:5000/Images/${this.props.product.ProductImage}`}
                       className="img-fluid"
                     />
                   </Col>
                   <Col md={6}>
-                    <h1 className="Title">{this.props.product.Title}</h1>
-                    <h3 className="Description">{this.props.product.Description}</h3>
-                    <h3 >{this.props.product.Price}</h3>
+                    <h1 className="Title">{this.props.product.ProductName}</h1>
+                    <h3 className="Description">
+                      {this.props.product.ProductDescription}
+                    </h3>
+                    <h3>{this.props.product.ProductPrice}</h3>
                   </Col>
                 </Row>
               </Container>
