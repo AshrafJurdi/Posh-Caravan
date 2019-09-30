@@ -1,5 +1,5 @@
 import React from "react";
-import "./Headers.css";
+import "../Headers.css";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
@@ -7,6 +7,7 @@ import { HashLink } from "react-router-hash-link";
 
 import Dropdown from "react-bootstrap/Dropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { HashLink } from "react-router-hash-link";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
 class HeaderVintage extends React.Component {

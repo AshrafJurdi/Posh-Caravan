@@ -11,9 +11,9 @@ class EverythingNewPage extends React.Component {
       <div>
         <HeaderLogo />
         <HeaderNew {...this.props} />
-        <EverythingNewCategories />
-        <AboutContactUs />
-        <Footer />
+        <EverythingNewCategories {...this.props} />
+        <AboutContactUs {...this.props} />
+        <Footer {...this.props} />
       </div>
     );
   }

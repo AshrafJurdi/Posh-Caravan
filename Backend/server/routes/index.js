@@ -175,22 +175,25 @@ router.get("/products/:id", async (req, res, next) => {
  */
 router.post(
   "/product/create",
-  upload.single("image"),
+  upload.single("ProductImage"),
   async (req, res, next) => {
     try {
       const ProductName = req.body.ProductName;
       const ProductDescription = req.body.ProductDescription;
       const ProductPrice = req.body.ProductPrice;
-      const ProductImage = req.body.ProductImage;
+      const ProductImage = req.file.filename;
       const Sale = req.body.Sale;
+      const SalePercentage = req.body.SalePercentage;
       const Category_Category_ID = req.body.Category_Category_ID;
       const SubCategory_SubCategory_ID = req.body.SubCategory_SubCategory_ID;
+      console.log(req.body);
       let results = await db.addProduct({
         ProductName,
         ProductDescription,
         ProductPrice,
         ProductImage,
         Sale,
+        SalePercentage,
         Category_Category_ID,
         SubCategory_SubCategory_ID
       });
@@ -206,9 +209,10 @@ router.post(
  *
  *
  */
-router.delete("/products/delete/:id", async (req, res, next) => {
+router.get("/products/delete/:id", async (req, res, next) => {
   try {
-    let results = await db.deleteProduct((id = req.params.id));
+    console.log("id", req.params.id);
+    let results = await db.deleteProduct(req.params.id);
     res.json(results);
   } catch (e) {
     console.log(e);
