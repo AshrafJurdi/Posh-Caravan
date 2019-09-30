@@ -3,6 +3,7 @@ const db = require("../db");
 const multer = require("multer");
 const path = require("path");
 const router = express.Router();
+const nodemailer = require("nodemailer");
 
 const multerStorage = multer.diskStorage({
   destination: path.join(__dirname, "../Public/Images"),
@@ -15,6 +16,35 @@ const multerStorage = multer.diskStorage({
 });
 const upload = multer({ storage: multerStorage });
 
+//Below Mail message and recieve
+
+router.post("/contact", (req, res) => {
+  const transport = {
+    service: "Gmail",
+    auth: {
+      user: "",
+      pass: ""
+    }
+  };
+  console.log(transport);
+  const transporter = nodemailer.createTransport(transport);
+
+  const option = {
+    from: `${req.body.name}: <${req.body.email}`,
+    to: "mayadihny@gmail.com",
+    subject: `${req.body}`,
+    html: `<h3> message Contact </h3>
+               <ul>
+                    <li>Name :${req.body.name}</li>
+                    <li>Email :${req.body.email}</li>
+                </ul>
+                <h3>MEssage</h3>
+                <p>${req.body.message}</p>`
+  };
+  transporter.sendMail(option, (err, info) => {
+    err ? console.log(err) : console.log("Email has sent....");
+  });
+});
 //Below are all the CRUD routes for the Users table
 /**
  *
