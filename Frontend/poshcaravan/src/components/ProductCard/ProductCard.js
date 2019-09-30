@@ -1,12 +1,22 @@
 import React from "react";
-import { MDBCard, MDBCardImage, MDBIcon } from "mdbreact";
+import {
+  MDBCard,
+  MDBCardImage,
+  MDBBtn,
+  MDBContainer,
+  MDBModal,
+  MDBModalBody,
+  MDBModalFooter
+} from "mdbreact";
+
 import "./ProductCard.css";
 
 class ProductCard extends React.Component {
   constructor() {
     super();
     this.state = {
-      EditMode: false
+      EditMode: false,
+      modal: false
     };
   }
   componentDidMount(props) {
@@ -14,6 +24,13 @@ class ProductCard extends React.Component {
       this.setState({ EditMode: this.props.EditMode });
     }
   }
+
+  toggle = () => {
+    this.setState({
+      modal: !this.state.modal
+    });
+  };
+
   /**
    * toggles the state editMode
    * @function toggleEditMode
@@ -58,6 +75,7 @@ class ProductCard extends React.Component {
                 <MDBCardImage
                   className="img-fluid"
                   zoom
+                  style={{ maxHeight: "80vh" }}
                   src={`http://localhost:5000/Images/${this.props.product.ProductImage}`}
                 />
               </div>
@@ -71,13 +89,34 @@ class ProductCard extends React.Component {
                 </p>
               </div>
             </MDBCard>
-            <button
+            <MDBContainer>
+              <i className="far fa-trash-alt" onClick={this.toggle}></i>
+
+              <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
+                <MDBModalBody>
+                  Are you sure you want to delete this product?
+                </MDBModalBody>
+                <MDBModalFooter>
+                  <MDBBtn color="secondary" onClick={this.toggle}>
+                    Cancel
+                  </MDBBtn>
+                  <MDBBtn
+                    onClick={() => {
+                      this.props.deleteProduct(this.props.product.Product_ID);
+                      this.toggle();
+                    }}
+                  >
+                    Delete
+                  </MDBBtn>
+                </MDBModalFooter>
+              </MDBModal>
+            </MDBContainer>
+            <i
+              class="far fa-edit"
               onClick={() =>
-                this.props.deleteProduct(this.props.product.Product_ID)
+                this.props.toggle(this.props.product.Product_ID, true)
               }
-            >
-              Delete
-            </button>
+            ></i>
           </>
         )}
       </div>
