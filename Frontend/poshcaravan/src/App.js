@@ -18,23 +18,23 @@ import VintageCategory from "./components/Categories /vintagecategories";
 import Adminpanelpage from "./pages/Admin Panel Page/adminpanelpage";
 // import adminmainpage from "./pages/Admin Panel Page/adminmainpage";
 import EverythingNewCategories from "./components/Categories /everythingnewcategories";
-import FormPage from "./pages/Admin Panel Page/FormPage";
+// import FormPage from "./pages/Admin Panel Page/FormPage";
 
 function App() {
   return (
     <div className="App">
-      {/* <Switch> */}
-      {/*
-      <Route path="/" exact component={LandingPage} />
-      <Route path="/pages/Everything New Page/everythingnew" component={EverythingNewPage} />
-      <Route path="/pages/Vintage Page/vintagepage" component={VintagePage} />
-      <Route path="/pages/Product Page/productpage" component={ProductPage} />
-      <Route path="/pages/About Us Page/aboutus" component={AboutUs} />
-      
+      <Switch>
         <Route path="/" exact component={LandingPage} />
-      {/* <EverythingNewCategories /> */}
-
-      {/* <Route path="/" exact render={props => <LandingPage {...props} />} />
+        <Route
+          path="/pages/Everything New Page/everythingnew"
+          component={EverythingNewPage}
+        />
+        <Route path="/pages/Vintage Page/vintagepage" component={VintagePage} />
+        <Route path="/pages/Product Page/productpage" component={ProductPage} />
+        <Route path="/pages/About Us Page/aboutus" component={AboutUs} />
+        <Route path="/" exact component={LandingPage} />
+        {/* <EverythingNewCategories /> */}
+        <Route path="/" exact render={props => <LandingPage {...props} />} />
         <Route
           path="/pages/Everything New Page/everythingnew"
           render={props => <EverythingNewPage {...props} />}
@@ -55,9 +55,8 @@ function App() {
         <Route
           path="/pages/Everything New Page/everythingnew"
           render={props => <EverythingNewPage {...props} />}
-        /> */}
-
-      {/*   <Route
+        />{" "}
+        {/*   <Route
           path="/pages/Vintage Page/vintagepage"
           render={props => <VintagePage {...props} />}
         />
@@ -67,14 +66,13 @@ function App() {
             return console.log("here");
           }} 
         />*/}
-
-      {/* <Route
+        <Route
           path="/pages/About Us Page/aboutus"
           render={props => <AboutUs {...props} />}
-        /> */}
-      {/* </Switch> */}
-
-      <FormPage />
+        />
+      </Switch>
+      {/* <FormPage /> */}
+      <Adminpanelpage />
     </div>
   );
 }

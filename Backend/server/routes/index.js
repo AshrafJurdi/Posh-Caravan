@@ -17,7 +17,7 @@ const upload = multer({ storage: multerStorage });
 
 //Below are all the CRUD routes for the Users table
 /**
- *
+ * Route that
  *
  */
 router.get("/users", async (req, res, next) => {
@@ -140,7 +140,6 @@ router.get("/products/:id", async (req, res, next) => {
 });
 
 /**
- *
  *
  */
 router.post(

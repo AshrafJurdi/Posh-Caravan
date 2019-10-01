@@ -16,8 +16,11 @@ let poshcaravandb = {};
 //Below are all the controllers for querying  CRUD functions from Users table in the DB
 
 /**
- *
- *
+ * retrieves all Users from the database
+ * @function allUsers
+ * @param {function} resolve - function to resolve the promise
+ * @param {function} reject- function to reject the promise
+ * @returns {array} the list of contacts
  */
 poshcaravandb.allUsers = () => {
   return new Promise((resolve, reject) => {
@@ -30,10 +33,12 @@ poshcaravandb.allUsers = () => {
   });
 };
 
-/**
- *
- *
- */
+/** retreive one user required from the database
+ * @function oneUser
+ * @param {function} resolve - function to resolve the promise
+ * @param {function} reject- function to reject the promise
+ * @return {object} - resolves the promise by returning one user
+ * */
 poshcaravandb.oneUser = () => {
   return new Promise((resolve, reject) => {
     pool.query(`SELECT * FROM Users WHERE User_ID= ?`, [id], (err, results) => {
@@ -45,9 +50,11 @@ poshcaravandb.oneUser = () => {
   });
 };
 
-/**
- *
- *
+/** add one new user
+ * @function addUser
+ * @param {function} resolve - function to resolve the promise
+ * @param {function} reject - function to reject the promise
+ * @return {object} - return results
  */
 poshcaravandb.addUser = props => {
   return new Promise((resolve, reject) => {
@@ -70,13 +77,16 @@ poshcaravandb.addUser = props => {
   });
 };
 
-/**
- *
- *
+/** delete one user
+ * @function deleteUser
+ * @param {function} resolve - function to resolve the promise
+ * @param {function} reject - function to reject the promise
+ * @param {object} - return results
  */
 poshcaravandb.deleteUser = () => {
   return new Promise((resolve, reject) => {
     pool.query(`DELETE FROM Users WHERE User_ID= ?`, [id], (err, results) => {
+      console.log(results);
       if (err) {
         return reject(err);
       }
@@ -85,9 +95,11 @@ poshcaravandb.deleteUser = () => {
   });
 };
 
-/**
- *
- *
+/** update one user
+ * @function updateUser
+ * @param {function} resolve - function to resolve the promise
+ * @param {function} reject - function to reject the promise
+ * @param {object} return results
  */
 poshcaravandb.updateUser = props => {
   return new Promise((resolve, reject) => {
@@ -113,9 +125,11 @@ poshcaravandb.updateUser = props => {
 
 //Below are all the controllers for querying  CRUD functions from Products table in the DB
 
-/**
- *
- *
+/** retreive all Products from db
+ * @function allProducts
+ * @param {function} resolve - function to resolve the promise
+ * @param {function} reject - function to reject the promise
+ * @returns {array} the list of Products
  */
 poshcaravandb.allProducts = () => {
   return new Promise((resolve, reject) => {
@@ -128,9 +142,11 @@ poshcaravandb.allProducts = () => {
   });
 };
 
-/**
- *
- *
+/** retreive one required product
+ * @function oneProduct
+ * @param {function} resolve - id to search by
+ * @param {function} reject- function to reject the promise
+ * @return {object} - resolves the promise by returning one product
  */
 poshcaravandb.oneProduct = () => {
   return new Promise((resolve, reject) => {
@@ -147,9 +163,11 @@ poshcaravandb.oneProduct = () => {
   });
 };
 
-/**
- *
- *
+/** add one new product
+ * @function addProduct
+ * @param {function} resolve - function to resolve the promise
+ * @param {function} reject - function to reject the promise
+ * @return {object} resolves the promise by adding one product
  */
 poshcaravandb.addProduct = props => {
   return new Promise((resolve, reject) => {
@@ -175,9 +193,11 @@ poshcaravandb.addProduct = props => {
   });
 };
 
-/**
- *
- *
+/** delete one product
+ * @function deleteProduct
+ * @param {function} resolve - function to resolve the promise
+ * @param {function} reject - function to reject the promise
+ * @param {object} - return results
  */
 poshcaravandb.deleteProduct = () => {
   return new Promise((resolve, reject) => {
@@ -194,10 +214,13 @@ poshcaravandb.deleteProduct = () => {
   });
 };
 
-/**
- *
- *
+/** update one product
+ * @function updateProduct
+ * @param {function} resolve - function to resolve the promise
+ * @param {function} reject - function to reject the promise
+ * @returns return resutlts
  */
+
 poshcaravandb.updateProduct = props => {
   return new Promise((resolve, reject) => {
     pool.query(
@@ -223,7 +246,7 @@ poshcaravandb.updateProduct = props => {
   });
 };
 
-//Below are all the controllers for querying  Categories  of Vintage & Preloved MainCategory  from Products table in the DB
+//Below are all the controllers for querying Categories of Vintage & Preloved MainCategory  from Products table in the DB
 
 /**
  *
@@ -479,9 +502,11 @@ poshcaravandb.allNewFashion = () => {
 };
 //Below are all the controllers for querying  Sub-Categories  of Everything New MainCategory  from Products table in the DB
 
-/**
- *
- *
+/** retreive all products that falls under the number 4 (Jewelry in Everything New category and the number 10 (sub category)
+ * @function newNecklaces
+ * @param {function} resolve - function to resolve the promise
+ * @param {function} reject - function to reject the promise
+ * @returns array of object
  */
 poshcaravandb.newNecklaces = () => {
   return new Promise((resolve, reject) => {
@@ -498,9 +523,11 @@ poshcaravandb.newNecklaces = () => {
   });
 };
 
-/**
- *
- *
+/** retreive all products between number 4 and 11 from the database
+ * @function newBracelets
+ * @param {function} resolve - function to resolve the promise
+ * @param {function} reject - function to reject the promise
+ * @returns array of object
  */
 poshcaravandb.newBracelets = () => {
   return new Promise((resolve, reject) => {
@@ -517,9 +544,11 @@ poshcaravandb.newBracelets = () => {
   });
 };
 
-/**
- *
- *
+/** retreive all products between number 4 and 12 from the database
+ * @function newRings
+ * @param {function} resolve - function to resolve the promise
+ * @param {function} reject - function to reject the promise
+ * @returns array of object
  */
 poshcaravandb.newRings = () => {
   return new Promise((resolve, reject) => {
@@ -536,10 +565,13 @@ poshcaravandb.newRings = () => {
   });
 };
 
-/**
- *
- *
+/** retreive all products between number 3 and 9 from the database
+ * @function allBags
+ * @param {function} resolve - function to resolve the promise
+ * @param {function} reject - function to reject the promise
+ * @returns array of object
  */
+
 poshcaravandb.allBags = () => {
   return new Promise((resolve, reject) => {
     pool.query(
@@ -554,9 +586,11 @@ poshcaravandb.allBags = () => {
   });
 };
 
-/**
- *
- *
+/** retreive all products between number 4 and 13 from the database
+ * @function newOtherJewelry
+ * @param {function} resolve - function to resolve the promise
+ * @param {function} reject - function to reject the promise
+ * @returns array of object
  */
 poshcaravandb.newOtherJewelry = () => {
   return new Promise((resolve, reject) => {
@@ -573,9 +607,11 @@ poshcaravandb.newOtherJewelry = () => {
   });
 };
 
-/**
- *
- *
+/** retreive all products between number 3 and 7 from the database
+ * @function allshoes
+ * @param {function} resolve - function to resolve the promise
+ * @param {function} reject - function to reject the promise
+ * @returns array of object
  */
 poshcaravandb.allshoes = () => {
   return new Promise((resolve, reject) => {

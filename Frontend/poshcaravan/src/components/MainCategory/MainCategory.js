@@ -6,9 +6,22 @@ import Image from "react-bootstrap/Image";
 import "./MainCategory.css";
 import { Link } from "react-router-dom";
 
+/** Main component page that display two pictures that allow me to connect to the Vintage or Everything New pages
+ *
+ * @module MainCategory
+ */
+
 class MainCategory extends Component {
+  /**
+   * @function
+   */
+
+  /**
+   * @object
+   */
   constructor() {
     super();
+
     this.state = {
       category: [
         { name: "Vinatge & Pre Loved", image: "/poshcaravan_landingimg1.jpg" },
@@ -16,14 +29,18 @@ class MainCategory extends Component {
       ]
     };
   }
-
+  /**
+   * Renders the component.
+   * @function render
+   * @return two iamges that redirect to vintage or everything new pages
+   *
+   */
   render() {
     return (
       <div>
         <Container>
           <Row>
             <Col xs={6} md={6}>
-              {/* <a href="https://www.w3schools.com/html/"> */}
               <Link className="vintage" to="/pages/Vintage Page/vintagepage">
                 <Image
                   src={process.env.PUBLIC_URL + this.state.category[0].image}
@@ -32,7 +49,6 @@ class MainCategory extends Component {
                   fluid
                 />
               </Link>
-              {/* </a> */}
             </Col>
 
             <Col xs={6} md={6}>
@@ -50,13 +66,6 @@ class MainCategory extends Component {
             </Col>
           </Row>
         </Container>
-        {/* <Container>
-                    <Row>
-                        <Col ></Col>
-                        <Col ></Col>
-                    </Row>
-                    
-                </Container> */}
       </div>
     );
   }
