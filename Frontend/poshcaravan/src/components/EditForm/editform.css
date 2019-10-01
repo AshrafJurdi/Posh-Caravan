@@ -1,6 +1,27 @@
-form {
-  width: 100%;
+.form-group {
+  width: 50%;
   border: 3px solid pink;
   text-align: center;
   padding: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+
+  .form-group {
+    width: 100%;
+    border: 3px solid pink;
+    text-align: center;
+    padding: 20px;
+    justify-content: center;
+  }
+  #radio1 {
+    width: 5%;
+  }
+  #radio2 {
+    width: 5%;
+  }
 }

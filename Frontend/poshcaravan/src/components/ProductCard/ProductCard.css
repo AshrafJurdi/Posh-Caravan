@@ -123,3 +123,7 @@ img {
 .fa-trash-alt:hover {
   color: red;
 }
+.stripe.dark p:hover {
+  font-size: 15px;
+  transition: all 0.2s ease-in-out;
+}

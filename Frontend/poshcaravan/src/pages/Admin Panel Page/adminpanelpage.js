@@ -10,6 +10,7 @@ import {
 import ProductList from "../../components/Product List/productlist";
 import CreateForm from "../../components/CreateForm/createform";
 import HeaderLogo from "../../components/Headers/HeaderLogo";
+import "./adminpanelpage.css";
 
 /**
  * My component adminpanelpage that allows me to add a product
@@ -71,7 +72,9 @@ class Adminpanelpage extends Component {
         <HeaderLogo />
 
         <MDBContainer>
-          <MDBBtn onClick={this.toggle}>Add Product</MDBBtn>
+          <MDBBtn onClick={this.toggle} style={{ backgroundColor: "pink" }}>
+            Add Product
+          </MDBBtn>
           <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
             <MDBModalHeader toggle={this.toggle}>Add Product</MDBModalHeader>
             <MDBModalBody>

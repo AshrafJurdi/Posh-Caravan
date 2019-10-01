@@ -157,149 +157,147 @@ class CreateForm extends React.Component {
   render() {
     let cat_default = false;
     return (
-      <div className="form-group">
-        <form onSubmit={e => this.onSubmit(e)}>
-          <MDBInput
-            label="Product Name"
-            outline
-            size="lg"
-            type="text"
-            name="ProductName"
-            required
-            onChange={this.handleChange}
-          />
-          <MDBInput
-            type="textarea"
-            label="Description"
-            outline
-            size="lg"
-            name="ProductDescription"
-            required
-            onChange={this.handleChange}
-          />
-          <label>
-            Upload Image <br />
-            <input
-              type="file"
-              name="ProductImage"
-              onChange={this.onChangeHandler}
-              required
-            />
-          </label>
-          <br />
-          <h4 styl>Main Category</h4>
-          <MDBFormInline style={{ justifyContent: "center", width: "100%" }}>
-            <MDBInput
-              onClick={this.onClick(2)}
-              checked={this.state.mainCategory === 2 ? true : false}
-              label="Everything New"
-              type="radio"
-              id="radio1"
-              required
-            />
-            <MDBInput
-              onClick={this.onClick(1)}
-              checked={this.state.mainCategory === 1 ? true : false}
-              label="Vintage & Preloved"
-              type="radio"
-              id="radio2"
-            />
-          </MDBFormInline>
-          <br />
-          <label>
-            Category
-            <select
-              className="browser-default custom-select"
-              value={this.state.Category_Category_ID}
-              name="Category_Category_ID"
-              onChange={this.handleChange}
-              required
-            >
-              {this.state.mainCategory === 1
-                ? this.state.categories.map(category => {
-                    if (category.MainCategory_MainCategory_ID === 1) {
-                      return (
-                        <option value={category.Category_ID}>
-                          {category.CategoryName}
-                        </option>
-                      );
-                    }
-                  })
-                : this.state.categories.map(category => {
-                    if (category.MainCategory_MainCategory_ID === 2) {
-                      return (
-                        <option value={category.Category_ID}>
-                          {category.CategoryName}
-                        </option>
-                      );
-                    }
-                  })}
-            </select>
-          </label>
-          <br />
-          <br />
-          <label>
-            Sub-Category
-            <select
-              className="browser-default custom-select"
-              name="SubCategory_SubCategory_ID"
-              value={this.state.SubCategory_SubCategory_ID}
-              onChange={this.handleChange}
-              required
-            >
-              {this.state.Subcategories.map(subcategory => {
-                return (
-                  <option value={subcategory.SubCategory_ID}>
-                    {subcategory.SubCategoryName}
-                  </option>
-                );
-              })}
-            </select>
-          </label>
-          <br />
-
-          <MDBInput
-            label="Price"
-            outline
-            size="lg"
-            type="text"
-            name="ProductPrice"
-            onChange={this.handleChange}
-            append={<span className="input-group-text">€</span>}
+      <form className="form-group1" onSubmit={e => this.onSubmit(e)}>
+        <MDBInput
+          label="Product Name"
+          outline
+          size="lg"
+          type="text"
+          name="ProductName"
+          required
+          onChange={this.handleChange}
+        />
+        <MDBInput
+          type="textarea"
+          label="Description"
+          outline
+          size="lg"
+          name="ProductDescription"
+          required
+          onChange={this.handleChange}
+        />
+        <label>
+          Upload Image <br />
+          <input
+            type="file"
+            name="ProductImage"
+            onChange={this.onChangeHandler}
             required
           />
-
-          <label>
-            Sale
-            <select
-              className="browser-default custom-select"
-              name="Sale"
-              value={this.state.Sale}
-              onChange={this.handleChange}
-              required
-            >
-              <option value="No">No</option>
-              <option value="Yes">Yes</option>
-            </select>
-          </label>
-          <br />
-
+        </label>
+        <br />
+        <h4 styl>Main Category</h4>
+        <MDBFormInline style={{ justifyContent: "center", width: "100%" }}>
           <MDBInput
-            label="Sale Percentage"
-            outline
-            size="lg"
-            type="text"
-            name="SalePercentage"
-            onChange={this.handleChange}
-            append={<span className="input-group-text">%</span>}
+            onClick={this.onClick(2)}
+            checked={this.state.mainCategory === 2 ? true : false}
+            label="Everything New"
+            type="radio"
+            id="radio1"
+            required
           />
+          <MDBInput
+            onClick={this.onClick(1)}
+            checked={this.state.mainCategory === 1 ? true : false}
+            label="Vintage & Preloved"
+            type="radio"
+            id="radio2"
+          />
+        </MDBFormInline>
+        <br />
+        <label>
+          Category
+          <select
+            className="browser-default custom-select"
+            value={this.state.Category_Category_ID}
+            name="Category_Category_ID"
+            onChange={this.handleChange}
+            required
+          >
+            {this.state.mainCategory === 1
+              ? this.state.categories.map(category => {
+                  if (category.MainCategory_MainCategory_ID === 1) {
+                    return (
+                      <option value={category.Category_ID}>
+                        {category.CategoryName}
+                      </option>
+                    );
+                  }
+                })
+              : this.state.categories.map(category => {
+                  if (category.MainCategory_MainCategory_ID === 2) {
+                    return (
+                      <option value={category.Category_ID}>
+                        {category.CategoryName}
+                      </option>
+                    );
+                  }
+                })}
+          </select>
+        </label>
+        <br />
+        <br />
+        <label>
+          Sub-Category
+          <select
+            className="browser-default custom-select"
+            name="SubCategory_SubCategory_ID"
+            value={this.state.SubCategory_SubCategory_ID}
+            onChange={this.handleChange}
+            required
+          >
+            {this.state.Subcategories.map(subcategory => {
+              return (
+                <option value={subcategory.SubCategory_ID}>
+                  {subcategory.SubCategoryName}
+                </option>
+              );
+            })}
+          </select>
+        </label>
+        <br />
 
-          <br />
-          <div>
-            <input type="submit" value="Create" />
-          </div>
-        </form>
-      </div>
+        <MDBInput
+          label="Price"
+          outline
+          size="lg"
+          type="text"
+          name="ProductPrice"
+          onChange={this.handleChange}
+          append={<span className="input-group-text">€</span>}
+          required
+        />
+
+        <label>
+          Sale
+          <select
+            className="browser-default custom-select"
+            name="Sale"
+            value={this.state.Sale}
+            onChange={this.handleChange}
+            required
+          >
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+          </select>
+        </label>
+        <br />
+
+        <MDBInput
+          label="Sale Percentage"
+          outline
+          size="lg"
+          type="text"
+          name="SalePercentage"
+          onChange={this.handleChange}
+          append={<span className="input-group-text">%</span>}
+        />
+
+        <br />
+        <div>
+          <input type="submit" value="Create" />
+        </div>
+      </form>
     );
   }
 }

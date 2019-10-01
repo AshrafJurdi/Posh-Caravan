@@ -51,6 +51,7 @@ class ProductCard extends React.Component {
               <MDBCardImage
                 className="img-fluid"
                 zoom
+                style={{ maxHeight: "56vh" }}
                 src={`http://localhost:5000/Images/${this.props.product.ProductImage}`}
               />
             </div>
@@ -75,7 +76,7 @@ class ProductCard extends React.Component {
                 <MDBCardImage
                   className="img-fluid"
                   zoom
-                  style={{ maxHeight: "80vh" }}
+                  style={{ maxHeight: "56vh" }}
                   src={`http://localhost:5000/Images/${this.props.product.ProductImage}`}
                 />
               </div>
