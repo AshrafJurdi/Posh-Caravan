@@ -38,13 +38,7 @@ class EverythingNewCategories extends React.Component {
             <Link
               className="image3"
               style={{
-                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[1].CategoryImage})`,
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                backgroundPositionY: "top",
-                width: "90%",
-                marginLeft: "7%"
+                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[1].CategoryImage})`
               }}
               to={{
                 pathname: "/pages/Product Page/productpage",
@@ -55,14 +49,7 @@ class EverythingNewCategories extends React.Component {
             <Link
               className="image4"
               style={{
-                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[3].CategoryImage})`,
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                backgroundPositionY: "top",
-                marginRight: "7%",
-                marginTop: "2%",
-                width: "95%"
+                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[3].CategoryImage})`
               }}
               to={{
                 pathname: "/pages/Product Page/productpage",
@@ -77,13 +64,7 @@ class EverythingNewCategories extends React.Component {
             <Link
               className="image6"
               style={{
-                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[2].CategoryImage})`,
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                backgroundPositionY: "center",
-                marginLeft: "4.5%",
-                width: "100%"
+                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[2].CategoryImage})`
               }}
               to={{
                 pathname: "/pages/Product Page/productpage",
@@ -96,13 +77,7 @@ class EverythingNewCategories extends React.Component {
             <Link
               className="image7"
               style={{
-                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[4].CategoryImage})`,
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                backgroundPositionY: "center",
-                marginRight: "4%",
-                width: "95%"
+                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[4].CategoryImage})`
               }}
               to={{
                 pathname: "/pages/Product Page/productpage",

@@ -133,12 +133,15 @@ poshcaravandb.updateUser = props => {
  */
 poshcaravandb.allProducts = () => {
   return new Promise((resolve, reject) => {
-    pool.query(`SELECT * FROM Products`, (err, results) => {
-      if (err) {
-        return reject(err);
+    pool.query(
+      `SELECT Products.* , Category. MainCategory_MainCategory_ID FROM Products JOIN Category where Products.Category_Category_ID = Category.Category_ID`,
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
       }
-      return resolve(results);
-    });
+    );
   });
 };
 
@@ -199,11 +202,12 @@ poshcaravandb.addProduct = props => {
  * @param {function} reject - function to reject the promise
  * @param {object} - return results
  */
-poshcaravandb.deleteProduct = () => {
+poshcaravandb.deleteProduct = id => {
   return new Promise((resolve, reject) => {
+    console.log(id);
     pool.query(
       `DELETE FROM Products WHERE Product_ID= ?`,
-      [id],
+      id,
       (err, results) => {
         if (err) {
           return reject(err);
@@ -223,26 +227,48 @@ poshcaravandb.deleteProduct = () => {
 
 poshcaravandb.updateProduct = props => {
   return new Promise((resolve, reject) => {
-    pool.query(
-      `UPDATE Products SET ProductName=?, ProductDescription=?, ProductPrice=?, ProductImage=?, Sale=?, SalePercentage=?, Category_Category_ID=?, SubCategory_SubCategory_ID=? WHERE Product_ID=?`,
-      [
-        props.ProductName,
-        props.ProductDescription,
-        props.ProductPrice,
-        props.ProductImage,
-        props.Sale,
-        props.SalePercentage,
-        props.Category_Category_ID,
-        props.SubCategory_SubCategory_ID,
-        props.Product_ID
-      ],
-      (err, results) => {
-        if (err) {
-          return reject(err);
+    if (props.ProductImage) {
+      pool.query(
+        `UPDATE Products SET ProductName=?, ProductDescription=?, ProductPrice=?, ProductImage=?, Sale=?, SalePercentage=?, Category_Category_ID=?, SubCategory_SubCategory_ID=? WHERE Product_ID=?`,
+        [
+          props.ProductName,
+          props.ProductDescription,
+          props.ProductPrice,
+          props.ProductImage,
+          props.Sale,
+          props.SalePercentage,
+          props.Category_Category_ID,
+          props.SubCategory_SubCategory_ID,
+          props.Product_ID
+        ],
+        (err, results) => {
+          if (err) {
+            return reject(err);
+          }
+          return resolve(results);
         }
-        return resolve(results);
-      }
-    );
+      );
+    } else {
+      pool.query(
+        `UPDATE Products SET ProductName=?, ProductDescription=?, ProductPrice=?,  Sale=?, SalePercentage=?, Category_Category_ID=?, SubCategory_SubCategory_ID=? WHERE Product_ID=?`,
+        [
+          props.ProductName,
+          props.ProductDescription,
+          props.ProductPrice,
+          props.Sale,
+          props.SalePercentage,
+          props.Category_Category_ID,
+          props.SubCategory_SubCategory_ID,
+          props.Product_ID
+        ],
+        (err, results) => {
+          if (err) {
+            return reject(err);
+          }
+          return resolve(results);
+        }
+      );
+    }
   });
 };
 
@@ -1046,7 +1072,7 @@ poshcaravandb.vintageCategories = () => {
   });
 };
 
-//Below are all the controllers for querying  CRUD functions from MainCategory table in the DB
+//Below are all the controllers for querying Main Categories, Categories, and Sub-Categories
 
 /**
  *
@@ -1056,6 +1082,44 @@ poshcaravandb.mainCategories = () => {
   return new Promise((resolve, reject) => {
     pool.query(
       `SELECT * FROM MainCategory `,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.categories = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM Category `,
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/**
+ *
+ *
+ */
+poshcaravandb.subCategories = () => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `SELECT * FROM SubCategory `,
 
       (err, results) => {
         if (err) {

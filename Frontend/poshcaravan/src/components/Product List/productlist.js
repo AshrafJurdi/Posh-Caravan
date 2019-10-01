@@ -2,8 +2,6 @@ import React from "react";
 import Itempopup from "../Itempopup/Itempopup.js";
 import ProductCard from "../ProductCard/ProductCard.js";
 import Pagination from "react-js-pagination";
-/* import HeaderVintage from "../Headers/HeaderVintage";
-import HeaderNew from "../Headers/HeaderNew"; */
 import "./productlist.css";
 
 class ProductList extends React.Component {
@@ -12,13 +10,16 @@ class ProductList extends React.Component {
     this.state = {
       show: false,
       product: null,
+      EditMode: false,
       activePage: 1,
       products: []
     };
   }
   async componentWillReceiveProps(newProps) {
-    console.log(newProps);
-    const route = newProps.location.state.route;
+    let route = "";
+    if (!newProps.location) route = "products";
+    else route = newProps.location.state.route;
+
     console.log(route);
     try {
       let url = `http://localhost:5000/${route}`;
@@ -26,33 +27,31 @@ class ProductList extends React.Component {
       const response = await fetch(url);
       const products = await response.json();
       this.setState({ products });
-      //console.log(products);
     } catch (err) {
       console.log(err);
     }
-    //console.log(n)
   }
   async componentDidMount() {
     try {
-      let url = `http://localhost:5000/${this.props.location.state.route}`;
+      let url = "";
+      if (this.props.location == null) url = `http://localhost:5000/products`;
+      else url = `http://localhost:5000/${this.props.location.state.route}`;
       console.log(url);
       const response = await fetch(url);
       const products = await response.json();
+      console.log(products);
       this.setState({ products });
-      //console.log(products);
     } catch (err) {
       console.log(err);
     }
   }
-  toggle = ID => {
-    // let modalNumber = "modal" + nr;
+  toggle = (ID, EditMode = false) => {
     console.log(ID);
     if (ID) {
-      console.log("here?");
       const product = this.state.products.find(
         product => product.Product_ID === ID
       );
-      this.setState({ product });
+      this.setState({ product, EditMode });
     }
     this.setState({ show: !this.state.show });
   };
@@ -74,6 +73,8 @@ class ProductList extends React.Component {
                   toggle={this.toggle}
                   product={product}
                   key={index}
+                  EditMode={this.props.EditMode}
+                  deleteProduct={this.props.deleteProduct}
                 />
               );
             }
@@ -111,6 +112,7 @@ class ProductList extends React.Component {
           toggle={this.toggle}
           show={this.state.show}
           product={this.state.product}
+          EditMode={this.state.EditMode}
         />
         <Pagination
           activePage={this.state.activePage}

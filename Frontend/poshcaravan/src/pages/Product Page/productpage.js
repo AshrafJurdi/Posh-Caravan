@@ -15,7 +15,7 @@ class ProductPage extends React.Component {
         ) : (
           <HeaderNew />
         )}
-        <ProductList {...this.props} />
+        <ProductList EditMode={false} {...this.props} />
         <AboutContactUs {...this.props} />
         <Footer {...this.props} />
       </div>
