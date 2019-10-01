@@ -1,11 +1,11 @@
 import React from "react";
-import "../Headers/Header.css";
+import "../Headers/Headers.css";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
-class HeaderNew extends React.Component {
+class AdminHeaderNew extends React.Component {
   render() {
     return (
       <div className="Header">
@@ -252,4 +252,4 @@ class HeaderNew extends React.Component {
   }
 }
 
-export default HeaderNew;
+export default AdminHeaderNew;

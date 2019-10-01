@@ -227,31 +227,58 @@ router.put(
   "/products/update/:id",
   upload.single("ProductImage"),
   async (req, res, next) => {
-    try {
-      const ProductName = req.body.ProductName;
-      const ProductDescription = req.body.ProductDescription;
-      const ProductPrice = req.body.ProductPrice;
-      const ProductImage = req.file.filename;
-      const Sale = req.body.Sale;
-      const SalePercentage = req.body.SalePercentage;
-      const Category_Category_ID = req.body.Category_Category_ID;
-      const SubCategory_SubCategory_ID = req.body.SubCategory_SubCategory_ID;
-      const Product_ID = req.params.id;
-      let results = await db.updateProduct({
-        Product_ID,
-        ProductName,
-        ProductDescription,
-        ProductPrice,
-        ProductImage,
-        Sale,
-        SalePercentage,
-        Category_Category_ID,
-        SubCategory_SubCategory_ID
-      });
-      res.json(results);
-    } catch (e) {
-      console.log(e);
-      res.sendStatus(500);
+    if (req.file) {
+      try {
+        const ProductName = req.body.ProductName;
+        const ProductDescription = req.body.ProductDescription;
+        const ProductPrice = req.body.ProductPrice;
+        const ProductImage = req.file.filename;
+        const Sale = req.body.Sale;
+        const SalePercentage = req.body.SalePercentage;
+        const Category_Category_ID = req.body.Category_Category_ID;
+        const SubCategory_SubCategory_ID = req.body.SubCategory_SubCategory_ID;
+        const Product_ID = req.params.id;
+        let results = await db.updateProduct({
+          Product_ID,
+          ProductName,
+          ProductDescription,
+          ProductPrice,
+          ProductImage,
+          Sale,
+          SalePercentage,
+          Category_Category_ID,
+          SubCategory_SubCategory_ID
+        });
+        res.json(results);
+      } catch (e) {
+        console.log(e);
+        res.sendStatus(500);
+      }
+    } else {
+      try {
+        const ProductName = req.body.ProductName;
+        const ProductDescription = req.body.ProductDescription;
+        const ProductPrice = req.body.ProductPrice;
+        const Sale = req.body.Sale;
+        const SalePercentage = req.body.SalePercentage;
+        const Category_Category_ID = req.body.Category_Category_ID;
+        const SubCategory_SubCategory_ID = req.body.SubCategory_SubCategory_ID;
+        const Product_ID = req.params.id;
+        let results = await db.updateProduct({
+          Product_ID,
+          ProductName,
+          ProductDescription,
+          ProductPrice,
+          Sale,
+          SalePercentage,
+          Category_Category_ID,
+          SubCategory_SubCategory_ID
+        });
+        res.json(results);
+      } catch (e) {
+        console.log(e);
+        res.sendStatus(500);
+      }
     }
   }
 );

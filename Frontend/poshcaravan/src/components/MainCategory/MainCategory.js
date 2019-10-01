@@ -45,7 +45,7 @@ class MainCategory extends Component {
       // <div>
       <Container className="main-cat-container">
         <Row>
-          <Col xs={6} md={6}>
+          <Col xs={12} md={6}>
             <Link className="vintage" to="/pages/Vintage Page/vintagepage">
               {this.state.maincategory.length !== 0 ? (
                 <MDBCardImage
@@ -59,7 +59,7 @@ class MainCategory extends Component {
             </Link>
           </Col>
 
-          <Col xs={6} md={6}>
+          <Col xs={12} md={6}>
             <Link className="New" to="/pages/Everything New Page/everythingnew">
               {this.state.maincategory.length !== 0 ? (
                 <MDBCardImage

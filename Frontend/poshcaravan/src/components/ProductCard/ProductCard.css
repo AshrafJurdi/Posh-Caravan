@@ -113,7 +113,7 @@ a {
   text-rendering: auto;
   line-height: 1;
 } */
-img {
+.imgProductCard {
   margin: 10px auto !important;
 }
 
