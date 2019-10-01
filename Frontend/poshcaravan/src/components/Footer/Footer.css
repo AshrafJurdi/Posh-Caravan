@@ -1,3 +1,55 @@
+/* Head-footer ..................*/
+
+.Head-footer {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12pt;
+  font-weight: bolder;
+}
+.Head-footer:hover {
+  color: rgb(245, 161, 175);
+}
+.Head-footer::after {
+  content: "";
+  height: 1px;
+  background-color: grey;
+  width: 100%;
+  float: left;
+  margin: 10px -20px;
+  top: 50%;
+}
+
+/* Mail-Form ..................*/
+
+.mailer {
+  display: flex;
+  margin-top: 5px;
+  width: 100%;
+  /* Firefox */
+  display: -moz-box;
+  -moz-box-pack: center;
+  -moz-box-align: center;
+  /* Safari and Chrome */
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  /* W3C */
+  display: box;
+  box-pack: center;
+  box-align: center;
+}
+
+textarea.form-control {
+  margin-top: -25px;
+}
+.row {
+  justify-content: center;
+}
+.FormForm {
+  align-items: center;
+}
+
+/* Footer ..................*/
+
 .footer {
   margin-top: 20px;
   margin-left: 20px;
@@ -34,3 +86,5 @@ i:hover {
 i.fa-instagram {
   margin-left: 20px;
 }
+
+/* ............................. */

@@ -19,26 +19,27 @@ const upload = multer({ storage: multerStorage });
 //Below Mail message and recieve
 
 router.post("/contact", (req, res) => {
+  console.log("=====", req.body);
   const transport = {
-    service: "Gmail",
+    service: "gmail",
     auth: {
-      user: "",
-      pass: ""
+      user: "sportswear96@gmail.com",
+      pass: "sportswear123"
     }
   };
-  console.log(transport);
+
   const transporter = nodemailer.createTransport(transport);
 
   const option = {
-    from: `${req.body.name}: <${req.body.email}`,
+    from: ``,
     to: "mayadihny@gmail.com",
-    subject: `${req.body}`,
+    subject: ``,
     html: `<h3> message Contact </h3>
                <ul>
-                    <li>Name :${req.body.name}</li>
-                    <li>Email :${req.body.email}</li>
+                    <li>Name : </li>
+                    <li>Email : ${req.body.email}</li>
                 </ul>
-                <h3>MEssage</h3>
+                <h3>Message</h3>
                 <p>${req.body.message}</p>`
   };
   transporter.sendMail(option, (err, info) => {

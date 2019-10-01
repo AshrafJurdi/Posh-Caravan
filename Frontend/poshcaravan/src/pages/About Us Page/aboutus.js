@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import "./aboutus.css";
-import AboutContactUs from "../../components/ContactAbout/AboutContactUs";
-
-class AboutUs extends Component {
-  constructor() {
+import AboutUs1 from "../../components/About/AboutUs";
+class AboutUs extends React.Component {
+  render() {
     return (
-  <div>
-      <AboutContactUs />
-  </div>
-    )
+      <div>
+        <AboutUs1 {...this.props} />
+      </div>
+    );
   }
 }
 
