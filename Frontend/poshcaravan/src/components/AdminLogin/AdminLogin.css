@@ -1,0 +1,36 @@
+.login {
+  background: #f8c5c8;
+  border-radius: 25px;
+  margin-left: 30%;
+  margin-top: 5%;
+}
+
+.loginbtn {
+  margin-left: 0px;
+  background-color: #9c9e9b !important;
+}
+
+.loginoutbtn {
+  background-color: #9c9e9b !important;
+  width: 8%;
+  margin-left: 46%;
+}
+
+.invalid-feedback {
+  margin-top: -2.85rem;
+}
+
+.form-control:valid {
+  background-image: none !important;
+}
+
+.incorrect {
+  margin-top: 30px;
+}
+
+@media only screen and (min-width: 180px) and (max-width: 600px) {
+  .login {
+    margin-left: 0%;
+    width: 100%;
+  }
+}

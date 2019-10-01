@@ -1,4 +1,6 @@
 const express = require("express");
+import { authenticateUser, isloggedIn, logout } from "../auth.js";
+//const { authenticateUser } = require("../auth.js");
 const db = require("../db");
 const multer = require("multer");
 const path = require("path");
@@ -14,6 +16,11 @@ const multerStorage = multer.diskStorage({
   }
 });
 const upload = multer({ storage: multerStorage });
+
+// Admin login 
+router.get("/login", authenticateUser);
+
+router.get("/logout", logout);
 
 //Below are all the CRUD routes for the Users table
 /**
@@ -756,4 +763,5 @@ router.get("/maincategory", async (req, res, next) => {
     res.sendStatus(500);
   }
 });
+
 module.exports = router;

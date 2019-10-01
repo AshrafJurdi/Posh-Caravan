@@ -3,12 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
   "scripts": {
-    "dev": "npx nodemon server/server.js -w server"
+    "dev": "npx nodemon --exec babel-node server/server.js -w server"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/node": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/register": "^7.6.2",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.1.0",
