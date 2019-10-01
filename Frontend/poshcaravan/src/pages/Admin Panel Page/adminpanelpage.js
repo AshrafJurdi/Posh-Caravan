@@ -9,7 +9,6 @@ import {
 } from "mdbreact";
 import ProductList from "../../components/Product List/productlist";
 import CreateForm from "../../components/CreateForm/createform";
-import HeaderLogo from "../../components/Headers/HeaderLogo";
 
 import "./adminpanelpage.css";
 
@@ -70,7 +69,6 @@ class Adminpanelpage extends Component {
   render() {
     return (
       <>
-        <HeaderLogo />
         <MDBContainer>
           <MDBBtn onClick={this.toggle} style={{ backgroundColor: "pink" }}>
             Add Product

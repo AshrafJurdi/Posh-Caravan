@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./AdminLogin.css";
 import Cookies from "universal-cookie";
+import HeaderLogo from "../../components/Headers/HeaderLogo";
+import Adminpanelpage from "../../pages/Admin Panel Page/adminpanelpage.js";
 
 const cookies = new Cookies();
 
@@ -21,20 +23,21 @@ class AdminLogin extends Component {
     const password = e.target.password.value;
     e.target.className += " was-validated";
     console.log(username, password);
-    if(username && password){
-    const response = await fetch(
-      `http://localhost:5000/login?username=${username}&password=${password}`
-    );
-    const result = await response.json();
-    //console.log(result);
-    if (result.success) {
-      cookies.set("token", result.result.token, { path: "/" });
-      this.setState({ token: result.result.token, error: false });
-    } else {
-      //e.target.children[1].style.display = "block";
-      this.setState({ error: true });
+    if (username && password) {
+      console.log("here");
+      const response = await fetch(
+        `http://localhost:5000/login?username=${username}&password=${password}`
+      );
+      const result = await response.json();
+      console.log(result);
+      if (result.success) {
+        cookies.set("token", result.result.token, { path: "/" });
+        this.setState({ token: result.result.token, error: false });
+      } else {
+        //e.target.children[1].style.display = "block";
+        this.setState({ error: true });
+      }
     }
-  }
   };
 
   onLogout = async e => {
@@ -53,10 +56,13 @@ class AdminLogin extends Component {
   render() {
     return cookies.get("token") === undefined ? (
       <>
+        <HeaderLogo />
         {this.state.error ? (
           <div
-          className="invalid-feedback incorrect"
-          style= {{ display: "block" }} name="error">
+            className="invalid-feedback incorrect"
+            style={{ display: "block" }}
+            name="error"
+          >
             Incorrect username or password!
           </div>
         ) : (
@@ -110,13 +116,17 @@ class AdminLogin extends Component {
         </form>
       </>
     ) : (
-      <button
-        class="btn btn-info btn-block my-4 loginoutbtn"
-        onClick={e => this.onLogout(e)}
-        type="submit"
-      >
-        Log out
-      </button>
+      <>
+        <HeaderLogo />
+        <button
+          class="btn btn-info btn-block my-4 loginoutbtn"
+          onClick={e => this.onLogout(e)}
+          type="submit"
+        >
+          Log out
+        </button>
+        <Adminpanelpage />
+      </>
     );
   }
 }

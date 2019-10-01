@@ -28,7 +28,7 @@ class VintageCategories extends React.Component {
           className="image1"
           to={{
             pathname: "/pages/Product Page/productpage",
-            state: { route: "everythingnew/allproducts" }
+            state: { route: "vintagepreloved/allproducts" }
           }}
         ></Link>
 

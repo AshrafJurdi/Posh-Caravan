@@ -91,7 +91,7 @@ class CreateForm extends React.Component {
       Category_Category_ID,
       SubCategory_SubCategory_ID
     } = parameters;
-    this.state = parameters;
+
     console.log("parameters", parameters);
     // if (
     //   !parameters ||

@@ -3,6 +3,7 @@
   border-radius: 25px;
   margin-left: 30%;
   margin-top: 5%;
+  width: 40%;
 }
 
 .loginbtn {
@@ -12,7 +13,7 @@
 
 .loginoutbtn {
   background-color: #9c9e9b !important;
-  width: 8%;
+  width: 100px;
   margin-left: 46%;
 }
 

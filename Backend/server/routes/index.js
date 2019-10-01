@@ -18,16 +18,14 @@ const multerStorage = multer.diskStorage({
 });
 const upload = multer({ storage: multerStorage });
 
-<<<<<<< HEAD
-// Admin login 
+// Admin login
 router.get("/login", authenticateUser);
 
 router.get("/logout", logout);
 
-=======
 //Below Mail message and recieve
 
-router.post("/contact", (req, res) => {
+/* router.post("/contact", (req, res) => {
   console.log("=====", req.body);
   const transport = {
     service: "gmail",
@@ -54,8 +52,7 @@ router.post("/contact", (req, res) => {
   transporter.sendMail(option, (err, info) => {
     err ? console.log(err) : console.log("Email has sent....");
   });
-});
->>>>>>> 9956e65c31826e08579ae92e4df9e2e1f3a595bd
+}); */
 //Below are all the CRUD routes for the Users table
 /**
  * Route that
@@ -857,8 +854,6 @@ router.get("/maincategories", async (req, res, next) => {
   }
 });
 
-<<<<<<< HEAD
-=======
 /**
  *
  */
@@ -884,5 +879,4 @@ router.get("/subcategories", async (req, res, next) => {
     res.sendStatus(500);
   }
 });
->>>>>>> 9956e65c31826e08579ae92e4df9e2e1f3a595bd
 module.exports = router;

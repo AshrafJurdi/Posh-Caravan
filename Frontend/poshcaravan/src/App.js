@@ -17,6 +17,7 @@ import ProductList from "./components/Product List/productlist";
 import VintageCategory from "./components/Categories /vintagecategories";
 import Adminpanelpage from "./pages/Admin Panel Page/adminpanelpage";
 import EverythingNewCategories from "./components/Categories /everythingnewcategories";
+import AdminLogin from "./components/AdminLogin/AdminLogin";
 // import FormPage from "./pages/Admin Panel Page/FormPage";
 
 function App() {
@@ -44,7 +45,7 @@ function App() {
           path="/pages/ContactUs/ContactUs"
           render={props => <ContactUs {...props} />}
         />
-        <Route path="/admin" render={props => <Adminpanelpage {...props} />} />
+        <Route path="/admin" render={props => <AdminLogin {...props} />} />
       </Switch>
     </div>
   );

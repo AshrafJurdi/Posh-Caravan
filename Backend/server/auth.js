@@ -3,7 +3,7 @@ const tokens = {};
 const user = {
   user_id: 1,
   user_name: "Nancy",
-  password: "123"
+  password: "NancyAdmin12345"
 };
 
 export const authenticateUser = async (req, res, next) => {
@@ -64,9 +64,3 @@ export const isloggedIn = async (req, res, next) => {
   } else throw new Error();
   next();
 };
- 
-
-
-
-
-
