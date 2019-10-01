@@ -20,8 +20,9 @@
 }
 
 .splashimg {
-  margin-top: 100px;
+  margin-top: 20%;
   align-content: center;
+  margin-top: 7%;
 }
 .elementToFadeInAndOut {
   -webkit-animation: fadeinout 3s linear 1 forwards;

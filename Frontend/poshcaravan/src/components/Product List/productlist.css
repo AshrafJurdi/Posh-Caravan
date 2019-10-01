@@ -10,9 +10,16 @@
 }
 
 .stripe.dark {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(255, 192, 203, 0.315);
+  /* max-height: 10%; */
 }
+.stripe.dark:hover {
+  background-color: rgba(255, 192, 203, 0.918);
 
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  /* max-height: 10%; */
+}
 .collection-card .stripe {
   position: absolute;
   bottom: 1rem;
@@ -26,10 +33,10 @@
 .card {
   font-weight: 400;
 }
-.collection-card .stripe.dark a p {
-  color: #eee;
+.collection-card .stripe.dark p {
+  color: grey;
 }
-.collection-card .stripe a p {
+.collection-card .stripe p {
   padding: 0;
   margin: 0;
   letter-spacing: 0.1rem;
@@ -55,11 +62,51 @@
 .pagination > .active > span:hover {
   z-index: 3;
   color: #fff;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: pink;
+  border-color: pink;
   cursor: default;
+  text-align: center;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: pink;
+  transition: all 0.2s ease-in-out;
+
+  color: pink;
+  text-decoration: none;
+  background-color: transparent;
+}
+.collection-card .stripe {
+  text-align: center;
+}
+
+.pagination {
+  justify-content: center;
+  width: 100%;
 }
 .image-fluid {
   width: 100%;
   height: 100%;
+}
+
+.fa,
+.fas {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+.fa,
+.fab,
+.fal,
+.far,
+.fas {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
 }

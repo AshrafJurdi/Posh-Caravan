@@ -18,7 +18,7 @@ class LandingSplash extends React.Component {
       });
     }, 3000);
   }
-
+  //
   render() {
     return (
       <div className="popup">
@@ -26,7 +26,7 @@ class LandingSplash extends React.Component {
           <div className="popup2">
             <div className="contentpopup">
               <Image
-                className="splashimg elementToFadeInAndOut"
+                className="splashimg elementToFadeInAndOut "
                 src={process.env.PUBLIC_URL + this.state.image}
                 fluid
               />

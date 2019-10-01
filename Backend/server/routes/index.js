@@ -5,6 +5,7 @@ const db = require("../db");
 const multer = require("multer");
 const path = require("path");
 const router = express.Router();
+const nodemailer = require("nodemailer");
 
 const multerStorage = multer.diskStorage({
   destination: path.join(__dirname, "../Public/Images"),
@@ -17,14 +18,47 @@ const multerStorage = multer.diskStorage({
 });
 const upload = multer({ storage: multerStorage });
 
+<<<<<<< HEAD
 // Admin login 
 router.get("/login", authenticateUser);
 
 router.get("/logout", logout);
 
+=======
+//Below Mail message and recieve
+
+router.post("/contact", (req, res) => {
+  console.log("=====", req.body);
+  const transport = {
+    service: "gmail",
+    auth: {
+      user: "sportswear96@gmail.com",
+      pass: "sportswear123"
+    }
+  };
+
+  const transporter = nodemailer.createTransport(transport);
+
+  const option = {
+    from: ``,
+    to: "mayadihny@gmail.com",
+    subject: ``,
+    html: `<h3> message Contact </h3>
+               <ul>
+                    <li>Name : </li>
+                    <li>Email : ${req.body.email}</li>
+                </ul>
+                <h3>Message</h3>
+                <p>${req.body.message}</p>`
+  };
+  transporter.sendMail(option, (err, info) => {
+    err ? console.log(err) : console.log("Email has sent....");
+  });
+});
+>>>>>>> 9956e65c31826e08579ae92e4df9e2e1f3a595bd
 //Below are all the CRUD routes for the Users table
 /**
- *
+ * Route that
  *
  */
 router.get("/users", async (req, res, next) => {
@@ -148,26 +182,28 @@ router.get("/products/:id", async (req, res, next) => {
 
 /**
  *
- *
  */
 router.post(
   "/product/create",
-  upload.single("image"),
+  upload.single("ProductImage"),
   async (req, res, next) => {
     try {
       const ProductName = req.body.ProductName;
       const ProductDescription = req.body.ProductDescription;
       const ProductPrice = req.body.ProductPrice;
-      const ProductImage = req.body.ProductImage;
+      const ProductImage = req.file.filename;
       const Sale = req.body.Sale;
+      const SalePercentage = req.body.SalePercentage;
       const Category_Category_ID = req.body.Category_Category_ID;
       const SubCategory_SubCategory_ID = req.body.SubCategory_SubCategory_ID;
+      console.log(req.body);
       let results = await db.addProduct({
         ProductName,
         ProductDescription,
         ProductPrice,
         ProductImage,
         Sale,
+        SalePercentage,
         Category_Category_ID,
         SubCategory_SubCategory_ID
       });
@@ -183,9 +219,10 @@ router.post(
  *
  *
  */
-router.delete("/products/delete/:id", async (req, res, next) => {
+router.get("/products/delete/:id", async (req, res, next) => {
   try {
-    let results = await db.deleteProduct((id = req.params.id));
+    console.log("id", req.params.id);
+    let results = await db.deleteProduct(req.params.id);
     res.json(results);
   } catch (e) {
     console.log(e);
@@ -199,33 +236,60 @@ router.delete("/products/delete/:id", async (req, res, next) => {
  */
 router.put(
   "/products/update/:id",
-  upload.single("image"),
+  upload.single("ProductImage"),
   async (req, res, next) => {
-    try {
-      const ProductName = req.body.ProductName;
-      const ProductDescription = req.body.ProductDescription;
-      const ProductPrice = req.body.ProductPrice;
-      const ProductImage = req.body.ProductImage;
-      const Sale = req.body.Sale;
-      const SalePercentage = req.body.SalePercentage;
-      const Category_Category_ID = req.body.Category_Category_ID;
-      const SubCategory_SubCategory_ID = req.body.SubCategory_SubCategory_ID;
-      const Product_ID = req.params.id;
-      let results = await db.updateProduct({
-        Product_ID,
-        ProductName,
-        ProductDescription,
-        ProductPrice,
-        ProductImage,
-        Sale,
-        SalePercentage,
-        Category_Category_ID,
-        SubCategory_SubCategory_ID
-      });
-      res.json(results);
-    } catch (e) {
-      console.log(e);
-      res.sendStatus(500);
+    if (req.file) {
+      try {
+        const ProductName = req.body.ProductName;
+        const ProductDescription = req.body.ProductDescription;
+        const ProductPrice = req.body.ProductPrice;
+        const ProductImage = req.file.filename;
+        const Sale = req.body.Sale;
+        const SalePercentage = req.body.SalePercentage;
+        const Category_Category_ID = req.body.Category_Category_ID;
+        const SubCategory_SubCategory_ID = req.body.SubCategory_SubCategory_ID;
+        const Product_ID = req.params.id;
+        let results = await db.updateProduct({
+          Product_ID,
+          ProductName,
+          ProductDescription,
+          ProductPrice,
+          ProductImage,
+          Sale,
+          SalePercentage,
+          Category_Category_ID,
+          SubCategory_SubCategory_ID
+        });
+        res.json(results);
+      } catch (e) {
+        console.log(e);
+        res.sendStatus(500);
+      }
+    } else {
+      try {
+        const ProductName = req.body.ProductName;
+        const ProductDescription = req.body.ProductDescription;
+        const ProductPrice = req.body.ProductPrice;
+        const Sale = req.body.Sale;
+        const SalePercentage = req.body.SalePercentage;
+        const Category_Category_ID = req.body.Category_Category_ID;
+        const SubCategory_SubCategory_ID = req.body.SubCategory_SubCategory_ID;
+        const Product_ID = req.params.id;
+        let results = await db.updateProduct({
+          Product_ID,
+          ProductName,
+          ProductDescription,
+          ProductPrice,
+          Sale,
+          SalePercentage,
+          Category_Category_ID,
+          SubCategory_SubCategory_ID
+        });
+        res.json(results);
+      } catch (e) {
+        console.log(e);
+        res.sendStatus(500);
+      }
     }
   }
 );
@@ -566,6 +630,23 @@ router.get(
     }
   }
 );
+
+/**
+ *
+ */
+router.get(
+  "/vintage&preloved/bagsandaccessories/bags",
+  async (req, res, next) => {
+    try {
+      let results = await db.vintageBags();
+      res.json(results);
+    } catch (e) {
+      console.log(e);
+      res.sendStatus(500);
+    }
+  }
+);
+
 //Below are all the routes get data from Everything New  Sub-Categories
 
 /**
@@ -647,6 +728,18 @@ router.get(
     }
   }
 );
+/**
+ *
+ */
+router.get("/everythingnew/bagsandaccessories/bags", async (req, res, next) => {
+  try {
+    let results = await db.allBags();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
 router.get("/everythingnew/fashion/jackets", async (req, res, next) => {
   try {
     let results = await db.newJackets();
@@ -749,12 +842,12 @@ router.get("/vintage/categories", async (req, res, next) => {
   }
 });
 
-//Below are all the routes for querying  CRUD functions from MainCategory table in the DB
+//Below are all the routes for querying  Main Categories, Categories, and Sub-Categories
 
 /**
  *
  */
-router.get("/maincategory", async (req, res, next) => {
+router.get("/maincategories", async (req, res, next) => {
   try {
     let results = await db.mainCategories();
     res.json(results);
@@ -764,4 +857,32 @@ router.get("/maincategory", async (req, res, next) => {
   }
 });
 
+<<<<<<< HEAD
+=======
+/**
+ *
+ */
+router.get("/categories", async (req, res, next) => {
+  try {
+    let results = await db.categories();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+/**
+ *
+ */
+router.get("/subcategories", async (req, res, next) => {
+  try {
+    let results = await db.subCategories();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+>>>>>>> 9956e65c31826e08579ae92e4df9e2e1f3a595bd
 module.exports = router;

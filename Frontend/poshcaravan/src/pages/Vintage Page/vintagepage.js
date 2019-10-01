@@ -2,14 +2,16 @@ import React from "react";
 import HeaderLogo from "../../components/Headers/HeaderLogo";
 import HeaderVintage from "../../components/Headers/HeaderVintage";
 import Footer from "../../components/Footer/Footer";
+import VintageCategories from "../../components/Categories /vintagecategories";
 
 class VintagePage extends React.Component {
   render() {
     return (
       <div>
         <HeaderLogo />
-        <HeaderVintage />
-        <Footer />
+        <HeaderVintage {...this.props} />
+        <VintageCategories {...this.props} />
+        <Footer {...this.props} />
       </div>
     );
   }

@@ -14,7 +14,7 @@ class LandingPage extends React.Component {
     return (
       <div>
         <HeaderLogo />
-        <Itempopup />
+        <MainCategory {...this.props} />
       </div>
     );
   }

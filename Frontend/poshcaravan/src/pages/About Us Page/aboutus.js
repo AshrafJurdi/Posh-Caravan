@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import "./aboutus.css";
-
-class AboutUs extends Component {
-  constructor() {
+import AboutUs1 from "../../components/About/AboutUs";
+class AboutUs extends React.Component {
+  render() {
     return (
-  <div>
-      About Us
-  </div>
-    )
+      <div>
+        <AboutUs1 {...this.props} />
+      </div>
+    );
   }
 }
 
