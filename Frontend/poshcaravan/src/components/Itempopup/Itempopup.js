@@ -19,6 +19,7 @@ class ModalPage extends Component {
                   centered
                 >
                   <MDBModalHeader
+                    className="card-header"
                     toggle={() => this.props.toggle(null)}
                   ></MDBModalHeader>
                   <MDBCol>
@@ -30,14 +31,16 @@ class ModalPage extends Component {
                             className="img-fluid"
                           />
                         </Col>
-                        <Col md={6}>
+                        <Col md={6} className="right-col-1">
                           <h1 className="Title">
                             {this.props.product.ProductName}
                           </h1>
-                          <h3 className="Description">
+                          <p className="Description">
                             {this.props.product.ProductDescription}
-                          </h3>
-                          <h3>{this.props.product.ProductPrice}</h3>
+                          </p>
+                          <p className="Price">
+                            Price: {this.props.product.ProductPrice}€
+                          </p>
                         </Col>
                       </Row>
                     </Container>

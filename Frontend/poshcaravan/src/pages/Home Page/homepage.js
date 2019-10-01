@@ -13,6 +13,7 @@ class LandingPage extends React.Component {
   render() {
     return (
       <div>
+        <LandingSplash />
         <HeaderLogo />
         <MainCategory {...this.props} />
       </div>
