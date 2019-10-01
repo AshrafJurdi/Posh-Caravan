@@ -48,7 +48,7 @@ router.post("/contact", (req, res) => {
 });
 //Below are all the CRUD routes for the Users table
 /**
- *
+ * Route that
  *
  */
 router.get("/users", async (req, res, next) => {
@@ -172,7 +172,6 @@ router.get("/products/:id", async (req, res, next) => {
 
 /**
  *
- *
  */
 router.post(
   "/product/create",
@@ -227,13 +226,13 @@ router.get("/products/delete/:id", async (req, res, next) => {
  */
 router.put(
   "/products/update/:id",
-  upload.single("image"),
+  upload.single("ProductImage"),
   async (req, res, next) => {
     try {
       const ProductName = req.body.ProductName;
       const ProductDescription = req.body.ProductDescription;
       const ProductPrice = req.body.ProductPrice;
-      const ProductImage = req.body.ProductImage;
+      const ProductImage = req.file.filename;
       const Sale = req.body.Sale;
       const SalePercentage = req.body.SalePercentage;
       const Category_Category_ID = req.body.Category_Category_ID;
@@ -806,14 +805,40 @@ router.get("/vintage/categories", async (req, res, next) => {
   }
 });
 
-//Below are all the routes for querying  CRUD functions from MainCategory table in the DB
+//Below are all the routes for querying  Main Categories, Categories, and Sub-Categories
 
 /**
  *
  */
-router.get("/maincategory", async (req, res, next) => {
+router.get("/maincategories", async (req, res, next) => {
   try {
     let results = await db.mainCategories();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+/**
+ *
+ */
+router.get("/categories", async (req, res, next) => {
+  try {
+    let results = await db.categories();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+/**
+ *
+ */
+router.get("/subcategories", async (req, res, next) => {
+  try {
+    let results = await db.subCategories();
     res.json(results);
   } catch (e) {
     console.log(e);

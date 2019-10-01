@@ -12,7 +12,12 @@ import VintagePage from "./pages/Vintage Page/vintagepage";
 import ProductPage from "./pages/Product Page/productpage";
 import AboutUs from "./pages/About Us Page/aboutus";
 import ContactUs from "./pages/ContactUs/ContactUs";
+import MainCategory from "./components/MainCategory/MainCategory";
+import ProductList from "./components/Product List/productlist";
+import VintageCategory from "./components/Categories /vintagecategories";
 import Adminpanelpage from "./pages/Admin Panel Page/adminpanelpage";
+import EverythingNewCategories from "./components/Categories /everythingnewcategories";
+// import FormPage from "./pages/Admin Panel Page/FormPage";
 
 function App() {
   return (

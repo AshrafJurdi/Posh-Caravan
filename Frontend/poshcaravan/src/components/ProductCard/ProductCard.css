@@ -113,3 +113,17 @@ a {
   text-rendering: auto;
   line-height: 1;
 } */
+img {
+  margin: 10px auto !important;
+}
+
+.far {
+  color: grey;
+}
+.fa-trash-alt:hover {
+  color: red;
+}
+.stripe.dark p:hover {
+  font-size: 15px;
+  transition: all 0.2s ease-in-out;
+}
