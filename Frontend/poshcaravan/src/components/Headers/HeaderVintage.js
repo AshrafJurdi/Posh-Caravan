@@ -19,6 +19,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
 class HeaderVintage extends React.Component {
+  state = {
+    collapseID: ""
+  };
+
+  toggleCollapse = collapseID => () => {
+    this.setState(prevState => ({
+      collapseID: prevState.collapseID !== collapseID ? collapseID : ""
+    }));
+  };
   render() {
     return (
       <div className="Header">
