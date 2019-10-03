@@ -96,12 +96,14 @@
   margin-top: 50px;
 }
 .bottomText {
-  font-size: 30px;
-  font-weight: 500;
+  font-family: "Raleway", sans-serif;
+  font-size: 35px;
+  font-weight: 700;
   float: right;
-  width: 200px;
+  width: 300px;
   color: white;
-  margin: 4% 12%;
+  margin: 4% 7%;
+  letter-spacing: 0.25rem;
 }
 
 .bottomSideText {

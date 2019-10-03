@@ -8,6 +8,7 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+  cursor: pointer;
 }
 .main-cat-container {
   padding-top: 4%;

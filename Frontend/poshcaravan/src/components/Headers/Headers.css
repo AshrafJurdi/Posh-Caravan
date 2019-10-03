@@ -14,6 +14,7 @@
   display: flex;
   margin-top: 5px;
   width: 100%;
+
   /* Firefox */
   display: -moz-box;
   -moz-box-pack: center;
@@ -52,16 +53,13 @@ a:hover {
   font-size: 10pt;
 }
 
-a.repage {
+/* a.repage {
   width: 450px;
-}
-a.bagsaccessories {
+} */
+/* a.bagsaccessories {
   width: 500px;
-}
+} */
 
-a {
-  width: 200px;
-}
 /* Header New..................................... */
 
 a.sale {
@@ -71,3 +69,22 @@ a.sale {
 /* Header Vintage ................................ */
 
 /* ................................ */
+.NavBar {
+  width: 83%;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 900px) {
+  .hamburger-menu-new {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .NavBar {
+    display: none !important;
+  }
+  .light-blue.lighten-4 {
+    background-color: white !important;
+  }
+}

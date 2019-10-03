@@ -32,18 +32,17 @@ class ProductCard extends React.Component {
   };
 
   /**
-   * toggles the state editMode
-   * @function toggleEditMode
-   * @return {null}
+   *below is a card that renders image, and title of a product
    *
+   * @returns Card
+   * @memberof ProductCard
    */
-
   render() {
     return (
       <div className="Card1">
         {this.state.EditMode === false ? (
           <MDBCard
-            className="mx-4"
+            className="product-card-1 mx-4"
             style={{ width: "15rem", height: "23rem" }}
             collection
           >
@@ -68,7 +67,7 @@ class ProductCard extends React.Component {
         ) : (
           <>
             <MDBCard
-              className="mx-4"
+              className="product-card-1 mx-4"
               style={{ width: "15rem", height: "23rem" }}
               collection
             >

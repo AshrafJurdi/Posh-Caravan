@@ -45,6 +45,14 @@ class ProductList extends React.Component {
       console.log(err);
     }
   }
+
+  /**
+   * toggles the state EditMode
+   * @function toggle
+   * @memberof ProductList
+   *
+   */
+
   toggle = (ID, EditMode = false) => {
     console.log(ID);
     if (ID) {
@@ -59,6 +67,13 @@ class ProductList extends React.Component {
     console.log(`active page is ${pageNumber}`);
     this.setState({ activePage: pageNumber });
   };
+
+  /**
+   *Maps over products and returns Products Cards with Image and a title.
+   *
+   * @returns ProductCard
+   * @memberof ProductList
+   */
   render() {
     return (
       <div>

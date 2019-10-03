@@ -1,5 +1,5 @@
 import React from "react";
-import "./Footer.css";
+import "./Footer1.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Logo from "./poshcaravan_logo.jpg";
 import Image from "react-bootstrap/Image";
@@ -12,7 +12,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Navbar from "react-bootstrap/Navbar";
 
-class Footer extends React.Component {
+class Footer1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -113,4 +113,4 @@ class Footer extends React.Component {
   }
 }
 
-export default Footer;
+export default Footer1;

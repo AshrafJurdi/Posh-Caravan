@@ -1,8 +1,6 @@
 .modal-dialog {
   max-width: 75%;
   margin: 1.75rem auto;
-  border: 3px solid pink;
-  border-radius: 10px;
 }
 
 .row {

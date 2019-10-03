@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #252534;
+}
+
+.footer11 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.ul-section11 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 7%;
+}
+
+.footer-middle-section {
+  width: 30%;
+  height: 150px;
+  align-items: center;
+  border-top: 2px solid #252534;
+}
+
+.footer-middle-section ul {
+  list-style: none;
+}
+
+.logo11 {
+  display: flex;
+  width: 150px;
+}
+.logo-component img:hover {
+  width: 230px;
+  transform: scaleX(1);
+  transition: 0.3s;
+}
+.logo-component {
+  padding-top: 7%;
+}
+
+.slogan {
+  text-align: center;
+}
+.footer-left-section {
+  width: 35%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-right-section {
+  width: 35%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.social-media {
+  display: flex;
+  justify-content: space-around;
+  height: 50px;
+}
+.social-media i {
+  font-size: 20px;
+}
+.social-media i:hover {
+  font-size: 50px;
+  transform: scaleX(1);
+  transition: 0.3s;
+}
+.ul-section a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.ul-section a::after {
+  background: currentColor;
+  bottom: 0.0005em;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transition: transform 0.3s;
+  width: 100%;
+}
+.ul-section a:focus::after,
+.ul-section a:hover::after {
+  transform: scaleX(1);
+}
+
+.follow-us {
+  padding-top: 6%;
+}
+.left-ul a:hover {
+  color: #252534;
+}
+.right-ul a:hover {
+  color: #252534;
+}

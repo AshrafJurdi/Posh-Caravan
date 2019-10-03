@@ -4,7 +4,16 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-
+import {
+  MDBNavbar,
+  MDBNavbarBrand,
+  NavbarNav,
+  MDBNavItem,
+  MDBNavLink,
+  MDBNavbarToggler,
+  MDBCollapse,
+  MDBContainer
+} from "mdbreact";
 import Dropdown from "react-bootstrap/Dropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DropdownButton from "react-bootstrap/DropdownButton";
@@ -162,6 +171,179 @@ class HeaderVintage extends React.Component {
             HOME ACCENTS
           </Link>
         </Navbar>
+
+        <MDBContainer className="hamburger-menu-new">
+          <MDBNavbar
+            color="light-blue lighten-4"
+            style={{ marginTop: "20px" }}
+            light
+          >
+            <MDBContainer>
+              <MDBNavbarBrand></MDBNavbarBrand>
+              <MDBNavbarToggler
+                onClick={this.toggleCollapse("navbarCollapse1")}
+              />
+              <MDBCollapse
+                id="navbarCollapse1"
+                isOpen={this.state.collapseID}
+                navbar
+              >
+                <NavbarNav left>
+                  <Link
+                    className="repage"
+                    to="/pages/Everything New Page/everythingnew"
+                  >
+                    EVERYTHING NEW
+                  </Link>
+                  <Link
+                    className="newinb"
+                    to={{
+                      pathname: "/pages/Product Page/productpage",
+                      state: {
+                        route: "vintage&preloved/newin",
+                        header: "vintage"
+                      }
+                    }}
+                  >
+                    NEW IN
+                  </Link>
+
+                  <Dropdown>
+                    <NavDropdown title="CLOTHING" id="basic-nav-dropdown">
+                      <Link
+                        className="clothing"
+                        to={{
+                          pathname: "/pages/Product Page/productpage",
+                          state: {
+                            route: "vintage&preloved/clothes",
+                            header: "vintage"
+                          }
+                        }}
+                      >
+                        ALL
+                      </Link>
+                      <NavDropdown.Item>
+                        <Link
+                          to={{
+                            pathname: "/pages/Product Page/productpage",
+                            state: {
+                              route: "vintage&preloved/clothes/jackets",
+                              header: "vintage"
+                            }
+                          }}
+                        >
+                          JACKETS
+                        </Link>
+                      </NavDropdown.Item>
+                      <NavDropdown.Item>
+                        <Link
+                          to={{
+                            pathname: "/pages/Product Page/productpage",
+                            state: {
+                              route: "vintage&preloved/clothes/dresses",
+                              header: "vintage"
+                            }
+                          }}
+                        >
+                          DRESSES
+                        </Link>
+                      </NavDropdown.Item>
+                      <NavDropdown.Item>
+                        <Link
+                          to={{
+                            pathname: "/pages/Product Page/productpage",
+                            state: {
+                              route: "vintage&preloved/clothes/skirts",
+                              header: "vintage"
+                            }
+                          }}
+                        >
+                          SKIRTS
+                        </Link>
+                      </NavDropdown.Item>
+                      <NavDropdown.Item>
+                        <Link
+                          to={{
+                            pathname: "/pages/Product Page/productpage",
+                            state: {
+                              route: "vintage&preloved/clothes/pants",
+                              header: "vintage"
+                            }
+                          }}
+                        >
+                          PANTS
+                        </Link>
+                      </NavDropdown.Item>
+                      <NavDropdown.Item>
+                        <Link
+                          to={{
+                            pathname: "/pages/Product Page/productpage",
+                            state: {
+                              route: "vintage&preloved/clothes/tops",
+                              header: "vintage"
+                            }
+                          }}
+                        >
+                          TOPS
+                        </Link>
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                  </Dropdown>
+
+                  <Link
+                    className="bagsaccessories"
+                    to={{
+                      pathname: "/pages/Product Page/productpage",
+                      state: {
+                        route: "vintage&preloved/bagsandaccessories",
+                        header: "vintage"
+                      }
+                    }}
+                  >
+                    BAGS & ACCESSORIES
+                  </Link>
+
+                  <Link
+                    className="jewelry"
+                    to={{
+                      pathname: "/pages/Product Page/productpage",
+                      state: {
+                        route: "vintage&preloved/products/jewelry",
+                        header: "vintage"
+                      }
+                    }}
+                  >
+                    JEWELRY
+                  </Link>
+                  <Link
+                    className="furniture"
+                    to={{
+                      pathname: "/pages/Product Page/productpage",
+                      state: {
+                        route: "vintage&preloved/products/furniture",
+                        header: "vintage"
+                      }
+                    }}
+                  >
+                    FURNITURE
+                  </Link>
+                  <Link
+                    className="homeaccents"
+                    to={{
+                      pathname: "/pages/Product Page/productpage",
+                      state: {
+                        route: "vintage&preloved/products/homeaccents",
+                        header: "vintage"
+                      }
+                    }}
+                  >
+                    HOME ACCENTS
+                  </Link>
+                </NavbarNav>
+              </MDBCollapse>
+            </MDBContainer>
+          </MDBNavbar>
+        </MDBContainer>
       </div>
     );
   }

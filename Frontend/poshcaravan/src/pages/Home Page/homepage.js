@@ -16,6 +16,9 @@ class LandingPage extends React.Component {
         <LandingSplash />
         <HeaderLogo />
         <MainCategory {...this.props} />
+        <div
+          style={{ width: "100%", height: "30px", backgroundColor: "pink" }}
+        ></div>
       </div>
     );
   }
