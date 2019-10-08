@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "./poshcaravan_logo.jpg";
-import "./Headers.css";
+import "../Header-Vintage&Preloved/Headers.css";
 import Image from "react-bootstrap/Image";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";

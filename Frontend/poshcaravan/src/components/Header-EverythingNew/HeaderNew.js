@@ -1,5 +1,5 @@
 import React from "react";
-import "./Headers.css";
+import "../Header-Vintage&Preloved/Headers.css";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -31,13 +31,13 @@ class HeaderNew extends React.Component {
     return (
       <div className="Header">
         <Navbar expand="lg" className="NavBar">
-          <Link className="repage" to="/pages/Vintage Page/vintagepage">
+          <Link className="repage" to="/Vintage&PrelovedPage">
             VINTAGE & PRELOVED
           </Link>
           <Link
-            className="newin"
+            className="newin-new"
             to={{
-              pathname: "/pages/Product Page/productpage",
+              pathname: "/Product Page",
               state: { route: "everythingnew/newin", header: "new" }
             }}
           >
@@ -49,7 +49,7 @@ class HeaderNew extends React.Component {
               <Link
                 className="fashion"
                 to={{
-                  pathname: "/pages/Product Page/productpage",
+                  pathname: "/Product Page",
                   state: { route: "everythingnew/fashion", header: "new" }
                 }}
               >
@@ -59,7 +59,7 @@ class HeaderNew extends React.Component {
             <NavDropdown.Item>
               <Link
                 to={{
-                  pathname: "/pages/Product Page/productpage",
+                  pathname: "/Product Page",
                   state: {
                     route: "everythingnew/fashion/jackets",
                     header: "new"
@@ -72,7 +72,7 @@ class HeaderNew extends React.Component {
             <NavDropdown.Item>
               <Link
                 to={{
-                  pathname: "/pages/Product Page/productpage",
+                  pathname: "/Product Page",
                   state: {
                     route: "everythingnew/fashion/dresses",
                     header: "new"
@@ -85,7 +85,7 @@ class HeaderNew extends React.Component {
             <NavDropdown.Item>
               <Link
                 to={{
-                  pathname: "/pages/Product Page/productpage",
+                  pathname: "/Product Page",
                   state: {
                     route: "/everythingnew/fashion/skirts",
                     header: "new"
@@ -98,7 +98,7 @@ class HeaderNew extends React.Component {
             <NavDropdown.Item>
               <Link
                 to={{
-                  pathname: "/pages/Product Page/productpage",
+                  pathname: "/Product Page",
                   state: { route: "everythingnew/fashion/pants", header: "new" }
                 }}
               >
@@ -108,7 +108,7 @@ class HeaderNew extends React.Component {
             <NavDropdown.Item>
               <Link
                 to={{
-                  pathname: "/pages/Product Page/productpage",
+                  pathname: "/Product Page",
                   state: { route: "everythingnew/fashion/tops", header: "new" }
                 }}
               >
@@ -122,7 +122,7 @@ class HeaderNew extends React.Component {
               <Link
                 className="bagsaccessories"
                 to={{
-                  pathname: "/pages/Product Page/productpage",
+                  pathname: "/Product Page",
                   state: {
                     route: "everythingnew/bagsandaccessories",
                     header: "new"
@@ -135,7 +135,7 @@ class HeaderNew extends React.Component {
             <NavDropdown.Item>
               <Link
                 to={{
-                  pathname: "/pages/Product Page/productpage",
+                  pathname: "/Product Page",
                   state: {
                     route: "everythingnew/bagsandaccessories/bags",
                     header: "new"
@@ -148,7 +148,7 @@ class HeaderNew extends React.Component {
             <NavDropdown.Item>
               <Link
                 to={{
-                  pathname: "/pages/Product Page/productpage",
+                  pathname: "/Product Page",
                   state: {
                     route: "everythingnew/bagsandaccessories/shoes",
                     header: "new"
@@ -161,7 +161,7 @@ class HeaderNew extends React.Component {
             <NavDropdown.Item>
               <Link
                 to={{
-                  pathname: "/pages/Product Page/productpage",
+                  pathname: "/Product Page",
                   state: {
                     route: "everythingnew/bagsandaccessories/smallleathergoods",
                     header: "new"
@@ -174,7 +174,7 @@ class HeaderNew extends React.Component {
             <NavDropdown.Item>
               <Link
                 to={{
-                  pathname: "/pages/Product Page/productpage",
+                  pathname: "/Product Page",
                   state: {
                     route: "everythingnew/bagsandaccessories/otheraccessories",
                     header: "new"
@@ -191,7 +191,7 @@ class HeaderNew extends React.Component {
               <Link
                 className="jewelry"
                 to={{
-                  pathname: "/pages/Product Page/productpage",
+                  pathname: "/Product Page",
                   state: { route: "everythingnew/jewelry", header: "new" }
                 }}
               >
@@ -201,7 +201,7 @@ class HeaderNew extends React.Component {
             <NavDropdown.Item>
               <Link
                 to={{
-                  pathname: "/pages/Product Page/productpage",
+                  pathname: "/Product Page",
                   state: {
                     route: "everythingnew/jewelry/necklaces",
                     header: "new"
@@ -214,7 +214,7 @@ class HeaderNew extends React.Component {
             <NavDropdown.Item>
               <Link
                 to={{
-                  pathname: "/pages/Product Page/productpage",
+                  pathname: "/Product Page",
                   state: {
                     route: "everythingnew/jewelry/bracelets",
                     header: "new"
@@ -227,7 +227,7 @@ class HeaderNew extends React.Component {
             <NavDropdown.Item>
               <Link
                 to={{
-                  pathname: "/pages/Product Page/productpage",
+                  pathname: "/Product Page",
                   state: { route: "everythingnew/jewelry/rings", header: "new" }
                 }}
               >
@@ -237,7 +237,7 @@ class HeaderNew extends React.Component {
             <NavDropdown.Item>
               <Link
                 to={{
-                  pathname: "/pages/Product Page/productpage",
+                  pathname: "/Product Page",
                   state: {
                     route: "everythingnew/jewelry/otherjewelry",
                     header: "new"
@@ -252,22 +252,22 @@ class HeaderNew extends React.Component {
           <Link
             className="sale"
             to={{
-              pathname: "/pages/Product Page/productpage",
+              pathname: "/Product Page",
               state: { route: "everythingnew/sale", header: "new" }
             }}
           >
             SALE
           </Link>
 
-          {/* <Link
+          <Link
             className="about-us"
             to={{
-              pathname: "/pages/Product Page/productpage",
-              state: { route: "everythingnew/sale", header: "new" }
+              pathname: "/About Us",
+              state: { header: "new" }
             }}
           >
             ABOUT US
-          </Link> */}
+          </Link>
         </Navbar>
 
         <MDBContainer className="hamburger-menu-new">
@@ -287,13 +287,13 @@ class HeaderNew extends React.Component {
                 navbar
               >
                 <NavbarNav left>
-                  <Link className="repage" to="/pages/Vintage Page/vintagepage">
+                  <Link className="repage" to="/Vintage Page/vintagepage">
                     VINTAGE & PRELOVED
                   </Link>
                   <Link
                     className="newin"
                     to={{
-                      pathname: "/pages/Product Page/productpage",
+                      pathname: "/Product Page",
                       state: { route: "everythingnew/newin", header: "new" }
                     }}
                   >
@@ -305,7 +305,7 @@ class HeaderNew extends React.Component {
                       <Link
                         className="fashion"
                         to={{
-                          pathname: "/pages/Product Page/productpage",
+                          pathname: "/Product Page",
                           state: {
                             route: "everythingnew/fashion",
                             header: "new"
@@ -318,7 +318,7 @@ class HeaderNew extends React.Component {
                     <NavDropdown.Item>
                       <Link
                         to={{
-                          pathname: "/pages/Product Page/productpage",
+                          pathname: "/Product Page",
                           state: {
                             route: "everythingnew/fashion/jackets",
                             header: "new"
@@ -331,7 +331,7 @@ class HeaderNew extends React.Component {
                     <NavDropdown.Item>
                       <Link
                         to={{
-                          pathname: "/pages/Product Page/productpage",
+                          pathname: "/Product Page",
                           state: {
                             route: "everythingnew/fashion/dresses",
                             header: "new"
@@ -344,7 +344,7 @@ class HeaderNew extends React.Component {
                     <NavDropdown.Item>
                       <Link
                         to={{
-                          pathname: "/pages/Product Page/productpage",
+                          pathname: "/Product Page",
                           state: {
                             route: "/everythingnew/fashion/skirts",
                             header: "new"
@@ -357,7 +357,7 @@ class HeaderNew extends React.Component {
                     <NavDropdown.Item>
                       <Link
                         to={{
-                          pathname: "/pages/Product Page/productpage",
+                          pathname: "/Product Page",
                           state: {
                             route: "everythingnew/fashion/pants",
                             header: "new"
@@ -370,7 +370,7 @@ class HeaderNew extends React.Component {
                     <NavDropdown.Item>
                       <Link
                         to={{
-                          pathname: "/pages/Product Page/productpage",
+                          pathname: "/Product Page",
                           state: {
                             route: "everythingnew/fashion/tops",
                             header: "new"
@@ -390,7 +390,7 @@ class HeaderNew extends React.Component {
                       <Link
                         className="bagsaccessories"
                         to={{
-                          pathname: "/pages/Product Page/productpage",
+                          pathname: "/Product Page",
                           state: {
                             route: "everythingnew/bagsandaccessories",
                             header: "new"
@@ -403,7 +403,7 @@ class HeaderNew extends React.Component {
                     <NavDropdown.Item>
                       <Link
                         to={{
-                          pathname: "/pages/Product Page/productpage",
+                          pathname: "/Product Page",
                           state: {
                             route: "everythingnew/bagsandaccessories/bags",
                             header: "new"
@@ -416,7 +416,7 @@ class HeaderNew extends React.Component {
                     <NavDropdown.Item>
                       <Link
                         to={{
-                          pathname: "/pages/Product Page/productpage",
+                          pathname: "/Product Page",
                           state: {
                             route: "everythingnew/bagsandaccessories/shoes",
                             header: "new"
@@ -429,7 +429,7 @@ class HeaderNew extends React.Component {
                     <NavDropdown.Item>
                       <Link
                         to={{
-                          pathname: "/pages/Product Page/productpage",
+                          pathname: "/Product Page",
                           state: {
                             route:
                               "everythingnew/bagsandaccessories/smallleathergoods",
@@ -443,7 +443,7 @@ class HeaderNew extends React.Component {
                     <NavDropdown.Item>
                       <Link
                         to={{
-                          pathname: "/pages/Product Page/productpage",
+                          pathname: "/Product Page",
                           state: {
                             route:
                               "everythingnew/bagsandaccessories/otheraccessories",
@@ -461,7 +461,7 @@ class HeaderNew extends React.Component {
                       <Link
                         className="jewelry"
                         to={{
-                          pathname: "/pages/Product Page/productpage",
+                          pathname: "/Product Page",
                           state: {
                             route: "everythingnew/jewelry",
                             header: "new"
@@ -474,7 +474,7 @@ class HeaderNew extends React.Component {
                     <NavDropdown.Item>
                       <Link
                         to={{
-                          pathname: "/pages/Product Page/productpage",
+                          pathname: "/Product Page",
                           state: {
                             route: "everythingnew/jewelry/necklaces",
                             header: "new"
@@ -487,7 +487,7 @@ class HeaderNew extends React.Component {
                     <NavDropdown.Item>
                       <Link
                         to={{
-                          pathname: "/pages/Product Page/productpage",
+                          pathname: "/Product Page",
                           state: {
                             route: "everythingnew/jewelry/bracelets",
                             header: "new"
@@ -500,7 +500,7 @@ class HeaderNew extends React.Component {
                     <NavDropdown.Item>
                       <Link
                         to={{
-                          pathname: "/pages/Product Page/productpage",
+                          pathname: "/Product Page",
                           state: {
                             route: "everythingnew/jewelry/rings",
                             header: "new"
@@ -513,7 +513,7 @@ class HeaderNew extends React.Component {
                     <NavDropdown.Item>
                       <Link
                         to={{
-                          pathname: "/pages/Product Page/productpage",
+                          pathname: "/Product Page",
                           state: {
                             route: "everythingnew/jewelry/otherjewelry",
                             header: "new"
@@ -528,11 +528,21 @@ class HeaderNew extends React.Component {
                   <Link
                     className="sale"
                     to={{
-                      pathname: "/pages/Product Page/productpage",
+                      pathname: "/Product Page",
                       state: { route: "everythingnew/sale", header: "new" }
                     }}
                   >
                     SALE
+                  </Link>
+
+                  <Link
+                    className="about-us"
+                    to={{
+                      pathname: "/About Us",
+                      state: { header: "new" }
+                    }}
+                  >
+                    ABOUT US
                   </Link>
                 </NavbarNav>
               </MDBCollapse>

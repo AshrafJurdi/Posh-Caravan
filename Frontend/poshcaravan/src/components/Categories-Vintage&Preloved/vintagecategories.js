@@ -27,8 +27,8 @@ class VintageCategories extends React.Component {
         <Link
           className="image1"
           to={{
-            pathname: "/pages/Product Page/productpage",
-            state: { route: "vintagepreloved/allproducts" }
+            pathname: "/Product Page",
+            state: { route: "vintagepreloved/allproducts", header: "vintage" }
           }}
         ></Link>
 
@@ -41,8 +41,8 @@ class VintageCategories extends React.Component {
                 backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[1].CategoryImage})`
               }}
               to={{
-                pathname: "/pages/Product Page/productpage",
-                state: { route: "everythingnew/fashion" }
+                pathname: "/Product Page",
+                state: { route: "vintage&preloved/clothes", header: "vintage" }
               }}
             ></Link>
             <div className="line1"></div>
@@ -52,8 +52,11 @@ class VintageCategories extends React.Component {
                 backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[3].CategoryImage})`
               }}
               to={{
-                pathname: "/pages/Product Page/productpage",
-                state: { route: "everythingnew/bagsandaccessories" }
+                pathname: "/Product Page",
+                state: {
+                  route: "everythingnew/bagsandaccessories",
+                  header: "vintage"
+                }
               }}
             ></Link>
             <div className="image5">
@@ -67,8 +70,11 @@ class VintageCategories extends React.Component {
                 backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[2].CategoryImage})`
               }}
               to={{
-                pathname: "/pages/Product Page/productpage",
-                state: { route: "everythingnew/bagsandaccessories/bags" }
+                pathname: "/Product Page",
+                state: {
+                  route: "vintage&preloved/bagsandaccessories/bags",
+                  header: "vintage"
+                }
               }}
             ></Link>
             <div className="image8">
@@ -80,8 +86,11 @@ class VintageCategories extends React.Component {
                 backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[4].CategoryImage})`
               }}
               to={{
-                pathname: "/pages/Product Page/productpage",
-                state: { route: "everythingnew/fashion/dresses" }
+                pathname: "/Product Page",
+                state: {
+                  route: "vintage&preloved/clothes/dresses",
+                  header: "vintage"
+                }
               }}
             ></Link>
             <div className="image9"></div>

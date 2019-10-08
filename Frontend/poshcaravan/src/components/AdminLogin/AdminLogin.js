@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./AdminLogin.css";
 import Cookies from "universal-cookie";
-import HeaderLogo from "../../components/Headers/HeaderLogo";
+import HeaderLogo from "../../components/Header-Logo/HeaderLogo";
 import Adminpanelpage from "../../pages/Admin Panel Page/adminpanelpage.js";
 
 const cookies = new Cookies();
@@ -19,14 +19,14 @@ class AdminLogin extends Component {
     e.preventDefault();
     e.persist();
     console.log(e.target);
-    const username = e.target.name.value;
+    const email = e.target.name.value;
     const password = e.target.password.value;
     e.target.className += " was-validated";
-    console.log(username, password);
-    if (username && password) {
+    console.log(email, password);
+    if (email && password) {
       console.log("here");
       const response = await fetch(
-        `http://localhost:5000/login?username=${username}&password=${password}`
+        `http://localhost:5000/login?email=${email}&password=${password}`
       );
       const result = await response.json();
       console.log(result);

@@ -1,13 +1,15 @@
+const db = require("./db/index");
+
 const tokens = {};
 
-const user = {
-  user_id: 1,
-  user_name: "Nancy",
-  password: "NancyAdmin12345"
-};
+// const user = {
+//   user_id: 1,
+//   user_name: "Nancy",
+//   password: "NancyAdmin12345"
+// };
 
 export const authenticateUser = async (req, res, next) => {
-  if (!req.query.username || !req.query.password) {
+  if (!req.query.email || !req.query.password) {
     console.log("error");
     return res.status(401).json({
       success: false,
@@ -16,10 +18,13 @@ export const authenticateUser = async (req, res, next) => {
   }
   try {
     //console.log(req.query.username);
-    // const user = await controller.findUser({username:req.query.username,password: req.query.password});
+    const email = req.query.email;
+    const password = req.query.password;
+    const user = await db.oneUser(email, password);
     if (
-      user.user_name !== req.query.username ||
-      user.password !== req.query.password
+      /* user.user_name !== req.query.username ||
+      user.password !== req.query.password */
+      !user
     ) {
       return res.status(401).json({
         success: false,
@@ -28,7 +33,7 @@ export const authenticateUser = async (req, res, next) => {
     }
 
     const token = Math.random() + "";
-    tokens[token] = user.user_id;
+    tokens[token] = user.User_ID;
     return res.json({
       success: true,
       result: { token, user }

@@ -1,33 +1,27 @@
 /* HeaderLogo................................ */
 
 .HeaderLogo {
-  width: 150px;
+  width: 160px;
   margin-top: 10px;
+  margin-bottom: 15px;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
+.HeaderLogo:hover {
+  width: 170px;
+  transition: 0.3s;
+}
+
 /* Header Vintage & New................................ */
 
-.Header {
+/* .Header {
   display: flex;
   margin-top: 5px;
   width: 100%;
 
-  /* Firefox */
-  display: -moz-box;
-  -moz-box-pack: center;
-  -moz-box-align: center;
-  /* Safari and Chrome */
-  display: -webkit-box;
-  -webkit-box-pack: center;
-  -webkit-box-align: center;
-  /* W3C */
-  display: box;
-  box-pack: center;
-  box-align: center;
-}
+} */
 
 .navbar-light {
   box-shadow: none;
@@ -41,7 +35,21 @@
   background-color: white !important;
 }
 
-a {
+.dropdown .dropdown-menu {
+  background: none !important;
+  border: none !important;
+  border-radius: none !important ;
+  padding: 0 !important;
+  align-content: center !important;
+}
+
+.dropdown .dropdown-menu a {
+  color: gray;
+  font-weight: 400;
+  padding: 5px 10px !important;
+}
+
+/* a {
   text-decoration: none !important;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 11pt;
@@ -51,7 +59,7 @@ a:hover {
   text-decoration: none !important;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 10pt;
-}
+} */
 
 /* a.repage {
   width: 450px;
@@ -70,8 +78,37 @@ a.sale {
 
 /* ................................ */
 .NavBar {
-  width: 83%;
-  justify-content: space-between;
+  display: flex !important;
+  flex-direction: row !important;
+  width: 100%;
+  justify-content: center !important;
+  align-content: center !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  margin-bottom: 35px;
+}
+
+.NavBar a {
+  text-decoration: none !important;
+  font-size: 11pt !important;
+  color: black !important;
+  font-family: "Lato", sans-serif !important;
+  font-weight: 500 !important;
+  padding: 0 1rem !important;
+}
+.NavBar .nav-link {
+  padding: 0 1rem !important;
+}
+.NavBar a:hover {
+  color: rgb(245, 161, 175) !important;
+}
+
+.newin-vintage {
+  color: rgb(19, 177, 177) !important;
+}
+
+.newin-new {
+  color: rgb(235, 118, 138) !important;
 }
 
 @media screen and (min-width: 900px) {

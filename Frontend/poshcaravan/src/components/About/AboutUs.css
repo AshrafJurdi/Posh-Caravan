@@ -9,7 +9,7 @@
   font-size: 12pt;
   margin: 20px auto 0 auto;
 }
-
+/* 
 a {
   color: black !important;
   width: 50%;
@@ -22,7 +22,7 @@ form {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 10pt;
   padding-left: 5%;
-}
+} */
 
 /* AboutUs ...............................*/
 
@@ -62,13 +62,13 @@ textarea.form-control {
 .nav-item.nav-link.active {
   font-weight: bolder;
 }
-textarea {
+/* textarea {
   border-color: grey !important;
-}
+} */
 
-input {
+/* input {
   border-color: grey !important;
-}
+} */
 
 iframe {
   width: 100%;
@@ -94,7 +94,7 @@ iframe {
   width: 400px;
 }
 
-h2 {
+/* h2 {
   font-size: 12pt;
   font-weight: bold;
   color: rgb(245, 161, 175);
@@ -102,6 +102,6 @@ h2 {
 p {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 10pt;
-}
+} */
 
 /* .........................................................*/

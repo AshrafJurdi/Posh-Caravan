@@ -89,9 +89,16 @@ class ProductCard extends React.Component {
                 </p>
               </div>
             </MDBCard>
-            <MDBContainer>
+            <div className="trash-edit-container">
               <i className="far fa-trash-alt" onClick={this.toggle}></i>
-
+              <i
+                class="far fa-edit"
+                onClick={() =>
+                  this.props.toggle(this.props.product.Product_ID, true)
+                }
+              ></i>
+            </div>
+            <MDBContainer>
               <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
                 <MDBModalBody>
                   Are you sure you want to delete this product?
@@ -111,12 +118,6 @@ class ProductCard extends React.Component {
                 </MDBModalFooter>
               </MDBModal>
             </MDBContainer>
-            <i
-              class="far fa-edit"
-              onClick={() =>
-                this.props.toggle(this.props.product.Product_ID, true)
-              }
-            ></i>
           </>
         )}
       </div>

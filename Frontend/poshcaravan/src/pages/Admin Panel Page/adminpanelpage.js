@@ -1,14 +1,11 @@
 import React, { Component } from "react";
-import {
-  MDBBtn,
-  MDBContainer,
-  MDBModal,
-  MDBModalHeader,
-  MDBModalBody,
-  MDBModalFooter
-} from "mdbreact";
+import AddProduct from "../../components/AdminAddProduct/addproduct";
 import ProductList from "../../components/Product List/productlist";
-import CreateForm from "../../components/CreateForm/createform";
+import AdminFilter from "../../components/AdminPanelFilter/adminpanelfilter";
+import AddCategory from "../../components/AdminAddCategory/adminaddcategory";
+import AddSubCategory from "../../components/AdminAddSubCategory/adminaddsubcategory";
+import AddUser from "../../components/AdminAddUser/adminadduser";
+import ViewSubCategory from "../../components/AdminSubcategory/ViewModal/viewmodal";
 
 import "./adminpanelpage.css";
 
@@ -23,10 +20,34 @@ class Adminpanelpage extends Component {
     super();
 
     this.state = {
-      modal: false
+      modal: false,
+      modalCategory: false,
+      modalSubCategory: false,
+      modalSubCategories: false,
+      modalUser: false,
+      mainCategory: 0,
+      category: 0,
+      subCategory: 0
     };
   }
 
+  handleMainCategory = id => {
+    console.log("handlemain cat", id);
+    if (id == 0)
+      this.setState({ mainCategory: id, category: 0, subCategory: 0 });
+    else this.setState({ mainCategory: id });
+  };
+
+  handleCategory = id => {
+    console.log("handle cat", id);
+    if (id == 0) this.setState({ category: id, subCategory: 0 });
+    else this.setState({ category: id });
+  };
+
+  handleSubCategory = id => {
+    console.log("handle subcat", id);
+    this.setState({ subCategory: id });
+  };
   /**
    * deletes a contact from the products list
    *
@@ -62,6 +83,50 @@ class Adminpanelpage extends Component {
   };
 
   /**
+   *
+   *
+   * @memberof Adminpanelpage
+   */
+  toggleCategory = () => {
+    this.setState({
+      modalCategory: !this.state.modalCategory
+    });
+  };
+
+  /**
+   *
+   *
+   * @memberof Adminpanelpage
+   */
+  toggleSubCategory = () => {
+    this.setState({
+      modalSubCategory: !this.state.modalSubCategory
+    });
+  };
+
+  /**
+   *
+   *
+   * @memberof Adminpanelpage
+   */
+  toggleUser = () => {
+    this.setState({
+      modalUser: !this.state.modalUser
+    });
+  };
+
+  /**
+   *
+   *
+   * @memberof Adminpanelpage
+   */
+  toggleSubCategories = () => {
+    this.setState({
+      modalSubCategories: !this.state.modalSubCategories
+    });
+  };
+
+  /**
    * Renders the component.
    *
    *
@@ -69,24 +134,37 @@ class Adminpanelpage extends Component {
   render() {
     return (
       <>
-        <MDBContainer>
-          <MDBBtn onClick={this.toggle} style={{ backgroundColor: "pink" }}>
-            Add Product
-          </MDBBtn>
-          <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
-            <MDBModalHeader toggle={this.toggle}>Add Product</MDBModalHeader>
-            <MDBModalBody>
-              <CreateForm />
-            </MDBModalBody>
-            <MDBModalFooter>
-              <MDBBtn color="secondary" onClick={this.toggle}>
-                Close
-              </MDBBtn>
-            </MDBModalFooter>
-          </MDBModal>
-        </MDBContainer>
-
-        <ProductList EditMode={true} deleteProduct={this.deleteProduct} />
+        <div className="buttons-container-admin">
+          <AddCategory
+            toggleCategory={this.toggleCategory}
+            state={this.state}
+          />
+          <AddSubCategory
+            toggleSubCategory={this.toggleSubCategory}
+            state={this.state}
+          />
+          <AddUser toggleUser={this.toggleUser} state={this.state} />
+          <AddProduct toggle={this.toggle} state={this.state} />
+          <ViewSubCategory
+            toggleSubCategories={this.toggleSubCategories}
+            state={this.state}
+          />
+        </div>
+        <AdminFilter
+          handleMainCategory={this.handleMainCategory}
+          handleCategory={this.handleCategory}
+          handleSubCategory={this.handleSubCategory}
+          mainCategory={this.state.mainCategory}
+          category={this.state.category}
+          subCategory={this.state.subCategory}
+        />
+        <ProductList
+          EditMode={true}
+          deleteProduct={this.deleteProduct}
+          mainCategory={this.state.mainCategory}
+          category={this.state.category}
+          subCategory={this.state.subCategory}
+        />
       </>
     );
   }

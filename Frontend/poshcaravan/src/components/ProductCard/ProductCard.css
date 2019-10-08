@@ -1,3 +1,7 @@
+.Card1 {
+  font-family: "Lato", sans-serif !important;
+}
+
 .imgProductCard {
   margin: 10px auto !important;
 }
@@ -8,6 +12,9 @@
 .fa-trash-alt:hover {
   color: red;
 }
+.fa-edit:hover {
+  color: black;
+}
 .stripe.dark p:hover {
   font-size: 15px;
   transition: all 0.2s ease-in-out;
@@ -15,4 +22,17 @@
 
 .product-card-1 {
   justify-content: center;
+}
+
+.trash-edit-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly !important;
+  align-content: center;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.trash-edit-container i:hover {
+  cursor: pointer;
 }

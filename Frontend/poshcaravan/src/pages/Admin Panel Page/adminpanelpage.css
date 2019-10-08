@@ -1,3 +1,15 @@
 .btn-default {
   background-color: pink !important;
 }
+
+.buttons-container-admin {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+@media only screen and (max-width: 600px) {
+  .buttons-container-admin {
+    flex-wrap: wrap;
+  }
+}

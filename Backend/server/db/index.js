@@ -39,14 +39,21 @@ poshcaravandb.allUsers = () => {
  * @param {function} reject- function to reject the promise
  * @return {object} - resolves the promise by returning one user
  * */
-poshcaravandb.oneUser = () => {
+poshcaravandb.oneUser = (email, password) => {
   return new Promise((resolve, reject) => {
-    pool.query(`SELECT * FROM Users WHERE User_ID= ?`, [id], (err, results) => {
-      if (err) {
-        return reject(err);
+    console.log("heyy", email, password);
+    pool.query(
+      `SELECT * FROM Users WHERE Email= ? AND Password=?`,
+      [email, password],
+
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+
+        return resolve(results[0]);
       }
-      return resolve(results[0]);
-    });
+    );
   });
 };
 
@@ -59,11 +66,13 @@ poshcaravandb.oneUser = () => {
 poshcaravandb.addUser = props => {
   return new Promise((resolve, reject) => {
     pool.query(
-      `INSERT INTO Users (FirstName, LastName, Email, PhoneNumber, Password) VALUES (?,?,?,?,?)`,
+      `INSERT INTO Users (FirstName, LastName, Email, UserName, Role, PhoneNumber, Password) VALUES (?,?,?,?,?,?,?)`,
       [
         props.FirstName,
         props.LastName,
         props.Email,
+        props.UserName,
+        props.Role,
         props.PhoneNumber,
         props.Password
       ],
@@ -1073,6 +1082,52 @@ poshcaravandb.vintageCategories = () => {
 };
 
 //Below are all the controllers for querying Main Categories, Categories, and Sub-Categories
+
+/** add one new category
+ * @function addCategory
+ * @param {function} resolve - function to resolve the promise
+ * @param {function} reject - function to reject the promise
+ * @return {object} resolves the promise by adding one category
+ */
+poshcaravandb.addCategory = props => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `INSERT INTO Category (CategoryName, CategoryImage, MainCategory_MainCategory_ID) VALUES (?,?,?)`,
+      [
+        props.CategoryName,
+        props.CategoryImage,
+        props.MainCategory_MainCategory_ID
+      ],
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/** add one new subcategory
+ * @function addSubCategory
+ * @param {function} resolve - function to resolve the promise
+ * @param {function} reject - function to reject the promise
+ * @return {object} resolves the promise by adding one subcategory
+ */
+poshcaravandb.addSubCategory = props => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      `INSERT INTO SubCategory (SubCategoryName) VALUES (?)`,
+      [props.SubCategoryName],
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
 
 /**
  *

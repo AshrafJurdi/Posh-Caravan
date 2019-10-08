@@ -88,15 +88,20 @@ router.get("/users/:id", async (req, res, next) => {
  */
 router.post("/user/create", async (req, res, next) => {
   try {
+    console.log(" req.body => ", req.body);
     const FirstName = req.body.FirstName;
     const LastName = req.body.LastName;
     const Email = req.body.Email;
+    const UserName = req.body.UserName;
+    const Role = req.body.Role;
     const PhoneNumber = req.body.PhoneNumber;
     const Password = req.body.Password;
     let results = await db.addUser({
       FirstName,
       LastName,
       Email,
+      UserName,
+      Role,
       PhoneNumber,
       Password
     });
@@ -130,6 +135,8 @@ router.put("/user/update/:id", async (req, res, next) => {
     const FirstName = req.body.FirstName;
     const LastName = req.body.LastName;
     const Email = req.body.Email;
+    const UserName = req.body.UserName;
+    const Role = req.body.Role;
     const PhoneNumber = req.body.PhoneNumber;
     const Password = req.body.Password;
     const User_ID = req.params.id;
@@ -138,6 +145,8 @@ router.put("/user/update/:id", async (req, res, next) => {
       FirstName,
       LastName,
       Email,
+      UserName,
+      Role,
       PhoneNumber,
       Password
     });
@@ -816,6 +825,33 @@ router.get("/everythingnew/fashion/tops", async (req, res, next) => {
 /**
  *
  */
+router.post(
+  "/category/create",
+  upload.single("CategoryImage"),
+  async (req, res, next) => {
+    try {
+      const CategoryName = req.body.CategoryName;
+      const CategoryImage = req.file.filename;
+      const MainCategory_MainCategory_ID =
+        req.body.MainCategory_MainCategory_ID;
+
+      console.log(req.body);
+      let results = await db.addCategory({
+        CategoryName,
+        CategoryImage,
+        MainCategory_MainCategory_ID
+      });
+      res.json(results);
+    } catch (e) {
+      console.log(e);
+      res.sendStatus(500);
+    }
+  }
+);
+
+/**
+ *
+ */
 router.get("/everythingnew/categories", async (req, res, next) => {
   try {
     let results = await db.everythingNewCategories();
@@ -840,6 +876,41 @@ router.get("/vintage/categories", async (req, res, next) => {
 });
 
 //Below are all the routes for querying  Main Categories, Categories, and Sub-Categories
+
+/**
+ *
+ */
+router.post("/subcategory/create", async (req, res, next) => {
+  try {
+    const SubCategoryName = req.body.SubCategoryName;
+    let results = await db.addSubCategory({
+      SubCategoryName
+    });
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+/**
+ *
+ *
+ */
+router.put("/subcategory/update/:id", async (req, res, next) => {
+  try {
+    const SubCategoryName = req.body.SubCategoryName;
+    const SubCategory_ID = req.params.id;
+    let results = await db.updateSubcategory({
+      SubCategory_ID,
+      SubCategoryName
+    });
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
 
 /**
  *

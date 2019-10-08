@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./categories.css";
+import "../Categories-Vintage&Preloved/categories.css";
 class EverythingNewCategories extends React.Component {
   constructor() {
     super();
@@ -27,7 +27,7 @@ class EverythingNewCategories extends React.Component {
         <Link
           className="image1"
           to={{
-            pathname: "/pages/Product Page/productpage",
+            pathname: "/Product Page",
             state: { route: "everythingnew/allproducts" }
           }}
         ></Link>
@@ -38,10 +38,10 @@ class EverythingNewCategories extends React.Component {
             <Link
               className="image3"
               style={{
-                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[1].CategoryImage})`
+                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[0].CategoryImage})`
               }}
               to={{
-                pathname: "/pages/Product Page/productpage",
+                pathname: "/Product Page",
                 state: { route: "everythingnew/fashion" }
               }}
             ></Link>
@@ -49,10 +49,10 @@ class EverythingNewCategories extends React.Component {
             <Link
               className="image4"
               style={{
-                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[3].CategoryImage})`
+                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[2].CategoryImage})`
               }}
               to={{
-                pathname: "/pages/Product Page/productpage",
+                pathname: "/Product Page",
                 state: { route: "everythingnew/bagsandaccessories" }
               }}
             ></Link>
@@ -64,10 +64,10 @@ class EverythingNewCategories extends React.Component {
             <Link
               className="image6"
               style={{
-                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[2].CategoryImage})`
+                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[1].CategoryImage})`
               }}
               to={{
-                pathname: "/pages/Product Page/productpage",
+                pathname: "/Product Page",
                 state: { route: "everythingnew/bagsandaccessories/bags" }
               }}
             ></Link>
@@ -77,10 +77,10 @@ class EverythingNewCategories extends React.Component {
             <Link
               className="image7"
               style={{
-                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[4].CategoryImage})`
+                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[3].CategoryImage})`
               }}
               to={{
-                pathname: "/pages/Product Page/productpage",
+                pathname: "/Product Page",
                 state: { route: "everythingnew/fashion/dresses" }
               }}
             ></Link>

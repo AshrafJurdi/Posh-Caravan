@@ -16,6 +16,7 @@ class ProductList extends React.Component {
     };
   }
   async componentWillReceiveProps(newProps) {
+    console.log(newProps.mainCategory);
     let route = "";
     if (!newProps.location) route = "products";
     else route = newProps.location.state.route;
@@ -26,7 +27,38 @@ class ProductList extends React.Component {
       console.log(url);
       const response = await fetch(url);
       const products = await response.json();
-      this.setState({ products });
+
+      if (this.props.mainCategory) {
+        console.log("product list main cat", this.props.mainCategory);
+        if (this.props.mainCategory != "0") {
+          let newProducts = products.filter(item => {
+            return (
+              item.MainCategory_MainCategory_ID ===
+              parseInt(this.props.mainCategory)
+            );
+          });
+          console.log("first", newProducts);
+          if (this.props.category != 0) {
+            newProducts = newProducts.filter(item => {
+              return (
+                item.Category_Category_ID === parseInt(this.props.category)
+              );
+            });
+          }
+          console.log("second", newProducts);
+          if (this.props.subCategory != 0) {
+            newProducts = newProducts.filter(item => {
+              return (
+                item.SubCategory_SubCategory_ID ===
+                parseInt(this.props.subCategory)
+              );
+            });
+          }
+
+          console.log("third ", newProducts);
+          this.setState({ products: newProducts });
+        } else this.setState({ products });
+      } else this.setState({ products });
     } catch (err) {
       console.log(err);
     }
@@ -39,8 +71,35 @@ class ProductList extends React.Component {
       console.log(url);
       const response = await fetch(url);
       const products = await response.json();
-      console.log(products);
-      this.setState({ products });
+      console.log("hello", products);
+      console.log(this.props);
+      if (this.props.mainCategory) {
+        console.log("product list main cat", this.props.mainCategory);
+        if (this.props.mainCategory !== "0") {
+          var newProducts = products.filter(item => {
+            return (
+              item.MainCategory_MainCategory_ID ===
+              parseInt(this.props.mainCategory)
+            );
+          });
+          if (this.props.category !== 0) {
+            newProducts = newProducts.filter(item => {
+              return (
+                item.Category_Category_ID === parseInt(this.props.category)
+              );
+            });
+            if (this.props.subCategory !== 0) {
+              newProducts = newProducts.filter(item => {
+                return (
+                  item.SubCategory_SubCategory_ID ===
+                  parseInt(this.props.subCategory)
+                );
+              });
+            }
+          }
+          this.setState({ products: newProducts });
+        } else this.setState({ products });
+      } else this.setState({ products });
     } catch (err) {
       console.log(err);
     }

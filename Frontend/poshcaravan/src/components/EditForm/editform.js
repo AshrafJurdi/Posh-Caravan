@@ -163,7 +163,7 @@ class EditForm extends React.Component {
   render() {
     let cat_default = false;
     return (
-      <form className="form-group" onSubmit={e => this.onSubmit(e)}>
+      <form className="form-group-edit" onSubmit={e => this.onSubmit(e)}>
         <MDBInput
           label="Product Name"
           outline

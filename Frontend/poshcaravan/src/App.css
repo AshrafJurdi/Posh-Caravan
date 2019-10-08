@@ -2,6 +2,10 @@
   font-family: "Raleway", sans-serif !important;
 } */
 
+* {
+  outline: none;
+}
+
 .App {
   text-align: center;
 }

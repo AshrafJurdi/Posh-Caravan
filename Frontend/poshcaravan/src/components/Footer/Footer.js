@@ -1,5 +1,5 @@
 import React from "react";
-import "./Footer1.css";
+// import "./Footer1.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Logo from "./poshcaravan_logo.jpg";
 import Image from "react-bootstrap/Image";
