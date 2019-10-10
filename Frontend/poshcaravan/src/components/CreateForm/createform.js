@@ -12,10 +12,10 @@ class CreateForm extends React.Component {
       ProductPrice: "",
       ProductImage: null,
       Sale: "",
-      SalePercentage: null,
+      SalePercentage: 0.0,
       mainCategory: null,
       Category_Category_ID: null,
-      SubCategory_SubCategory_ID: 1,
+      SubCategory_SubCategory_ID: null,
       categories: [],
       Subcategories: []
     };
@@ -142,16 +142,22 @@ class CreateForm extends React.Component {
   onSubmit = e => {
     console.log("state", this.state);
     e.preventDefault();
-    this.createProduct({
-      ProductName: this.state.ProductName,
-      ProductDescription: this.state.ProductDescription,
-      ProductPrice: this.state.ProductPrice,
-      ProductImage: this.state.ProductImage,
-      Sale: this.state.Sale,
-      SalePercentage: this.state.SalePercentage,
-      Category_Category_ID: this.state.Category_Category_ID,
-      SubCategory_SubCategory_ID: this.state.SubCategory_SubCategory_ID
-    });
+    if (
+      this.state.Category_Category_ID == null ||
+      this.state.SubCategory_SubCategory_ID == null
+    ) {
+      alert("Please choose Category & Subcategory");
+    } else
+      this.createProduct({
+        ProductName: this.state.ProductName,
+        ProductDescription: this.state.ProductDescription,
+        ProductPrice: this.state.ProductPrice,
+        ProductImage: this.state.ProductImage,
+        Sale: this.state.Sale,
+        SalePercentage: this.state.SalePercentage / 100,
+        Category_Category_ID: this.state.Category_Category_ID,
+        SubCategory_SubCategory_ID: this.state.SubCategory_SubCategory_ID
+      });
     console.log(this.state);
   };
   render() {
@@ -214,6 +220,7 @@ class CreateForm extends React.Component {
             onChange={this.handleChange}
             required
           >
+            <option value={null}>Select</option>
             {this.state.mainCategory === 1
               ? this.state.categories.map(category => {
                   if (category.MainCategory_MainCategory_ID === 1) {
@@ -246,6 +253,7 @@ class CreateForm extends React.Component {
             onChange={this.handleChange}
             required
           >
+            <option value={null}>Select</option>
             {this.state.Subcategories.map(subcategory => {
               return (
                 <option value={subcategory.SubCategory_ID}>
@@ -290,7 +298,6 @@ class CreateForm extends React.Component {
           type="text"
           name="SalePercentage"
           onChange={this.handleChange}
-          append={<span className="input-group-text">%</span>}
         />
 
         <br />

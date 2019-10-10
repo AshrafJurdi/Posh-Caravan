@@ -92,9 +92,10 @@ poshcaravandb.addUser = props => {
  * @param {function} reject - function to reject the promise
  * @param {object} - return results
  */
-poshcaravandb.deleteUser = () => {
+poshcaravandb.deleteUser = id => {
   return new Promise((resolve, reject) => {
-    pool.query(`DELETE FROM Users WHERE User_ID= ?`, [id], (err, results) => {
+    console.log(id);
+    pool.query(`DELETE FROM Users WHERE User_ID=?`, [id], (err, results) => {
       console.log(results);
       if (err) {
         return reject(err);
@@ -183,6 +184,7 @@ poshcaravandb.oneProduct = () => {
  */
 poshcaravandb.addProduct = props => {
   return new Promise((resolve, reject) => {
+    console.log("Sale Percentage", props.SalePercentage);
     pool.query(
       `INSERT INTO Products (ProductName, ProductDescription, ProductPrice, ProductImage,Sale,SalePercentage, Category_Category_ID, SubCategory_SubCategory_ID) VALUES (?,?,?,?,?,?,?,?)`,
       [
@@ -191,6 +193,9 @@ poshcaravandb.addProduct = props => {
         props.ProductPrice,
         props.ProductImage,
         props.Sale,
+        // parseFloat(props.SalePercentage) !== NaN
+        //   ? parseFloat(props.SalePercentage)
+        //   : 0.0,
         props.SalePercentage,
         props.Category_Category_ID,
         props.SubCategory_SubCategory_ID
@@ -1167,6 +1172,76 @@ poshcaravandb.categories = () => {
   });
 };
 
+/** delete one Category
+ * @function deleteCategory
+ * @param {function} resolve - function to resolve the promise
+ * @param {function} reject - function to reject the promise
+ * @param {object} - return results
+ */
+poshcaravandb.deleteCategory = id => {
+  return new Promise((resolve, reject) => {
+    console.log(id);
+    pool.query(
+      `DELETE FROM Category WHERE Category_ID= ?`,
+      [id],
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+/** update one category
+ * @function updateCategory
+ * @param {function} resolve - function to resolve the promise
+ * @param {function} reject - function to reject the promise
+ * @returns return resutlts
+ */
+
+poshcaravandb.updateCategory = props => {
+  return new Promise((resolve, reject) => {
+    console.log("it reached here", props);
+    if (props.CategoryImage) {
+      pool.query(
+        `UPDATE Category SET 
+        CategoryName=?,
+        CategoryImage=?,
+        MainCategory_MainCategory_ID=? WHERE Category_ID=?`,
+        [
+          props.CategoryName,
+          props.CategoryImage,
+          props.MainCategory_MainCategory_ID,
+          props.Category_ID
+        ],
+        (err, results) => {
+          if (err) {
+            return reject(err);
+          }
+          return resolve(results);
+        }
+      );
+    } else {
+      pool.query(
+        `UPDATE Category SET  CategoryName=?, MainCategory_MainCategory_ID=? WHERE Category_ID=?`,
+        [
+          props.CategoryName,
+          props.MainCategory_MainCategory_ID,
+          props.Category_ID
+        ],
+        (err, results) => {
+          if (err) {
+            return reject(err);
+          }
+          return resolve(results);
+        }
+      );
+    }
+  });
+};
+
 /**
  *
  *
@@ -1186,4 +1261,41 @@ poshcaravandb.subCategories = () => {
   });
 };
 
+/** delete one subcategory
+ * @function deleteSubCategory
+ * @param {function} resolve - function to resolve the promise
+ * @param {function} reject - function to reject the promise
+ * @param {object} - return results
+ */
+poshcaravandb.deleteSubCategory = id => {
+  return new Promise((resolve, reject) => {
+    console.log(id);
+    pool.query(
+      `DELETE FROM SubCategory WHERE SubCategory_ID= ?`,
+      [id],
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
+
+poshcaravandb.updateSubcategory = props => {
+  return new Promise((resolve, reject) => {
+    console.log("test", props);
+    pool.query(
+      `UPDATE SubCategory SET SubCategoryName=? WHERE SubCategory_ID=?`,
+      [props.SubCategoryName, props.SubCategory_ID],
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(results);
+      }
+    );
+  });
+};
 module.exports = poshcaravandb;

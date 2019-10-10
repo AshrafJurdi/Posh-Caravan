@@ -6,6 +6,8 @@ import AddCategory from "../../components/AdminAddCategory/adminaddcategory";
 import AddSubCategory from "../../components/AdminAddSubCategory/adminaddsubcategory";
 import AddUser from "../../components/AdminAddUser/adminadduser";
 import ViewSubCategory from "../../components/AdminSubcategory/ViewModal/viewmodal";
+import ViewCategory from "../../components/AdminCategory/ViewModal/viewmodal";
+import ViewUser from "../../components/AdminUser/ViewModal/viewmodal";
 
 import "./adminpanelpage.css";
 
@@ -24,6 +26,8 @@ class Adminpanelpage extends Component {
       modalCategory: false,
       modalSubCategory: false,
       modalSubCategories: false,
+      modalCategories: false,
+      modalUsers: false,
       modalUser: false,
       mainCategory: 0,
       category: 0,
@@ -127,6 +131,28 @@ class Adminpanelpage extends Component {
   };
 
   /**
+   *
+   *
+   * @memberof Adminpanelpage
+   */
+  toggleCategories = () => {
+    this.setState({
+      modalCategories: !this.state.modalCategories
+    });
+  };
+
+  /**
+   *
+   *
+   * @memberof Adminpanelpage
+   */
+  toggleUsers = () => {
+    this.setState({
+      modalUsers: !this.state.modalUsers
+    });
+  };
+
+  /**
    * Renders the component.
    *
    *
@@ -149,6 +175,11 @@ class Adminpanelpage extends Component {
             toggleSubCategories={this.toggleSubCategories}
             state={this.state}
           />
+          <ViewCategory
+            toggleCategories={this.toggleCategories}
+            state={this.state}
+          />
+          <ViewUser toggleUsers={this.toggleUsers} state={this.state} />
         </div>
         <AdminFilter
           handleMainCategory={this.handleMainCategory}

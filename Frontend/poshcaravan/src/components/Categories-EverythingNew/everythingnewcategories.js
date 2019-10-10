@@ -4,8 +4,13 @@ import "../Categories-Vintage&Preloved/categories.css";
 class EverythingNewCategories extends React.Component {
   constructor() {
     super();
+    //this.c = {}; //this.state.categories.find(c => c.CategoryName == "Fashion");
+    //this.image3 = ""; //c.CategoryImage;
     this.state = {
-      categories: []
+      categories: [],
+      image3: "",
+      image4: "",
+      image6: ""
     };
   }
   // ${this.props.location.state.route}
@@ -16,10 +21,26 @@ class EverythingNewCategories extends React.Component {
       const response = await fetch(url);
       const categories = await response.json();
       this.setState({ categories });
+      //
+      const c1 = this.state.categories.find(c => c.CategoryName == "Fashion");
+      const newimage3 = c1.CategoryImage;
+      this.setState({ image3: newimage3 });
+      //
+      const c2 = this.state.categories.find(c => c.CategoryName == "Jewelry");
+      const newimage4 = c2.CategoryImage;
+      this.setState({ image4: newimage4 });
+      //
+      const c3 = this.state.categories.find(
+        c => c.CategoryName == "Bags & Accessories"
+      );
+      const newimage6 = c3.CategoryImage;
+      this.setState({ image6: newimage6 });
+      console.log("categories===>", categories);
     } catch (err) {
       console.log(err);
     }
   };
+
   render() {
     //  const imageName =   this.state.categories.length > 1 &&  this.state.categories[1].CategoryImage;
     return (
@@ -38,7 +59,7 @@ class EverythingNewCategories extends React.Component {
             <Link
               className="image3"
               style={{
-                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[0].CategoryImage})`
+                backgroundImage: `url(http://localhost:5000/Images/${this.state.image3})`
               }}
               to={{
                 pathname: "/Product Page",
@@ -49,7 +70,7 @@ class EverythingNewCategories extends React.Component {
             <Link
               className="image4"
               style={{
-                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[2].CategoryImage})`
+                backgroundImage: `url(http://localhost:5000/Images/${this.state.image4})`
               }}
               to={{
                 pathname: "/Product Page",
@@ -64,7 +85,7 @@ class EverythingNewCategories extends React.Component {
             <Link
               className="image6"
               style={{
-                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[1].CategoryImage})`
+                backgroundImage: `url(http://localhost:5000/Images/${this.state.image6})`
               }}
               to={{
                 pathname: "/Product Page",
@@ -77,7 +98,7 @@ class EverythingNewCategories extends React.Component {
             <Link
               className="image7"
               style={{
-                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[3].CategoryImage})`
+                backgroundImage: `url(http://localhost:5000/Images/newdresses.jpg)`
               }}
               to={{
                 pathname: "/Product Page",

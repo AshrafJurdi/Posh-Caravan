@@ -5,7 +5,11 @@ class VintageCategories extends React.Component {
   constructor() {
     super();
     this.state = {
-      categories: []
+      categories: [],
+      image3: "",
+      image4: "",
+      image6: "",
+      image7: ""
     };
   }
   // ${this.props.location.state.route}
@@ -16,6 +20,27 @@ class VintageCategories extends React.Component {
       const response = await fetch(url);
       const categories = await response.json();
       this.setState({ categories });
+
+      //
+      const c1 = this.state.categories.find(c => c.CategoryName == "Clothing");
+      const newimage3 = c1.CategoryImage;
+      this.setState({ image3: newimage3 });
+      //
+      const c2 = this.state.categories.find(c => c.CategoryName == "Jewelry");
+      const newimage4 = c2.CategoryImage;
+      this.setState({ image4: newimage4 });
+      //
+      const c3 = this.state.categories.find(c => c.CategoryName == "Furniture");
+      const newimage6 = c3.CategoryImage;
+      this.setState({ image6: newimage6 });
+      //
+      const c4 = this.state.categories.find(
+        c => c.CategoryName == "Home Accents"
+      );
+      const newimage7 = c4.CategoryImage;
+      this.setState({ image7: newimage7 });
+      //
+      console.log("this is it", this.state);
     } catch (err) {
       console.log(err);
     }
@@ -38,7 +63,7 @@ class VintageCategories extends React.Component {
             <Link
               className="image3"
               style={{
-                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[1].CategoryImage})`
+                backgroundImage: `url(http://localhost:5000/Images/${this.state.image3})`
               }}
               to={{
                 pathname: "/Product Page",
@@ -49,12 +74,12 @@ class VintageCategories extends React.Component {
             <Link
               className="image4"
               style={{
-                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[3].CategoryImage})`
+                backgroundImage: `url(http://localhost:5000/Images/${this.state.image4})`
               }}
               to={{
                 pathname: "/Product Page",
                 state: {
-                  route: "everythingnew/bagsandaccessories",
+                  route: "vintage&preloved/products/jewelry",
                   header: "vintage"
                 }
               }}
@@ -67,12 +92,12 @@ class VintageCategories extends React.Component {
             <Link
               className="image6"
               style={{
-                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[2].CategoryImage})`
+                backgroundImage: `url(http://localhost:5000/Images/${this.state.image6})`
               }}
               to={{
                 pathname: "/Product Page",
                 state: {
-                  route: "vintage&preloved/bagsandaccessories/bags",
+                  route: "vintage&preloved/products/furniture",
                   header: "vintage"
                 }
               }}
@@ -83,12 +108,12 @@ class VintageCategories extends React.Component {
             <Link
               className="image7"
               style={{
-                backgroundImage: `url(http://localhost:5000/Images/${this.state.categories[4].CategoryImage})`
+                backgroundImage: `url(http://localhost:5000/Images/${this.state.image7})`
               }}
               to={{
                 pathname: "/Product Page",
                 state: {
-                  route: "vintage&preloved/clothes/dresses",
+                  route: "vintage&preloved/products/homeaccents",
                   header: "vintage"
                 }
               }}

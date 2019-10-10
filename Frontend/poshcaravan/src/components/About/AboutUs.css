@@ -3,12 +3,34 @@
   display: flex;
   flex-direction: column;
 }
-.textabout {
-  width: 70%;
-  font-family: Arial, Helvetica, sans-serif;
+.textabout1 {
+  width: 50%;
+  font-family: "Lato", sans-serif;
   font-size: 12pt;
-  margin: 20px auto 0 auto;
+  margin: 40px;
+  float: left;
 }
+
+.textabout2 {
+  width: 52%;
+  font-family: "Lato", sans-serif;
+  font-size: 12pt;
+  margin: 40px;
+  float: right;
+}
+
+.textabout3 {
+  width: 50%;
+  font-family: "Lato", sans-serif;
+  font-size: 12pt;
+  margin: 40px;
+  float: left;
+}
+
+.mission-vision-container {
+  width: 100%;
+}
+
 /* 
 a {
   color: black !important;
@@ -88,12 +110,29 @@ iframe {
 }
 
 .gmap_canvas {
-  overflow: hidden;
-  background: none !important;
   height: 200px;
-  width: 400px;
+  width: 100% !important;
 }
 
+.map-map {
+  margin: 20px;
+  width: 100%;
+  height: 300px;
+
+  background: none !important;
+}
+
+.facebook-poshcaravan {
+  color: black;
+  padding: 0 20px;
+  font-size: 40px;
+}
+
+.insta-poshcaravan {
+  color: black;
+  padding: 0 20px;
+  font-size: 40px;
+}
 /* h2 {
   font-size: 12pt;
   font-weight: bold;

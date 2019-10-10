@@ -10,7 +10,7 @@ import LandingPage from "./pages/Home Page/homepage";
 import EverythingNewPage from "./pages/Everything New Page/everythingnew";
 import VintagePage from "./pages/Vintage Page/vintagepage";
 import ProductPage from "./pages/Product Page/productpage";
-import AboutUs from "./pages/About Us Page/aboutus";
+import AboutUs2 from "./pages/About Us Page/aboutus";
 import ContactUs from "./pages/ContactUs Page/ContactUs";
 import AdminLogin from "./components/AdminLogin/AdminLogin";
 // import FormPage from "./pages/Admin Panel Page/FormPage";
@@ -32,7 +32,7 @@ function App() {
           path="/Product Page"
           render={props => <ProductPage {...props} />}
         />
-        <Route path="/About Us " render={props => <AboutUs {...props} />} />
+        <Route path="/About Us" render={props => <AboutUs2 {...props} />} />
         <Route
           path="/pages/ContactUs/ContactUs"
           render={props => <ContactUs {...props} />}

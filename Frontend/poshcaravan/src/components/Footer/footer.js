@@ -568,13 +568,28 @@ function Footer() {
               <a href="">
                 <i class="fab fa-twitter" />
               </a>
-              <Link to="/About Us">
+              <Link
+                to={{
+                  pathname: "/About Us",
+                  state: { header: "vintage" }
+                }}
+              >
                 <i class="fas fa-phone"></i>
               </Link>
-              <Link to="/About Us">
+              <Link
+                to={{
+                  pathname: "/About Us",
+                  state: { header: "vintage" }
+                }}
+              >
                 <i class="fas fa-envelope"></i>
               </Link>
-              <Link to="/About Us">
+              <Link
+                to={{
+                  pathname: "/About Us",
+                  state: { header: "vintage" }
+                }}
+              >
                 <i class="fas fa-map-marked-alt"></i>
               </Link>
             </div>

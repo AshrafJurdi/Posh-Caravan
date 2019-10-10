@@ -1,62 +1,46 @@
 import React from "react";
-import { MDBInput, MDBFormInline } from "mdbreact";
+import { MDBInput } from "mdbreact";
+import "../../CreateForm/createform.css";
 
-class EditForm extends React.Component {
+class SubCategoryEditForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      SubCategoryName: this.props.SubCategoryName,
-      categories: [],
-      Subcategories: []
+      SubCategoryName: this.props.subcategory.SubCategoryName,
+      SubCategory_ID: this.props.subcategory.SubCategory_ID
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
-  async componentDidMount() {
-    try {
-      const responseCategories = await fetch(
-        "http://localhost:5000/categories"
-      );
-      const responseSubcategories = await fetch(
-        "http://localhost:5000/subcategories"
-      );
-      const categories = await responseCategories.json();
-      const Subcategories = await responseSubcategories.json();
-      this.setState({ categories, Subcategories });
-      console.log("Categories==>", categories);
-      console.log("Sub Categories==>", Subcategories);
-      console.log(this.state);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
+
     console.log("state", this.state);
-    console.log("props", this.props);
   };
 
   /**
-   * creates a component with the given ProductName and ProductDescription and ProductPrice
+   *
    *
    *
    */
-  editSubCategory = async parameters => {
-    let { SubCategory_ID, SubCategoryName } = parameters;
+  updateSubCategory = async parameters => {
+    let { SubCategoryName, SubCategory_ID } = parameters;
 
     console.log("parameters", parameters);
 
     try {
-      const body = new FormData();
-
-      body.append("SubCategoryName", SubCategoryName);
       const response = await fetch(
         `http://localhost:5000/subcategory/update/${SubCategory_ID}`,
         {
           method: "PUT",
-          body
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            SubCategoryName
+          })
         }
       );
       const answer = await response.json();
@@ -72,33 +56,43 @@ class EditForm extends React.Component {
   onSubmit = e => {
     console.log("state", this.state);
     e.preventDefault();
-    this.editSubCategory({
-      SubCtaegoryName: this.state.SubCategoryName,
-      SubCategory_ID: this.props.SubCategory_ID
+    this.updateSubCategory({
+      SubCategoryName: this.state.SubCategoryName,
+      SubCategory_ID: this.state.SubCategory_ID
     });
+    console.log(this.state);
   };
   render() {
     let cat_default = false;
     return (
-      <form className="form-group-edit" onSubmit={e => this.onSubmit(e)}>
-        <MDBInput
-          label="SubCategory Name"
-          outline
-          size="lg"
-          type="text"
-          name="SubCategoryName"
-          required
-          value={this.state.SubCategoryName}
-          onChange={this.handleChange}
-        />
+      <form className="form-group1" onSubmit={e => this.onSubmit(e)}>
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column"
+            }}
+          >
+            <MDBInput
+              label="SubCategory Name"
+              outline
+              size="lg"
+              type="text"
+              name="SubCategoryName"
+              value={this.state.SubCategoryName}
+              required
+              onChange={this.handleChange}
+            />
 
-        <br />
-        <div>
-          <input type="submit" value="Update" />
+            <br />
+            <button type="submit">Update</button>
+          </div>
         </div>
       </form>
     );
   }
 }
 
-export default EditForm;
+export default SubCategoryEditForm;

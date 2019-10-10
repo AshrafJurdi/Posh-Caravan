@@ -116,9 +116,11 @@ router.post("/user/create", async (req, res, next) => {
  *
  *
  */
-router.delete("/users/delete/:id", async (req, res, next) => {
+router.get("/users/delete/:id", async (req, res, next) => {
+  const id = req.params.id;
+  console.log(id);
   try {
-    let results = await db.deleteUser((id = req.params.id));
+    let results = await db.deleteUser(id);
     res.json(results);
   } catch (e) {
     console.log(e);
@@ -880,9 +882,10 @@ router.get("/vintage/categories", async (req, res, next) => {
 /**
  *
  */
-router.post("/subcategory/create", async (req, res, next) => {
+router.post("/subcategory/create", upload.none(), async (req, res, next) => {
   try {
     const SubCategoryName = req.body.SubCategoryName;
+    console.log("SubCategoryName", SubCategoryName);
     let results = await db.addSubCategory({
       SubCategoryName
     });
@@ -940,10 +943,87 @@ router.get("/categories", async (req, res, next) => {
 
 /**
  *
+ *
+ */
+router.get("/categories/delete/:id", async (req, res, next) => {
+  try {
+    console.log("id", req.params.id);
+    let results = await db.deleteCategory(req.params.id);
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+/**
+ *
+ *
+ */
+router.put(
+  "/category/update/:id",
+  upload.single("CategoryImage"),
+  async (req, res, next) => {
+    if (req.file) {
+      console.log("req.file => ", req.file.filename);
+      try {
+        const CategoryName = req.body.CategoryName;
+        const CategoryImage = req.file.filename;
+        const MainCategory_MainCategory_ID =
+          req.body.MainCategory_MainCategory_ID;
+        const Category_ID = req.params.id;
+        let results = await db.updateCategory({
+          Category_ID,
+          CategoryName,
+          CategoryImage,
+          MainCategory_MainCategory_ID
+        });
+        res.json(results);
+      } catch (e) {
+        console.log(e);
+        res.sendStatus(500);
+      }
+    } else {
+      try {
+        const CategoryName = req.body.CategoryName;
+        const MainCategory_MainCategory_ID =
+          req.body.MainCategory_MainCategory_ID;
+        const Category_ID = req.params.id;
+        let results = await db.updateCategory({
+          Category_ID,
+          CategoryName,
+          MainCategory_MainCategory_ID
+        });
+        res.json(results);
+      } catch (e) {
+        console.log(e);
+        res.sendStatus(500);
+      }
+    }
+  }
+);
+
+/**
+ *
  */
 router.get("/subcategories", async (req, res, next) => {
   try {
     let results = await db.subCategories();
+    res.json(results);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
+
+/**
+ *
+ *
+ */
+router.get("/subcategories/delete/:id", async (req, res, next) => {
+  try {
+    console.log("id", req.params.id);
+    let results = await db.deleteSubCategory(req.params.id);
     res.json(results);
   } catch (e) {
     console.log(e);
