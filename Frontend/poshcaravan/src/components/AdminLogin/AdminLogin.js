@@ -26,7 +26,7 @@ class AdminLogin extends Component {
     if (email && password) {
       console.log("here");
       const response = await fetch(
-        `http://localhost:5000/login?email=${email}&password=${password}`
+        `${process.env.REACT_APP_APP_URL}/login?email=${email}&password=${password}`
       );
       const result = await response.json();
       console.log(result);
@@ -43,7 +43,7 @@ class AdminLogin extends Component {
   onLogout = async e => {
     e.preventDefault();
     const response = await fetch(
-      `http://localhost:5000/logout?token=${this.state.token}`
+      `${process.env.REACT_APP_APP_URL}/logout?token=${this.state.token}`
     );
     cookies.remove("token");
     this.setState({ token: null });
@@ -71,10 +71,10 @@ class AdminLogin extends Component {
         <form
           className="needs-validation"
           noValidate
-          class="text-center border border-light p-5 login"
+          className="text-center border border-light p-5 login"
           onSubmit={e => this.onSubmit(e)}
         >
-          <p class="h4 mb-4">Sign in</p>
+          <p className="h4 mb-4">Sign in</p>
 
           {/* <!-- Username --> */}
           <div className="inputs">
@@ -84,7 +84,7 @@ class AdminLogin extends Component {
               type="name"
               name="name"
               id="defaultLoginFormName"
-              class="form-control mb-5"
+              className="form-control mb-5"
               placeholder="User Name"
               required
             ></input>
@@ -101,7 +101,7 @@ class AdminLogin extends Component {
               type="password"
               name="password"
               id="defaultLoginFormPassword"
-              class="form-control mb-5"
+              className="form-control mb-5"
               placeholder="Password"
               required
             ></input>
@@ -110,7 +110,7 @@ class AdminLogin extends Component {
             </div>
           </div>
           {/* <!-- Sign in button --> */}
-          <button class="btn btn-info btn-block my-4 loginbtn" type="submit">
+          <button className="btn btn-info btn-block my-4 loginbtn" type="submit">
             Sign in
           </button>
         </form>
@@ -119,7 +119,7 @@ class AdminLogin extends Component {
       <>
         <HeaderLogo />
         <button
-          class="btn btn-info btn-block my-4 loginoutbtn"
+          className="btn btn-info btn-block my-4 loginoutbtn"
           onClick={e => this.onLogout(e)}
           type="submit"
         >

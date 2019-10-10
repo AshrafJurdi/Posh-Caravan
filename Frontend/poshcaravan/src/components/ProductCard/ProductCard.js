@@ -51,7 +51,7 @@ class ProductCard extends React.Component {
                 className="img-fluid imgProductCard"
                 zoom
                 style={{ maxHeight: "56vh" }}
-                src={`http://localhost:5000/Images/${this.props.product.ProductImage}`}
+                src={`${process.env.REACT_APP_APP_URL}/Images/${this.props.product.ProductImage}`}
               />
             </div>
             <div
@@ -76,7 +76,7 @@ class ProductCard extends React.Component {
                   className="img-fluid imgProductCard"
                   zoom
                   style={{ maxHeight: "56vh" }}
-                  src={`http://localhost:5000/Images/${this.props.product.ProductImage}`}
+                  src={`${process.env.REACT_APP_APP_URL}/Images/${this.props.product.ProductImage}`}
                 />
               </div>
               <div
@@ -92,7 +92,7 @@ class ProductCard extends React.Component {
             <div className="trash-edit-container">
               <i className="far fa-trash-alt" onClick={this.toggle}></i>
               <i
-                class="far fa-edit"
+                className="far fa-edit"
                 onClick={() =>
                   this.props.toggle(this.props.product.Product_ID, true)
                 }

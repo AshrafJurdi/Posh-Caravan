@@ -11,7 +11,7 @@
 .image1 {
   grid-area: 1 / 4 / 6 / 7;
 
-  background-image: url(http://localhost:5000/Images/mainpic.jpg);
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -22,7 +22,7 @@
 
 .image2 {
   grid-area: 4 / 3 / 7 / 4;
-  background-image: url(http://localhost:5000/Images/youarebeautiful.jpg);
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

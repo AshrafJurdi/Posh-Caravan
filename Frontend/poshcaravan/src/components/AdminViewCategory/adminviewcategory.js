@@ -39,7 +39,7 @@ class ViewCategories extends React.Component {
   async componentDidMount() {
     try {
       const responseCategories = await fetch(
-        "http://localhost:5000/categories"
+        `${process.env.REACT_APP_APP_URL}/categories`
       );
       const categories = await responseCategories.json();
       this.setState({ categories });
@@ -54,7 +54,7 @@ class ViewCategories extends React.Component {
     console.log("Category ID:", Category_ID);
     try {
       const response = await fetch(
-        `http://localhost:5000/categories/delete/${Category_ID} `
+        `${process.env.REACT_APP_APP_URL}/categories/delete/${Category_ID} `
       );
       const answer = await response.json();
       if (answer.success) {
@@ -85,7 +85,7 @@ class ViewCategories extends React.Component {
                       className="img-fluid imgProductCard"
                       zoom
                       style={{ maxHeight: "56vh" }}
-                      src={`http://localhost:5000/Images/${category.CategoryImage}`}
+                      src={`${process.env.REACT_APP_APP_URL}/Images/${category.CategoryImage}`}
                     />
                   </div>
                   <div className="stripe dark">
@@ -98,7 +98,7 @@ class ViewCategories extends React.Component {
                     onClick={() => this.toggle(category)}
                   ></i>
                   <i
-                    class="far fa-edit"
+                    className="far fa-edit"
                     onClick={() => this.toggleUpdate(category)}
                   ></i>
                 </div>

@@ -27,7 +27,7 @@ class ModalPage extends Component {
                       <Row>
                         <Col md={6}>
                           <img
-                            src={`http://localhost:5000/Images/${this.props.product.ProductImage}`}
+                            src={`${process.env.REACT_APP_APP_URL}/Images/${this.props.product.ProductImage}`}
                             className="img-fluid"
                           />
                         </Col>
@@ -63,7 +63,7 @@ class ModalPage extends Component {
                       <Row>
                         <Col md={6}>
                           <img
-                            src={`http://localhost:5000/Images/${this.props.product.ProductImage}`}
+                            src={`${process.env.REACT_APP_APP_URL}/Images/${this.props.product.ProductImage}`}
                             className="img-fluid"
                           />
                         </Col>

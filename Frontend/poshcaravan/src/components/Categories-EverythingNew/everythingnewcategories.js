@@ -16,7 +16,7 @@ class EverythingNewCategories extends React.Component {
   // ${this.props.location.state.route}
   componentDidMount = async () => {
     try {
-      let url = `http://localhost:5000/everythingnew/categories`;
+      let url = `${process.env.REACT_APP_APP_URL}/everythingnew/categories`;
       console.log(url);
       const response = await fetch(url);
       const categories = await response.json();
@@ -46,20 +46,22 @@ class EverythingNewCategories extends React.Component {
     return (
       <div className="grid-container1">
         <Link
-          className="image1"
+          className="image1" style={{backgroundImage: `URL('${process.env.REACT_APP_APP_URL}/Images/mainpic.jpg')`}}
           to={{
             pathname: "/Product Page",
             state: { route: "everythingnew/allproducts" }
           }}
-        ></Link>
+        />
 
-        <div className="image2"></div>
+        <div className="image2"
+             style={{backgroundImage: `URL('${process.env.REACT_APP_APP_URL}/Images/youarebeautiful.jpg')`}}
+       />
         {this.state.categories.length > 1 ? (
           <>
             <Link
               className="image3"
               style={{
-                backgroundImage: `url(http://localhost:5000/Images/${this.state.image3})`
+                backgroundImage: `url(${process.env.REACT_APP_APP_URL}/Images/${this.state.image3})`
               }}
               to={{
                 pathname: "/Product Page",
@@ -70,7 +72,7 @@ class EverythingNewCategories extends React.Component {
             <Link
               className="image4"
               style={{
-                backgroundImage: `url(http://localhost:5000/Images/${this.state.image4})`
+                backgroundImage: `url(${process.env.REACT_APP_APP_URL}/Images/${this.state.image4})`
               }}
               to={{
                 pathname: "/Product Page",
@@ -85,7 +87,7 @@ class EverythingNewCategories extends React.Component {
             <Link
               className="image6"
               style={{
-                backgroundImage: `url(http://localhost:5000/Images/${this.state.image6})`
+                backgroundImage: `url(${process.env.REACT_APP_APP_URL}/Images/${this.state.image6})`
               }}
               to={{
                 pathname: "/Product Page",
@@ -98,7 +100,7 @@ class EverythingNewCategories extends React.Component {
             <Link
               className="image7"
               style={{
-                backgroundImage: `url(http://localhost:5000/Images/newdresses.jpg)`
+                backgroundImage: `url(${process.env.REACT_APP_APP_URL}/Images/newdresses.jpg)`
               }}
               to={{
                 pathname: "/Product Page",

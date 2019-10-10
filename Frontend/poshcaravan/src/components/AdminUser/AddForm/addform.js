@@ -24,13 +24,13 @@ class AddFormUser extends React.Component {
   async componentDidMount() {
     try {
       const responseCategories = await fetch(
-        "http://localhost:5000/categories"
+        `${process.env.REACT_APP_APP_URL}/categories`
       );
       const responseSubcategories = await fetch(
-        "http://localhost:5000/subcategories"
+        `${process.env.REACT_APP_APP_URL}/subcategories`
       );
       const responseMainCategories = await fetch(
-        "http://localhost:5000/maincategories"
+        `${process.env.REACT_APP_APP_URL}/maincategories`
       );
       const categories = await responseCategories.json();
       const Subcategories = await responseSubcategories.json();
@@ -77,7 +77,7 @@ class AddFormUser extends React.Component {
       // body.append("PhoneNumber", PhoneNumber);
       // body.append("Password", Password);
       // console.log("parameters", parameters);
-      const response = await fetch(`http://localhost:5000/user/create`, {
+      const response = await fetch(`${process.env.REACT_APP_APP_URL}/user/create`, {
         method: "POST",
         headers: {
           Accept: "application/json",

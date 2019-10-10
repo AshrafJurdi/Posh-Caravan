@@ -14,13 +14,13 @@ class AdminFilter extends React.Component {
   async componentDidMount() {
     try {
       const responseCategories = await fetch(
-        "http://localhost:5000/categories"
+        `${process.env.REACT_APP_APP_URL}/categories`
       );
       const responseSubcategories = await fetch(
-        "http://localhost:5000/subcategories"
+        `${process.env.REACT_APP_APP_URL}/subcategories`
       );
       const responseMaincategories = await fetch(
-        "http://localhost:5000/maincategories"
+        `${process.env.REACT_APP_APP_URL}/maincategories`
       );
       const categories = await responseCategories.json();
       const Subcategories = await responseSubcategories.json();
@@ -58,9 +58,9 @@ class AdminFilter extends React.Component {
               }}
             >
               <option value={0}>All</option>
-              {this.state.maincategories.map(MainCategory => {
+              {this.state.maincategories.map((MainCategory, index) => {
                 return (
-                  <option value={MainCategory.MainCategory_ID}>
+                  <option key={index} value={MainCategory.MainCategory_ID}>
                     {MainCategory.MainCategoryName}
                   </option>
                 );

@@ -25,10 +25,10 @@ class CreateForm extends React.Component {
   async componentDidMount() {
     try {
       const responseCategories = await fetch(
-        "http://localhost:5000/categories"
+        `${process.env.REACT_APP_APP_URL}/categories`
       );
       const responseSubcategories = await fetch(
-        "http://localhost:5000/subcategories"
+        `${process.env.REACT_APP_APP_URL}/subcategories`
       );
       const categories = await responseCategories.json();
       const Subcategories = await responseSubcategories.json();
@@ -120,7 +120,7 @@ class CreateForm extends React.Component {
       body.append("Sale", Sale);
       body.append("Category_Category_ID", Category_Category_ID);
       body.append("SubCategory_SubCategory_ID", SubCategory_SubCategory_ID);
-      const response = await fetch(`http://localhost:5000/product/create`, {
+      const response = await fetch(`${process.env.REACT_APP_APP_URL}/product/create`, {
         method: "POST",
         body
       });

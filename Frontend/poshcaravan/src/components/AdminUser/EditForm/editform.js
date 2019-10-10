@@ -24,13 +24,13 @@ class EditFormUser extends React.Component {
   async componentDidMount() {
     try {
       const responseCategories = await fetch(
-        "http://localhost:5000/categories"
+        `${process.env.REACT_APP_APP_URL}/categories`
       );
       const responseSubcategories = await fetch(
-        "http://localhost:5000/subcategories"
+        `${process.env.REACT_APP_APP_URL}/subcategories`
       );
       const responseMainCategories = await fetch(
-        "http://localhost:5000/maincategories"
+        `${process.env.REACT_APP_APP_URL}/maincategories`
       );
       const categories = await responseCategories.json();
       const Subcategories = await responseSubcategories.json();
@@ -69,7 +69,7 @@ class EditFormUser extends React.Component {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/user/update/${this.props.user.User_ID}`,
+        `${process.env.REACT_APP_APP_URL}/user/update/${this.props.user.User_ID}`,
         {
           method: "PUT",
           headers: {

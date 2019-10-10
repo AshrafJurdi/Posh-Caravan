@@ -30,7 +30,7 @@ class AddFormSubCat extends React.Component {
       const body = new FormData();
       body.append("SubCategoryName", SubCategoryName);
 
-      const response = await fetch(`http://localhost:5000/subcategory/create`, {
+      const response = await fetch(`${process.env.REACT_APP_APP_URL}/subcategory/create`, {
         method: "POST",
         body
       });

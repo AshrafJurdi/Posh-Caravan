@@ -30,7 +30,7 @@ class MainCategory extends Component {
 
   componentDidMount = async () => {
     try {
-      let url = `http://localhost:5000/maincategories`;
+      let url = `${process.env.REACT_APP_APP_URL}/maincategories`;
       console.log(url);
       const response = await fetch(url);
       const maincategory = await response.json();
@@ -49,7 +49,7 @@ class MainCategory extends Component {
             <Link className="vintage" to="/Vintage&PrelovedPage">
               {this.state.maincategory.length !== 0 ? (
                 <MDBCardImage
-                  src={`http://localhost:5000/Images/${this.state.maincategory[0].MainCategoryImage}`}
+                  src={`${process.env.REACT_APP_APP_URL}/Images/${this.state.maincategory[0].MainCategoryImage}`}
                   alt="first"
                   className="landingImg"
                   fluid
@@ -63,7 +63,7 @@ class MainCategory extends Component {
             <Link className="New" to="/EverythingNewPage">
               {this.state.maincategory.length !== 0 ? (
                 <MDBCardImage
-                  src={`http://localhost:5000/Images/${this.state.maincategory[1].MainCategoryImage}`}
+                  src={`${process.env.REACT_APP_APP_URL}/Images/${this.state.maincategory[1].MainCategoryImage}`}
                   alt="secand"
                   className="landingImg"
                   fluid

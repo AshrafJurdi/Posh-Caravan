@@ -20,7 +20,7 @@ class CategoryEditForm extends React.Component {
   async componentDidMount() {
     try {
       const responseMainCategories = await fetch(
-        "http://localhost:5000/maincategories"
+        `${process.env.REACT_APP_APP_URL}/maincategories`
       );
 
       const maincategories = await responseMainCategories.json();
@@ -67,7 +67,7 @@ class CategoryEditForm extends React.Component {
       body.append("MainCategory_MainCategory_ID", MainCategory_MainCategory_ID);
 
       const response = await fetch(
-        `http://localhost:5000/category/update/${Category_ID}`,
+        `${process.env.REACT_APP_APP_URL}/category/update/${Category_ID}`,
         {
           method: "PUT",
           body
@@ -100,7 +100,7 @@ class CategoryEditForm extends React.Component {
       <form className="form-group1" onSubmit={e => this.onSubmit(e)}>
         <div style={{ display: "flex", flexDirection: "row" }}>
           <img
-            src={`http://localhost:5000/Images/${this.state.CategoryImage}`}
+            src={`${process.env.REACT_APP_APP_URL}/Images/${this.state.CategoryImage}`}
             style={{ width: "50%", height: "40rem" }}
           />
           <div

@@ -104,7 +104,7 @@ class AboutUs1 extends React.Component {
                   }}
                 >
                   <i
-                    class="fas fa-phone"
+                    className="fas fa-phone"
                     style={{ paddingRight: "15px", alignItems: "center" }}
                   ></i>
                   <p tyle={{ alignItems: "center" }}>0039 334 1457054</p>
@@ -117,7 +117,7 @@ class AboutUs1 extends React.Component {
                   }}
                 >
                   <i
-                    class="fas fa-envelope"
+                    className="fas fa-envelope"
                     style={{ paddingRight: "15px", alignItems: "center" }}
                   ></i>
                   <p tyle={{ alignItems: "center" }}>info@poshcaravan.com</p>
@@ -133,13 +133,13 @@ class AboutUs1 extends React.Component {
                     className="facebook-poshcaravan"
                     href="https://www.facebook.com/Posh-Caravan-366794210857093/"
                   >
-                    <i class="fab fa-facebook-square" />
+                    <i className="fab fa-facebook-square" />
                   </a>
                   <a
                     className="insta-poshcaravan"
                     href="https://www.instagram.com/posh_caravan/"
                   >
-                    <i class="fab fa-instagram" />
+                    <i className="fab fa-instagram" />
                   </a>
                 </div>
               </div>

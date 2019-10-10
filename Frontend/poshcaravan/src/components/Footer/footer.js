@@ -552,7 +552,7 @@ function Footer() {
               <Link to="/">
                 <img
                   className="logo11"
-                  src="http://localhost:5000/Images/poshcaravan_logo.jpg"
+                  src={`${process.env.REACT_APP_APP_URL}/Images/poshcaravan_logo.jpg`}
                   alt="PoshCaravan"
                   title="PoshCaravan"
                 />
@@ -560,13 +560,13 @@ function Footer() {
             </div>
             <div className="social-media">
               <a href="https://www.facebook.com/Posh-Caravan-366794210857093/">
-                <i class="fab fa-facebook-square" />
+                <i className="fab fa-facebook-square" />
               </a>
               <a href="https://www.instagram.com/posh_caravan/">
-                <i class="fab fa-instagram" />
+                <i className="fab fa-instagram" />
               </a>
               <a href="">
-                <i class="fab fa-twitter" />
+                <i className="fab fa-twitter" />
               </a>
               <Link
                 to={{
@@ -574,7 +574,7 @@ function Footer() {
                   state: { header: "vintage" }
                 }}
               >
-                <i class="fas fa-phone"></i>
+                <i className="fas fa-phone"></i>
               </Link>
               <Link
                 to={{
@@ -582,7 +582,7 @@ function Footer() {
                   state: { header: "vintage" }
                 }}
               >
-                <i class="fas fa-envelope"></i>
+                <i className="fas fa-envelope"></i>
               </Link>
               <Link
                 to={{
@@ -590,7 +590,7 @@ function Footer() {
                   state: { header: "vintage" }
                 }}
               >
-                <i class="fas fa-map-marked-alt"></i>
+                <i className="fas fa-map-marked-alt"></i>
               </Link>
             </div>
             <h6>©PoshCaravan 2019</h6>

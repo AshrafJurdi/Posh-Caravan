@@ -23,7 +23,7 @@ class ViewSubCategories extends React.Component {
   async componentDidMount() {
     try {
       const responseSubcategories = await fetch(
-        "http://localhost:5000/subcategories"
+        `${process.env.REACT_APP_APP_URL}/subcategories`
       );
       const Subcategories = await responseSubcategories.json();
       this.setState({ Subcategories });
@@ -53,7 +53,7 @@ class ViewSubCategories extends React.Component {
     console.log("Category ID:", SubCategory_ID);
     try {
       const response = await fetch(
-        `http://localhost:5000/subcategories/delete/${SubCategory_ID} `
+        `${process.env.REACT_APP_APP_URL}/subcategories/delete/${SubCategory_ID} `
       );
       const answer = await response.json();
       if (answer.success) {
@@ -69,14 +69,14 @@ class ViewSubCategories extends React.Component {
   };
   render() {
     return (
-      <ul class="list-group">
+      <ul className="list-group">
         {this.state.Subcategories.map(subcategory => {
           return (
             <div
               className="subcategory-list"
               style={{ display: "flex", alignItems: "center" }}
             >
-              <li class="list-group-item" style={{ width: "90%" }}>
+              <li className="list-group-item" style={{ width: "90%" }}>
                 {subcategory.SubCategoryName}
               </li>
               <div style={{ width: "10%" }}>
@@ -86,7 +86,7 @@ class ViewSubCategories extends React.Component {
                   style={{ marginRight: "10%" }}
                 ></i>
                 <i
-                  class="far fa-edit"
+                  className="far fa-edit"
                   onClick={() => this.toggleUpdate(subcategory)}
                 ></i>
               </div>

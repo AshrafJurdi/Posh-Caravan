@@ -31,7 +31,7 @@ class SubCategoryEditForm extends React.Component {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/subcategory/update/${SubCategory_ID}`,
+        `${process.env.REACT_APP_APP_URL}/subcategory/update/${SubCategory_ID}`,
         {
           method: "PUT",
           headers: {

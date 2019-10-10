@@ -60,7 +60,7 @@ class Adminpanelpage extends Component {
     console.log("here", Product_ID);
     try {
       const response = await fetch(
-        `http://localhost:5000/products/delete/${Product_ID} `
+        `${process.env.REACT_APP_APP_URL}/products/delete/${Product_ID} `
       );
       const answer = await response.json();
       if (answer.success) {

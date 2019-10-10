@@ -26,10 +26,10 @@ class EditForm extends React.Component {
   async componentDidMount() {
     try {
       const responseCategories = await fetch(
-        "http://localhost:5000/categories"
+        `${process.env.REACT_APP_APP_URL}/categories`
       );
       const responseSubcategories = await fetch(
-        "http://localhost:5000/subcategories"
+        `${process.env.REACT_APP_APP_URL}/subcategories`
       );
       const categories = await responseCategories.json();
       const Subcategories = await responseSubcategories.json();
@@ -124,7 +124,7 @@ class EditForm extends React.Component {
       body.append("Category_Category_ID", Category_Category_ID);
       body.append("SubCategory_SubCategory_ID", SubCategory_SubCategory_ID);
       const response = await fetch(
-        `http://localhost:5000/products/update/${Product_ID}`,
+        `${process.env.REACT_APP_APP_URL}/products/update/${Product_ID}`,
         {
           method: "PUT",
           body

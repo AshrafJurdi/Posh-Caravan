@@ -20,7 +20,7 @@ class ViewUsers extends React.Component {
   }
   async componentDidMount() {
     try {
-      const responseUsers = await fetch("http://localhost:5000/users");
+      const responseUsers = await fetch(`${process.env.REACT_APP_APP_URL}/users`);
       const users = await responseUsers.json();
       this.setState({ users });
       console.log("users==>", users);
@@ -38,7 +38,7 @@ class ViewUsers extends React.Component {
     console.log("here", User_ID);
     try {
       const response = await fetch(
-        `http://localhost:5000/users/delete/${User_ID} `
+        `${process.env.REACT_APP_APP_URL}/users/delete/${User_ID} `
       );
       const answer = await response.json();
       if (answer.success) {
@@ -68,8 +68,8 @@ class ViewUsers extends React.Component {
   render() {
     return (
       <>
-        <table class="table">
-          <thead class="pink white-text">
+        <table className="table">
+          <thead className="pink white-text">
             <tr>
               <th scope="col">User ID</th>
               <th scope="col">First Name</th>
@@ -103,7 +103,7 @@ class ViewUsers extends React.Component {
                     ></i>
                   </td>
                   <td>
-                    <i class="far fa-edit" onClick={this.toggleEdit}></i>
+                    <i className="far fa-edit" onClick={this.toggleEdit}></i>
                   </td>
                   <MDBContainer>
                     <MDBModal isOpen={this.state.modal} toggle={this.toggle}>

@@ -21,13 +21,13 @@ class AddForm extends React.Component {
   async componentDidMount() {
     try {
       const responseCategories = await fetch(
-        "http://localhost:5000/categories"
+        `${process.env.REACT_APP_APP_URL}/categories`
       );
       const responseSubcategories = await fetch(
-        "http://localhost:5000/subcategories"
+        `${process.env.REACT_APP_APP_URL}/subcategories`
       );
       const responseMainCategories = await fetch(
-        "http://localhost:5000/maincategories"
+        `${process.env.REACT_APP_APP_URL}/maincategories`
       );
       const categories = await responseCategories.json();
       const Subcategories = await responseSubcategories.json();
@@ -75,7 +75,7 @@ class AddForm extends React.Component {
       body.append("CategoryImage", CategoryImage);
       body.append("MainCategory_MainCategory_ID", MainCategory_MainCategory_ID);
 
-      const response = await fetch(`http://localhost:5000/category/create`, {
+      const response = await fetch(`${process.env.REACT_APP_APP_URL}/category/create`, {
         method: "POST",
         body
       });

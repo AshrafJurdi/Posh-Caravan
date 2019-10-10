@@ -23,7 +23,7 @@ class ProductList extends React.Component {
 
     console.log(route);
     try {
-      let url = `http://localhost:5000/${route}`;
+      let url = `${process.env.REACT_APP_APP_URL}/${route}`;
       console.log(url);
       const response = await fetch(url);
       const products = await response.json();
@@ -66,8 +66,8 @@ class ProductList extends React.Component {
   async componentDidMount() {
     try {
       let url = "";
-      if (this.props.location == null) url = `http://localhost:5000/products`;
-      else url = `http://localhost:5000/${this.props.location.state.route}`;
+      if (this.props.location == null) url = `${process.env.REACT_APP_APP_URL}/products`;
+      else url = `${process.env.REACT_APP_APP_URL}/${this.props.location.state.route}`;
       console.log(url);
       const response = await fetch(url);
       const products = await response.json();
